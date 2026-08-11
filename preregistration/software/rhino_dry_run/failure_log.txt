@@ -1,0 +1,14 @@
+DRY RUN ID: DRYRUN-SUZ-GE-20260806-01
+
+1. The standalone workstation simulation test initially could not run because Shapely was unavailable in the system Python environment.
+   Impact: None on Rhino generator execution; all six Grasshopper Python 3 generators passed.
+   Resolution: The study team's analysis machine ran Shapely 2.0.7 and verified six domains and five negative cases. No workstation rerun was required.
+
+2. The first GeoPackage export passed layer-name and CRS-label checks but failed the seven-layer spatial contract.
+   Initial GeoPackage SHA-256: d76a3a273ba7460f6d4544c824cde53eaedaa1dd097a33dee7f4dc99bcab6ab9
+   Failures: accessible_network was a Polygon rather than a centreline; five integration layers were empty; local Rhino coordinates were labelled EPSG:32651; route and usable space were disconnected.
+   Resolution: Rebuilt spatial integration on 2026-08-09 using QGIS Desktop LTR 3.44.12 and the revised handoff inputs.
+   Verification: accessible_network=1 LineString; green_entrances=1 Point; required_destinations=1 Point; turning_spaces=1 Polygon with matching DRYRUN-DEST-01; usable_spaces=1 Polygon; shade_footprints=12 Polygons at the registered times; design_objects=7 Polygons. All layers use genuine EPSG:32651 coordinates within the synthetic Suzhou practice boundary, and the route, entrance, destination, turning space, usable space, and shade features are spatially integrated.
+   Synthetic practice boundary: EPSG:32651 x=270230..270282, y=3463890..3463970.
+   Shade method: For the fixed 06-21, 07-21, and 08-21 local-solar-time combinations (10:00, 12:00, 14:00, 16:00), solar declination and hour angle were evaluated at the latitude transformed from the EPSG:32651 tree position. Each footprint is the 2.0 m crown-radius sweep from the tree position to the shadow displacement calculated from the explicit 7.0 m tree height; no current QGIS clock time was used.
+   Updated GeoPackage SHA-256: 94a6c24e5ddb906b4fd286583bd5df59ec3975b0599622abfca2c3f9f21a4005

@@ -1,0 +1,18 @@
+{
+  "agent_role": "orchestrator",
+  "scenario_id": "$SCENARIO_ID",
+  "input_hash": "$INPUT_HASH",
+  "decisions": [
+    {
+      "decision_id": "OFFLINE-D01",
+      "action": "unresolved",
+      "need_ids": ["$NEED_ID"],
+      "source_ids": ["$SOURCE_ID"],
+      "affected_parameters": [],
+      "review_trigger": "live schema-valid response and candidate design required",
+      "rationale": "Offline fixture validates orchestration only and makes no substantive planning decision."
+    }
+  ],
+  "hard_constraint_override": false,
+  "unresolved_items": ["Offline fixture is not a formal model response."]
+}

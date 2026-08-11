@@ -1,0 +1,195 @@
+{
+  "package_version": "1.0.0",
+  "built_on": "2026-08-06",
+  "status": "EXPERIMENT_1_COMPUTATIONALLY_READY_WITH_REGISTERED_LIMITATIONS",
+  "site_count": 3,
+  "sites": [
+    {
+      "site_id": "SUZ",
+      "osm_timestamp": "2026-08-06T04:36:36Z",
+      "relations_retained_raw_not_vectorised": 5,
+      "layers": {
+        "site_geometry": 1,
+        "context_extent": 1,
+        "transport_network": 12,
+        "buildings": 0,
+        "green_blue": 7,
+        "trees": 0,
+        "activity_amenities": 0,
+        "mapped_access_points": 0,
+        "accessibility_features": 0,
+        "barriers": 0,
+        "derived_access_candidates": 0,
+        "analysis_origins": 340
+      },
+      "geometry": {
+        "type": "Polygon",
+        "area_m2": 2540.0467657447243,
+        "axis_length_m": null
+      },
+      "height_completeness": {
+        "buildings_with_height_or_levels": 0,
+        "building_total": 0,
+        "trees_with_height": 0,
+        "tree_total": 0
+      },
+      "blocking_items": [],
+      "dem": {
+        "file": "raster/suz_copernicus_dem30_context.tif",
+        "sha256": "af8f5e2c11de077e5ea8d07821bd875f69849639d61976f89352bdde9d3cd74e",
+        "valid_cells": 100,
+        "min_elevation_m": 0.0,
+        "max_elevation_m": 10.574576377868652,
+        "mean_elevation_m": 4.1743132734298705,
+        "note": "30 m Copernicus DEM context; not an object-height or engineering-grade survey."
+      },
+      "experiment1_policies": {
+        "shade": "explicit proposed-object geometry; missing baseline height not imputed",
+        "resource": "unitless frozen resource index",
+        "regulation": "pending triggers are not_evaluable and excluded"
+      },
+      "population": {
+        "site_id": "SUZ",
+        "source_id": "GHSL-POP-E2025-100M-SUZ",
+        "source_url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_POP_GLOBE_R2023A/GHS_POP_E2025_GLOBE_R2023A_54009_100/V1-0/tiles/GHS_POP_E2025_GLOBE_R2023A_54009_100_V1_0_R6_C30.zip",
+        "archive_sha256": "0519261e32dec9b12ec5fea8eeaeb4adff5e7cd75de7ae59910c0518cee76a5f",
+        "clipped_raster": "raster/suz_ghsl_pop_e2025_100m.tif",
+        "clipped_raster_sha256": "b75c6427f71ed416682be5932d3cd13d5a808ceee4ff267d55e1dc2d55c5450b",
+        "origin_count": 340,
+        "nonmissing_origin_count": 340,
+        "positive_origin_count": 339,
+        "population_sum_at_origins": 66865.7387085557,
+        "source_dataset": "GHS-POP R2023A, E2025, Mollweide 54009, 100 m",
+        "status": "FROZEN_LOCAL_CLIP_AND_POINT_EXTRACT"
+      }
+    },
+    {
+      "site_id": "LON",
+      "osm_timestamp": "2026-08-06T04:57:05Z",
+      "relations_retained_raw_not_vectorised": 69,
+      "layers": {
+        "site_geometry": 1,
+        "context_extent": 1,
+        "transport_network": 189,
+        "buildings": 36,
+        "green_blue": 10,
+        "trees": 8,
+        "activity_amenities": 8,
+        "mapped_access_points": 30,
+        "accessibility_features": 87,
+        "barriers": 67,
+        "derived_access_candidates": 2,
+        "analysis_origins": 350
+      },
+      "geometry": {
+        "type": "Polygon",
+        "area_m2": 6473.203626948638,
+        "axis_length_m": null
+      },
+      "height_completeness": {
+        "buildings_with_height_or_levels": 24,
+        "building_total": 36,
+        "trees_with_height": 0,
+        "tree_total": 8
+      },
+      "blocking_items": [],
+      "dem": {
+        "file": "raster/lon_copernicus_dem30_context.tif",
+        "sha256": "a9a8c2d5c0cac1ec62d3ce2c381684116e57147ec3a92e999655c9e2aa421736",
+        "valid_cells": 221,
+        "min_elevation_m": 0.0,
+        "max_elevation_m": 38.88338851928711,
+        "mean_elevation_m": 29.6474080754621,
+        "note": "30 m Copernicus DEM context; not an object-height or engineering-grade survey."
+      },
+      "experiment1_policies": {
+        "shade": "explicit proposed-object geometry; missing baseline height not imputed",
+        "resource": "unitless frozen resource index",
+        "regulation": "pending triggers are not_evaluable and excluded"
+      },
+      "population": {
+        "site_id": "LON",
+        "source_id": "GHSL-POP-E2025-100M-LON",
+        "source_url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_POP_GLOBE_R2023A/GHS_POP_E2025_GLOBE_R2023A_54009_100/V1-0/tiles/GHS_POP_E2025_GLOBE_R2023A_54009_100_V1_0_R3_C19.zip",
+        "archive_sha256": "3d690b71d76c339ac75689393a25890867ce5898771d1f4e5518c36897520135",
+        "clipped_raster": "raster/lon_ghsl_pop_e2025_100m.tif",
+        "clipped_raster_sha256": "8d83f819d8a4dd0179e3085f3aa50aca333862f129a65fe1046d59a20b273fe9",
+        "origin_count": 350,
+        "nonmissing_origin_count": 350,
+        "positive_origin_count": 304,
+        "population_sum_at_origins": 19323.001939106267,
+        "source_dataset": "GHS-POP R2023A, E2025, Mollweide 54009, 100 m",
+        "status": "FROZEN_LOCAL_CLIP_AND_POINT_EXTRACT"
+      }
+    },
+    {
+      "site_id": "CHI",
+      "osm_timestamp": "2026-06-01T08:52:28Z",
+      "relations_retained_raw_not_vectorised": 31,
+      "layers": {
+        "site_geometry": 1,
+        "context_extent": 1,
+        "transport_network": 355,
+        "buildings": 540,
+        "green_blue": 8,
+        "trees": 0,
+        "activity_amenities": 12,
+        "mapped_access_points": 161,
+        "accessibility_features": 338,
+        "barriers": 89,
+        "derived_access_candidates": 2,
+        "analysis_origins": 523
+      },
+      "geometry": {
+        "type": "Polygon",
+        "area_m2": 40502.19990717134,
+        "axis_length_m": 981.189517147888,
+        "buffer_m_each_side": 20.0
+      },
+      "height_completeness": {
+        "buildings_with_height_or_levels": 364,
+        "building_total": 540,
+        "trees_with_height": 0,
+        "tree_total": 0
+      },
+      "blocking_items": [],
+      "dem": {
+        "file": "raster/chi_copernicus_dem30_context.tif",
+        "sha256": "577a856e2520f3dec1a8d7374313ce3b528f14519e43a8b651b897a65c6954da",
+        "valid_cells": 806,
+        "min_elevation_m": 0.0,
+        "max_elevation_m": 196.63250732421875,
+        "mean_elevation_m": 180.80665631921357,
+        "note": "30 m Copernicus DEM context; not an object-height or engineering-grade survey."
+      },
+      "experiment1_policies": {
+        "shade": "explicit proposed-object geometry; missing baseline height not imputed",
+        "resource": "unitless frozen resource index",
+        "regulation": "pending triggers are not_evaluable and excluded"
+      },
+      "population": {
+        "site_id": "CHI",
+        "source_id": "GHSL-POP-E2025-100M-CHI",
+        "source_url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_POP_GLOBE_R2023A/GHS_POP_E2025_GLOBE_R2023A_54009_100/V1-0/tiles/GHS_POP_E2025_GLOBE_R2023A_54009_100_V1_0_R5_C11.zip",
+        "archive_sha256": "4a1772f6d92b00654e03d16a9fb5a841dd7c9ec544853309dc18d1213bd3a4ea",
+        "clipped_raster": "raster/chi_ghsl_pop_e2025_100m.tif",
+        "clipped_raster_sha256": "738b3c0b1306a700ed28b3e3b7fa8ac7bc464d6ba0938a0d0354116bc103a0fe",
+        "origin_count": 523,
+        "nonmissing_origin_count": 523,
+        "positive_origin_count": 442,
+        "population_sum_at_origins": 21900.204398326576,
+        "source_dataset": "GHS-POP R2023A, E2025, Mollweide 54009, 100 m",
+        "status": "FROZEN_LOCAL_CLIP_AND_POINT_EXTRACT"
+      }
+    }
+  ],
+  "experiment_1_ready": true,
+  "global_blocking_items": [],
+  "engineering_implementation_ready": false,
+  "implementation_limitations": [
+    "Existing object heights are incomplete; Experiment 1 uses the frozen comparative shade policy.",
+    "The resource cap is a unitless study index, not an absolute capital or maintenance budget.",
+    "The Chicago polygon is an analytical envelope, not a legal parcel or right-of-way.",
+    "Project-level regulatory and permit applicability remains pending and cannot support a compliance claim."
+  ]
+}

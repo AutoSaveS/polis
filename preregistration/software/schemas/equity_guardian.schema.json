@@ -1,0 +1,43 @@
+{
+  "title": "POLIS equity guardian output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["agent_role", "scenario_id", "input_hash", "retention_gini", "group_retention", "interventions", "unresolved_items"],
+  "properties": {
+    "agent_role": {"type": "string", "enum": ["equity_guardian"]},
+    "scenario_id": {"type": "string"},
+    "input_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "retention_gini": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "group_retention": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["group_id", "input_count", "retained_count", "retention", "baseline_access", "vulnerability_weight"],
+        "properties": {
+          "group_id": {"type": "string"},
+          "input_count": {"type": "integer", "minimum": 1},
+          "retained_count": {"type": "integer", "minimum": 0},
+          "retention": {"type": "number", "minimum": 0, "maximum": 1},
+          "baseline_access": {"type": "number", "minimum": 0, "maximum": 1},
+          "vulnerability_weight": {"type": "number", "exclusiveMinimum": 0}
+        }
+      }
+    },
+    "interventions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["trigger", "need_ids", "source_ids", "required_action"],
+        "properties": {
+          "trigger": {"enum": ["retention_gini_alert", "retention_gini_reengagement", "group_retention_floor", "critical_access", "vulnerable_shade"]},
+          "need_ids": {"type": "array", "items": {"type": "string"}},
+          "source_ids": {"type": "array", "items": {"type": "string"}},
+          "required_action": {"type": "string"}
+        }
+      }
+    },
+    "unresolved_items": {"type": "array", "items": {"type": "string"}}
+  }
+}

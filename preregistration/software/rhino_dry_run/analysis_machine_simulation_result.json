@@ -1,0 +1,11 @@
+{
+  "test_type": "supplemental_analysis_machine_generator_simulation",
+  "tested_at": "2026-08-08",
+  "python_executable": "/Library/Frameworks/Python.framework/Versions/3.9/bin/python3",
+  "shapely_version": "2.0.7",
+  "command": "python3 preregistration/software/rhino_generators/test_generator_simulation.py",
+  "return_code": 0,
+  "stdout": "RHINO_GENERATOR_SIMULATION_PASS domains=6 negative_cases=5",
+  "status": "PASS",
+  "scope": "Supplemental test on the analysis machine. It does not alter the fixed-workstation failure log and is not evidence that Shapely was installed on RHINO-M1-01."
+}

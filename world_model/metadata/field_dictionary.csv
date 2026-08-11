@@ -1,0 +1,25 @@
+field,layer,type,meaning,source_or_derivation,missing_value_rule
+site_id,all, string,Registered site identifier,Study registry,never infer from geometry
+osm_id,OSM-derived layers,string,OpenStreetMap element identifier,OpenStreetMap snapshot,blank for derived objects
+tags_json,OSM-derived layers,string,Complete OSM tags for the element,OpenStreetMap snapshot,retain original JSON
+geometry,all,geometry,Feature geometry in the layer CRS,EPSG:4326 transformed to site analysis CRS,never substitute a centroid for a missing geometry
+source_crs,site_registry,string,Source coordinate reference system,EPSG:4326,required
+analysis_crs,site_registry,string,Metric analysis CRS for the site,EPSG:32651/27700/26916,required
+area_m2,site_registry,float,Area of the registered polygon,derived from site geometry,NA for Chicago axis
+axis_length_m,site_registry,float,Length of the registered Chicago axis,derived from site geometry,NA for polygon sites
+corridor_width_m,site_registry,float,Author-confirmed Chicago analytical width,author/site evidence,blank until confirmed
+origin_id,analysis_origins,string,Stable analysis-origin identifier,100 m grid in registered 1 km catchment,required
+population_weight,analysis_origins,float,Population weight used by A_green and E_equity,real population extract,blank until real extract is frozen
+population_source_id,analysis_origins,string,Source identifier for population weight,source register,blank until source is frozen
+weight_status,analysis_origins,string,Population-weight readiness state,validation rule,BLOCKED until populated and audited
+latitude,solar_evaluation_schedule,float,Site centroid latitude,derived from site geometry,required
+longitude,solar_evaluation_schedule,float,Site centroid longitude,derived from site geometry,required
+reference_year,solar_evaluation_schedule,int,Reference year for solar-position calculation,registered schedule,required
+month_day,solar_evaluation_schedule,string,Registered shade evaluation day,protocol parameters,required
+local_solar_time,solar_evaluation_schedule,string,Registered local solar time,protocol parameters,required
+time_weight,solar_evaluation_schedule,float,Registered temporal weight,protocol parameters,required
+shadow_input_status,solar_evaluation_schedule,string,Whether object heights are sufficient for shade evaluation,validation rule,never treat blocked as pass
+base_capital_budget,scenario_budget_register,float,Absolute baseline capital budget,real project or approved study budget,blank until documented
+scenario_capital_cap,scenario_budget_register,float,Absolute scenario cap after multiplier,derived only after base budget is present,blank until base budget exists
+observed_project_value,regulatory_trigger_register,float,Project-level trigger value for a constraint,official project evidence or authority confirmation,blank means not evaluable
+verification_status,regulatory_trigger_register,string,Whether a trigger can be evaluated,validation rule,not_applicable cannot be assigned from missing evidence

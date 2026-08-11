@@ -1,0 +1,9 @@
+{
+  "agent_role": "equity_guardian",
+  "scenario_id": "$SCENARIO_ID",
+  "input_hash": "$INPUT_HASH",
+  "retention_gini": null,
+  "group_retention": [],
+  "interventions": [],
+  "unresolved_items": ["Offline fixture: no substantive equity conclusion produced."]
+}

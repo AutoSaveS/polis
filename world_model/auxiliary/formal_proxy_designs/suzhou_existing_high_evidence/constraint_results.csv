@@ -1,0 +1,11 @@
+constraint_id,status,evidence_reference
+SUZ-C01,not_evaluable,world_model/metadata/suzhou_nine_rule_confirmation.csv#SUZ-C01
+SUZ-C02,not_evaluable,world_model/metadata/suzhou_nine_rule_confirmation.csv#SUZ-C02
+SUZ-C03,not_evaluable,world_model/metadata/suzhou_nine_rule_confirmation.csv#SUZ-C03
+SUZ-C04,not_evaluable,world_model/metadata/suzhou_nine_rule_confirmation.csv#SUZ-C04
+SUZ-C05,not_evaluable,world_model/metadata/suzhou_nine_rule_confirmation.csv#SUZ-C05
+SUZ-C06,not_evaluable,world_model/metadata/suzhou_nine_rule_confirmation.csv#SUZ-C06
+SUZ-C07,not_evaluable,world_model/metadata/suzhou_nine_rule_confirmation.csv#SUZ-C07
+SUZ-C08,not_evaluable,world_model/metadata/suzhou_nine_rule_confirmation.csv#SUZ-C08
+SUZ-C09,not_evaluable,world_model/metadata/suzhou_nine_rule_confirmation.csv#SUZ-C09
+unresolved_critical_conflicts,pass,world_model/auxiliary/formal_proxy_designs/suzhou_existing_high_evidence/suzhou_existing_high_proxy_evidence.json#unresolved_critical_conflicts

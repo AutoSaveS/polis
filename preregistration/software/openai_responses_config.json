@@ -1,0 +1,30 @@
+{
+  "provider": "OpenAI",
+  "endpoint": "/v1/responses",
+  "primary_model": "gpt-5.6-terra",
+  "reasoning": {
+    "effort": "medium",
+    "context": "current_turn"
+  },
+  "store": false,
+  "max_output_tokens": 8192,
+  "structured_outputs": "strict_json_schema",
+  "logical_agents": [
+    "demand_capture",
+    "conflict_detection",
+    "equity_guardian",
+    "orchestrator"
+  ],
+  "same_model_for_all_agents": true,
+  "hosted_tools_enabled": false,
+  "web_search_enabled": false,
+  "file_search_enabled": false,
+  "provider_multi_agent_beta_enabled": false,
+  "participant_data_allowed": false,
+  "primary_response_rule": "first_schema_valid_non_refusal_response",
+  "schema_invalid_retry_limit": 1,
+  "sampling_seed_claimed": false,
+  "temperature_or_top_p_sent": false,
+  "sensitivity_model": "gpt-5.6-sol",
+  "sensitivity_scope": "same 12 Experiment 2 base scenarios; Full POLIS only; descriptive appendix"
+}

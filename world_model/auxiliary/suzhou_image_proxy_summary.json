@@ -1,0 +1,12 @@
+{
+  "status": "FORMAL_ANALYTICAL_PROXY_NOT_SURVEY",
+  "site_id": "SUZ",
+  "output": "world_model/auxiliary/suzhou_image_proxy.gpkg",
+  "parameters": "world_model/auxiliary/suzhou_image_proxy_parameters.csv",
+  "tree_candidate_count": 12,
+  "path_candidate_count": 1,
+  "turning_space_candidate_count": 1,
+  "activity_zone_candidate_count": 1,
+  "central_values_are_observations": false,
+  "formal_use_condition": "Run central, low, and high variants; report proxy status and prohibit engineering/compliance interpretation."
+}

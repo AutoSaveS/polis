@@ -1,0 +1,21 @@
+{
+  "status": "PASSED_STRUCTURAL_SMOKE_ONLY",
+  "seed": 700001,
+  "exp1_rows": 720,
+  "exp2_rows": 72,
+  "resident_allocation_rows": 60,
+  "tests": [
+    "scenario expansion",
+    "full-rank Experiment 1 design",
+    "paired Experiment 2 contrasts",
+    "balanced resident randomisation"
+  ],
+  "not_tested": [
+    "R 4.3 CR2 inference",
+    "cumulative-link mixed models",
+    "Bradley-Terry model",
+    "Fleiss kappa",
+    "participant data"
+  ],
+  "result_sha256": "b33f0f952e61e2b16cb8e5b2ea86653ea8a80e8588a9349bfdb0e4eeb633502f"
+}

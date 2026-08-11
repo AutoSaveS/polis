@@ -1,0 +1,15 @@
+{
+  "agent_role": "demand_capture",
+  "scenario_id": "$SCENARIO_ID",
+  "input_hash": "$INPUT_HASH",
+  "demand_records": [
+    {
+      "need_id": "$NEED_ID",
+      "source_ids": ["$SOURCE_ID"],
+      "world_object_ids": [],
+      "candidate_parameters": [],
+      "predicate_preserved": true
+    }
+  ],
+  "unresolved_items": ["Offline fixture: no substantive demand mapping performed."]
+}

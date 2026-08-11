@@ -55,4 +55,18 @@ full pipeline state, decision trace and live metrics as JSON.
 | `src/copy.ts` | stage copy shown in the UI |
 | `src/App.tsx` | app shell: map, camera choreography, panels |
 
+## Research artifacts
+
+Beyond the interactive demo, this repository carries the study's reproducibility
+materials (Python 3.9, `pip install -r requirements-python39.txt`):
+
+| directory | contents |
+|---|---|
+| `world_model/` | Three-city world-model build pipeline: immutable Overpass/USGS/city open-data snapshots (`raw/`), per-city metric GeoPackages (`vector/`, `raster/`), provenance metadata, and the build scripts that turn frozen OSM ways into Experiment 1 base inputs |
+| `preregistration/` | Experiment 1 preregistration package: run manifests and SHA256 freeze manifests, scenario packages, analysis and validation scripts (`validate_preregistration.py`, `experiment1_runner.py`), agent prompt schemas and API configuration, Rhino/Grasshopper export contracts, SOPs and ethics templates |
+
+Site geometry is frozen to the three OSM ways above; raw snapshots record their
+retrieval timestamps. OSM extracts are © OpenStreetMap contributors (ODbL);
+USGS 3DEP and city open-data sources are credited in `world_model/metadata/`.
+
 Basemap: CARTO Dark Matter (© OpenStreetMap contributors, © CARTO).

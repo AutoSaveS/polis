@@ -1,0 +1,96 @@
+{
+  "status": "NOT_READY_FOR_FORMAL_EXPERIMENT_1_EXECUTION",
+  "scope_note": "Technical execution gate for 36 scenarios and four workflows. It excludes preregistration freeze, ethics, author/PI threshold signatures, personnel qualification, R analysis, and registry receipt requirements.",
+  "parallel_development_ready": true,
+  "parallel_development_note": "Cross-device Rhino-to-GeoPackage integration validation is complete; formal execution readiness now depends only on the remaining execution gates.",
+  "execution_gates": {
+    "world_model_computationally_ready": true,
+    "thirty_six_scenarios_available": true,
+    "scenario_package_builder_present": true,
+    "all_36_scenario_packages_materialized": true,
+    "run_manifest_has_144_rows": true,
+    "local_python_3_9_7_runtime": true,
+    "local_required_python_packages_importable": true,
+    "six_generator_source_contract_passed": true,
+    "six_generator_geometry_simulation_passed": true,
+    "cross_device_rhino_export_contract_present": true,
+    "external_rhino_workstation_assets_verified": true,
+    "external_rhino_dry_run_handoff_valid": true,
+    "rhino_to_geopackage_exporter_present": true,
+    "existing_condition_design_builder_present": true,
+    "polis_workflow_orchestration_runner_present": true,
+    "six_local_feedback_functions_present": true,
+    "five_outcome_spatial_evaluator_present": true,
+    "experiment1_evaluation_runner_present": true,
+    "live_terra_four_schema_preflight_passed": false,
+    "terra_api_key_available_at_runtime": false
+  },
+  "blocking_items": [
+    "live_terra_four_schema_preflight_passed",
+    "terra_api_key_available_at_runtime"
+  ],
+  "operational_status_nonblocking": {
+    "recorded_operator_count": 0,
+    "active_assignment_rows": 108,
+    "active_assignments_with_operator_id": 0,
+    "operator_note": "Operator documentation is reported for scheduling and reproducibility but is not a technical execution gate.",
+    "api_project_data_controls_recorded": false,
+    "api_governance_note": "The data-controls record is nonblocking here, but applicable organisational and API policies still apply to live calls."
+  },
+  "excluded_from_execution_gate": [
+    "author_and_pi_threshold_attestation",
+    "immutable_preregistration_receipt",
+    "R_4_3_runtime_and_renv_lock",
+    "expert_or_resident_ethics_documents",
+    "operator_training_and_PI_verification"
+  ],
+  "observed_assets": {
+    "project_rhino_binary_assets": [
+      "preregistration/software/rhino_dry_run/POLIS_activity_v1.gh",
+      "preregistration/software/rhino_dry_run/POLIS_activity_v1.ghx",
+      "preregistration/software/rhino_dry_run/POLIS_ecology_v1.gh",
+      "preregistration/software/rhino_dry_run/POLIS_ecology_v1.ghx",
+      "preregistration/software/rhino_dry_run/POLIS_furniture_v1.gh",
+      "preregistration/software/rhino_dry_run/POLIS_furniture_v1.ghx",
+      "preregistration/software/rhino_dry_run/POLIS_hardscape_v1.gh",
+      "preregistration/software/rhino_dry_run/POLIS_hardscape_v1.ghx",
+      "preregistration/software/rhino_dry_run/POLIS_hydrology_v1.gh",
+      "preregistration/software/rhino_dry_run/POLIS_hydrology_v1.ghx",
+      "preregistration/software/rhino_dry_run/POLIS_vegetation_v1.gh",
+      "preregistration/software/rhino_dry_run/POLIS_vegetation_v1.ghx",
+      "preregistration/software/rhino_dry_run/POLIS_workstation_master_v1.3dm"
+    ],
+    "scenario_package_count": 36,
+    "run_manifest_row_count": 144,
+    "rhino_inventory_note": "13 returned Rhino/Grasshopper assets exist and match their recorded SHA-256",
+    "dry_run_note": "dry-run handoff schema and hashes are valid; all seven non-empty layers pass geometry, field, schedule, 1.525 m turning-space, Suzhou extent, and connectivity checks",
+    "python_executable": "/Library/Frameworks/Python.framework/Versions/3.9/bin/python3",
+    "python_version": "3.9.7",
+    "module_check": {
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "generator_contract_test": {
+      "passed": true,
+      "returncode": 0,
+      "stdout": "RHINO_GENERATOR_STATIC_CONTRACT_PASS",
+      "stderr": ""
+    },
+    "generator_simulation_test": {
+      "passed": true,
+      "returncode": 0,
+      "stdout": "RHINO_GENERATOR_SIMULATION_PASS domains=6 negative_cases=5",
+      "stderr": ""
+    },
+    "polis_workflow_offline_test": {
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.015s\n\nOK"
+    },
+    "openai_api_key_present": false
+  },
+  "claim_boundary": "A passing run supports the analytical Experiment 1 workflow only; it does not establish legal compliance, permission, cost accuracy, or construction readiness."
+}

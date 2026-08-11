@@ -1,0 +1,25 @@
+{
+  "policy_id": "EXP1-SHADE-PROPOSED-GEOMETRY-V1",
+  "status": "FROZEN_FOR_EXPERIMENT_1",
+  "scope": "controlled analytical benchmark",
+  "evaluator_input": "explicit three-dimensional geometry supplied in each final design output",
+  "required_fields": [
+    "object_id",
+    "object_type",
+    "footprint_or_canopy_geometry",
+    "height_m",
+    "geometry_source",
+    "provenance_id"
+  ],
+  "baseline_object_rule": "An existing object contributes shade only when its frozen public-source record contains an explicit height in metres. Building levels are retained as observations but are not converted to metres. Objects with missing height contribute no modelled shade and are flagged not_evaluable_baseline_height.",
+  "proposed_object_rule": "A proposed tree, canopy, pavilion, or other shade object is evaluated only from the explicit geometry committed in the compared design output; no species height or canopy size is inferred.",
+  "solar_schedule": "metadata/solar_evaluation_schedule.csv",
+  "primary_interpretation": "comparative design-induced shade under identical incomplete baseline-height evidence",
+  "prohibited_claims": [
+    "measured existing-site shade",
+    "engineering-grade solar access",
+    "species growth forecast",
+    "construction compliance"
+  ],
+  "sensitivity_analysis": "Report results with and without any existing objects that have explicit source heights. Missing heights remain missing in both analyses."
+}

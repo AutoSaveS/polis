@@ -1,0 +1,2112 @@
+{
+  "type": "FeatureCollection",
+  "links": [
+    {
+      "rel": "root",
+      "type": "application/json",
+      "href": "https://planetarycomputer.microsoft.com/api/stac/v1/"
+    },
+    {
+      "rel": "self",
+      "type": "application/geo+json",
+      "href": "https://planetarycomputer.microsoft.com/api/stac/v1/search"
+    }
+  ],
+  "features": [
+    {
+      "id": "USGS_LPC_IL_4County_Cook_2017_LAS_2019-hag-2m-6-4",
+      "bbox": [
+        -87.6772183,
+        41.7303123,
+        -87.6640106,
+        41.8041835
+      ],
+      "type": "Feature",
+      "links": [
+        {
+          "rel": "collection",
+          "type": "application/json",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-hag"
+        },
+        {
+          "rel": "parent",
+          "type": "application/json",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-hag"
+        },
+        {
+          "rel": "root",
+          "type": "application/json",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/"
+        },
+        {
+          "rel": "self",
+          "type": "application/geo+json",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-hag/items/USGS_LPC_IL_4County_Cook_2017_LAS_2019-hag-2m-6-4"
+        },
+        {
+          "rel": "alternate",
+          "href": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/USGS_LPC_IL_4County_Cook_2017_LAS_2019/metadata/",
+          "type": "application/xml",
+          "title": "USGS Metadata"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258425_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258425_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258450_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258450_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258475_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258475_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258500_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258500_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258525_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258525_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258550_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258550_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258575_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258575_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258600_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258600_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258625_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258625_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258650_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258650_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258675_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258675_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258700_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258700_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16508425_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16508425_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16508450_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16508450_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16508475_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16508475_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16508500_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16508500_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16508525_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16508525_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16508550_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16508550_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16508575_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16508575_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16508600_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16508600_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16508625_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16508625_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16508650_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16508650_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16508675_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16508675_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16508700_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16508700_LAS_2019"
+        },
+        {
+          "rel": "preview",
+          "href": "https://planetarycomputer.microsoft.com/api/data/v1/item/map?collection=3dep-lidar-hag&item=USGS_LPC_IL_4County_Cook_2017_LAS_2019-hag-2m-6-4",
+          "title": "Map of item",
+          "type": "text/html"
+        }
+      ],
+      "assets": {
+        "data": {
+          "href": "https://usgslidareuwest.blob.core.windows.net/usgs-3dep-cogs/usgs-cogs/USGS_LPC_IL_4County_Cook_2017_LAS_2019/hag/USGS_LPC_IL_4County_Cook_2017_LAS_2019-hag-2m-6-4.tif",
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "roles": [
+            "data"
+          ],
+          "title": "COG data"
+        },
+        "thumbnail": {
+          "href": "https://usgslidareuwest.blob.core.windows.net/usgs-3dep-cogs/usgs-cogs/USGS_LPC_IL_4County_Cook_2017_LAS_2019/hag/thumbnails/USGS_LPC_IL_4County_Cook_2017_LAS_2019-hag-2m-6-4-thumbnail.png",
+          "type": "image/png",
+          "roles": [
+            "thumbnail"
+          ],
+          "title": "3DEP Lidar COG"
+        },
+        "tilejson": {
+          "title": "TileJSON with default rendering",
+          "href": "https://planetarycomputer.microsoft.com/api/data/v1/item/tilejson.json?collection=3dep-lidar-hag&item=USGS_LPC_IL_4County_Cook_2017_LAS_2019-hag-2m-6-4&assets=data&colormap_name=lidar-hag&nodata=-9999&format=png",
+          "type": "application/json",
+          "roles": [
+            "tiles"
+          ]
+        },
+        "rendered_preview": {
+          "title": "Rendered preview",
+          "rel": "preview",
+          "href": "https://planetarycomputer.microsoft.com/api/data/v1/item/preview.png?collection=3dep-lidar-hag&item=USGS_LPC_IL_4County_Cook_2017_LAS_2019-hag-2m-6-4&assets=data&colormap_name=lidar-hag&nodata=-9999&format=png",
+          "roles": [
+            "overview"
+          ],
+          "type": "image/png"
+        }
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -87.6772183,
+              41.8041108
+            ],
+            [
+              -87.6764427,
+              41.7303123
+            ],
+            [
+              -87.6640106,
+              41.7303848
+            ],
+            [
+              -87.6647719,
+              41.8041835
+            ],
+            [
+              -87.6772183,
+              41.8041108
+            ]
+          ]
+        ]
+      },
+      "collection": "3dep-lidar-hag",
+      "properties": {
+        "datetime": null,
+        "proj:epsg": null,
+        "proj:shape": [
+          4097,
+          517
+        ],
+        "3dep:usgs_id": "USGS_LPC_IL_4County_Cook_2017_LAS_2019",
+        "end_datetime": "2019-01-01T00:00:00Z",
+        "raster:bands": {
+          "unit": "metre",
+          "nodata": "nan",
+          "sampling": "point",
+          "data_type": "Float32",
+          "histogram": {
+            "max": 28.526542078747546,
+            "min": -2.291517864956547,
+            "count": 256,
+            "buckets": [
+              1,
+              2,
+              0,
+              0,
+              3,
+              2,
+              1,
+              2,
+              1,
+              7,
+              5,
+              5,
+              11,
+              11,
+              25,
+              21,
+              30,
+              55,
+              732,
+              413466,
+              71502,
+              58639,
+              52203,
+              46330,
+              40562,
+              35495,
+              31280,
+              28331,
+              26807,
+              25424,
+              26541,
+              22964,
+              22416,
+              21864,
+              21323,
+              21370,
+              21336,
+              21162,
+              20824,
+              20357,
+              20408,
+              20214,
+              19590,
+              19151,
+              18721,
+              18838,
+              18493,
+              18263,
+              18153,
+              18040,
+              17824,
+              17593,
+              17752,
+              17980,
+              18074,
+              17920,
+              17740,
+              17560,
+              17179,
+              16750,
+              16479,
+              15930,
+              16038,
+              16336,
+              15779,
+              15574,
+              15574,
+              15584,
+              15956,
+              15564,
+              14956,
+              14215,
+              13584,
+              13374,
+              12776,
+              12794,
+              12633,
+              12651,
+              12385,
+              12491,
+              12203,
+              12233,
+              12643,
+              11694,
+              11281,
+              10783,
+              10483,
+              9955,
+              9852,
+              9331,
+              9182,
+              9102,
+              8656,
+              8425,
+              8391,
+              8239,
+              8132,
+              7967,
+              7630,
+              7612,
+              7298,
+              7341,
+              7312,
+              7050,
+              7195,
+              6899,
+              7144,
+              7151,
+              7166,
+              6708,
+              6301,
+              6023,
+              5934,
+              5578,
+              5733,
+              5504,
+              5379,
+              5241,
+              5110,
+              4799,
+              4743,
+              4417,
+              4175,
+              4055,
+              4033,
+              3841,
+              3760,
+              3540,
+              3450,
+              3292,
+              3295,
+              3238,
+              3094,
+              2777,
+              2759,
+              2586,
+              2326,
+              2309,
+              2096,
+              1941,
+              1839,
+              1699,
+              1598,
+              1503,
+              1351,
+              1282,
+              1136,
+              1192,
+              1012,
+              990,
+              841,
+              781,
+              662,
+              603,
+              581,
+              530,
+              534,
+              468,
+              396,
+              363,
+              346,
+              288,
+              311,
+              308,
+              326,
+              259,
+              216,
+              202,
+              161,
+              162,
+              118,
+              128,
+              124,
+              97,
+              89,
+              87,
+              82,
+              105,
+              93,
+              60,
+              60,
+              44,
+              26,
+              44,
+              87,
+              75,
+              57,
+              41,
+              34,
+              33,
+              41,
+              30,
+              34,
+              25,
+              11,
+              19,
+              7,
+              10,
+              7,
+              7,
+              8,
+              7,
+              6,
+              4,
+              7,
+              3,
+              4,
+              14,
+              8,
+              5,
+              7,
+              3,
+              2,
+              4,
+              2,
+              7,
+              5,
+              7,
+              0,
+              3,
+              5,
+              2,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "statistics": {
+            "mean": "3.7994645820843",
+            "stddev": "3.9434905015228",
+            "maximum": "28.46635055542",
+            "minimum": "-2.231326341629",
+            "valid_percent": "100"
+          },
+          "pdal_pipeline": [
+            {
+              "tag": "noise_remover",
+              "type": "filters.range",
+              "limits": "Classification![7:7]"
+            },
+            {
+              "tag": "water_remover",
+              "type": "filters.range",
+              "limits": "Classification![9:9]"
+            },
+            {
+              "tag": "prepare_ground_classifier",
+              "type": "filters.assign",
+              "value": [
+                "Classification = 0",
+                "ReturnNumber = 1 WHERE ReturnNumber < 1",
+                "NumberOfReturns = 1 WHERE NumberOfReturns < 1"
+              ]
+            },
+            {
+              "tag": "merge_filter",
+              "type": "filters.merge"
+            },
+            {
+              "tag": "ground_classifier",
+              "type": "filters.smrf"
+            },
+            {
+              "tag": "hag_filter",
+              "type": "filters.hag_nn"
+            },
+            {
+              "tag": "gdal_writer",
+              "type": "writers.gdal",
+              "filename": null,
+              "dimension": "HeightAboveGround",
+              "resolution": null,
+              "output_type": "idw",
+              "window_size": 3,
+              "pdal_metadata": true
+            }
+          ],
+          "spatial_resolution": 2118149
+        },
+        "proj:geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -87.6772183,
+                41.8041108
+              ],
+              [
+                -87.6764427,
+                41.7303123
+              ],
+              [
+                -87.6640106,
+                41.7303848
+              ],
+              [
+                -87.6647719,
+                41.8041835
+              ],
+              [
+                -87.6772183,
+                41.8041108
+              ]
+            ]
+          ]
+        },
+        "proj:projjson": {
+          "name": "NAD83 / UTM zone 16N + NAVD88 height",
+          "type": "CompoundCRS",
+          "$schema": "https://proj.org/schemas/v0.4/projjson.schema.json",
+          "components": [
+            {
+              "id": {
+                "code": 26916,
+                "authority": "EPSG"
+              },
+              "name": "NAD83 / UTM zone 16N",
+              "type": "ProjectedCRS",
+              "base_crs": {
+                "id": {
+                  "code": 4269,
+                  "authority": "EPSG"
+                },
+                "name": "NAD83",
+                "datum": {
+                  "name": "North American Datum 1983",
+                  "type": "GeodeticReferenceFrame",
+                  "ellipsoid": {
+                    "name": "GRS 1980",
+                    "semi_major_axis": 6378137,
+                    "inverse_flattening": 298.257222101
+                  }
+                },
+                "coordinate_system": {
+                  "axis": [
+                    {
+                      "name": "Geodetic latitude",
+                      "unit": "degree",
+                      "direction": "north",
+                      "abbreviation": "Lat"
+                    },
+                    {
+                      "name": "Geodetic longitude",
+                      "unit": "degree",
+                      "direction": "east",
+                      "abbreviation": "Lon"
+                    }
+                  ],
+                  "subtype": "ellipsoidal"
+                }
+              },
+              "conversion": {
+                "name": "UTM zone 16N",
+                "method": {
+                  "id": {
+                    "code": 9807,
+                    "authority": "EPSG"
+                  },
+                  "name": "Transverse Mercator"
+                },
+                "parameters": [
+                  {
+                    "id": {
+                      "code": 8801,
+                      "authority": "EPSG"
+                    },
+                    "name": "Latitude of natural origin",
+                    "unit": "degree",
+                    "value": 0
+                  },
+                  {
+                    "id": {
+                      "code": 8802,
+                      "authority": "EPSG"
+                    },
+                    "name": "Longitude of natural origin",
+                    "unit": "degree",
+                    "value": -87
+                  },
+                  {
+                    "id": {
+                      "code": 8805,
+                      "authority": "EPSG"
+                    },
+                    "name": "Scale factor at natural origin",
+                    "unit": "unity",
+                    "value": 0.9996
+                  },
+                  {
+                    "id": {
+                      "code": 8806,
+                      "authority": "EPSG"
+                    },
+                    "name": "False easting",
+                    "unit": "metre",
+                    "value": 500000
+                  },
+                  {
+                    "id": {
+                      "code": 8807,
+                      "authority": "EPSG"
+                    },
+                    "name": "False northing",
+                    "unit": "metre",
+                    "value": 0
+                  }
+                ]
+              },
+              "coordinate_system": {
+                "axis": [
+                  {
+                    "name": "Easting",
+                    "unit": "metre",
+                    "direction": "east",
+                    "abbreviation": ""
+                  },
+                  {
+                    "name": "Northing",
+                    "unit": "metre",
+                    "direction": "north",
+                    "abbreviation": ""
+                  }
+                ],
+                "subtype": "Cartesian"
+              }
+            },
+            {
+              "id": {
+                "code": 5703,
+                "authority": "EPSG"
+              },
+              "name": "NAVD88 height",
+              "type": "VerticalCRS",
+              "datum": {
+                "name": "North American Vertical Datum 1988",
+                "type": "VerticalReferenceFrame"
+              },
+              "coordinate_system": {
+                "axis": [
+                  {
+                    "name": "Gravity-related height",
+                    "unit": "metre",
+                    "direction": "up",
+                    "abbreviation": ""
+                  }
+                ],
+                "subtype": "vertical"
+              }
+            }
+          ]
+        },
+        "proj:transform": [
+          2.0,
+          0.0,
+          443743.0,
+          0.0,
+          -2.0,
+          4628248.0,
+          0,
+          0,
+          1
+        ],
+        "start_datetime": "2019-01-01T00:00:00Z"
+      },
+      "stac_extensions": [
+        "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/classification/v1.0.0/schema.json"
+      ],
+      "stac_version": "1.0.0"
+    },
+    {
+      "id": "USGS_LPC_IL_4County_Cook_2017_LAS_2019-hag-2m-5-4",
+      "bbox": [
+        -87.7758242,
+        41.7296903,
+        -87.6764186,
+        41.804111
+      ],
+      "type": "Feature",
+      "links": [
+        {
+          "rel": "collection",
+          "type": "application/json",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-hag"
+        },
+        {
+          "rel": "parent",
+          "type": "application/json",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-hag"
+        },
+        {
+          "rel": "root",
+          "type": "application/json",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/"
+        },
+        {
+          "rel": "self",
+          "type": "application/geo+json",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-hag/items/USGS_LPC_IL_4County_Cook_2017_LAS_2019-hag-2m-5-4"
+        },
+        {
+          "rel": "alternate",
+          "href": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/USGS_LPC_IL_4County_Cook_2017_LAS_2019/metadata/",
+          "type": "application/xml",
+          "title": "USGS Metadata"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13508425_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13508425_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13508450_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13508450_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13508475_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13508475_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13508500_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13508500_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13508525_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13508525_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13508550_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13508550_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13508575_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13508575_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13508600_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13508600_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13508625_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13508625_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13508650_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13508650_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13508675_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13508675_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13508700_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13508700_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13758425_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13758425_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13758450_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13758450_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13758475_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13758475_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13758500_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13758500_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13758525_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13758525_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13758550_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13758550_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13758575_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13758575_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13758600_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13758600_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13758625_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13758625_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13758650_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13758650_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13758675_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13758675_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_13758700_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_13758700_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14008425_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14008425_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14008450_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14008450_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14008475_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14008475_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14008500_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14008500_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14008525_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14008525_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14008550_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14008550_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14008575_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14008575_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14008600_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14008600_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14008625_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14008625_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14008650_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14008650_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14008675_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14008675_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14008700_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14008700_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14258425_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14258425_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14258450_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14258450_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14258475_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14258475_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14258500_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14258500_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14258525_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14258525_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14258550_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14258550_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14258575_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14258575_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14258600_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14258600_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14258625_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14258625_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14258650_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14258650_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14258675_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14258675_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14258700_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14258700_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14508425_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14508425_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14508450_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14508450_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14508475_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14508475_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14508500_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14508500_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14508525_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14508525_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14508550_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14508550_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14508575_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14508575_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14508600_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14508600_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14508625_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14508625_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14508650_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14508650_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14508675_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14508675_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14508700_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14508700_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14758425_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14758425_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14758450_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14758450_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14758475_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14758475_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14758500_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14758500_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14758525_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14758525_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14758550_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14758550_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14758575_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14758575_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14758600_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14758600_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14758625_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14758625_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14758650_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14758650_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14758675_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14758675_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_14758700_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_14758700_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15008425_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15008425_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15008450_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15008450_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15008475_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15008475_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15008500_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15008500_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15008525_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15008525_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15008550_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15008550_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15008575_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15008575_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15008600_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15008600_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15008625_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15008625_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15008650_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15008650_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15008675_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15008675_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15008700_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15008700_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15258425_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15258425_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15258450_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15258450_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15258475_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15258475_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15258500_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15258500_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15258525_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15258525_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15258550_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15258550_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15258575_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15258575_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15258600_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15258600_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15258625_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15258625_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15258650_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15258650_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15258675_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15258675_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15258700_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15258700_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15508425_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15508425_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15508450_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15508450_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15508475_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15508475_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15508500_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15508500_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15508525_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15508525_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15508550_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15508550_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15508575_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15508575_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15508600_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15508600_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15508625_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15508625_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15508650_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15508650_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15508675_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15508675_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15508700_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15508700_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15758425_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15758425_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15758450_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15758450_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15758475_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15758475_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15758500_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15758500_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15758525_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15758525_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15758550_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15758550_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15758575_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15758575_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15758600_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15758600_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15758625_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15758625_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15758650_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15758650_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15758675_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15758675_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_15758700_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_15758700_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16008425_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16008425_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16008450_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16008450_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16008475_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16008475_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16008500_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16008500_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16008525_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16008525_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16008550_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16008550_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16008575_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16008575_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16008600_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16008600_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16008625_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16008625_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16008650_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16008650_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16008675_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16008675_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16008700_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16008700_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258425_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258425_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258450_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258450_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258475_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258475_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258500_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258500_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258525_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258525_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258550_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258550_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258575_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258575_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258600_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258600_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258625_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258625_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258650_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258650_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258675_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258675_LAS_2019"
+        },
+        {
+          "rel": "derived_from",
+          "href": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/3dep-lidar-copc/items/USGS_LPC_IL_4County_Cook_2017_LAS_16258700_LAS_2019",
+          "title": "USGS_LPC_IL_4County_Cook_2017_LAS_16258700_LAS_2019"
+        },
+        {
+          "rel": "preview",
+          "href": "https://planetarycomputer.microsoft.com/api/data/v1/item/map?collection=3dep-lidar-hag&item=USGS_LPC_IL_4County_Cook_2017_LAS_2019-hag-2m-5-4",
+          "title": "Map of item",
+          "type": "text/html"
+        }
+      ],
+      "assets": {
+        "data": {
+          "href": "https://usgslidareuwest.blob.core.windows.net/usgs-3dep-cogs/usgs-cogs/USGS_LPC_IL_4County_Cook_2017_LAS_2019/hag/USGS_LPC_IL_4County_Cook_2017_LAS_2019-hag-2m-5-4.tif",
+          "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "roles": [
+            "data"
+          ],
+          "title": "COG data"
+        },
+        "thumbnail": {
+          "href": "https://usgslidareuwest.blob.core.windows.net/usgs-3dep-cogs/usgs-cogs/USGS_LPC_IL_4County_Cook_2017_LAS_2019/hag/thumbnails/USGS_LPC_IL_4County_Cook_2017_LAS_2019-hag-2m-5-4-thumbnail.png",
+          "type": "image/png",
+          "roles": [
+            "thumbnail"
+          ],
+          "title": "3DEP Lidar COG"
+        },
+        "tilejson": {
+          "title": "TileJSON with default rendering",
+          "href": "https://planetarycomputer.microsoft.com/api/data/v1/item/tilejson.json?collection=3dep-lidar-hag&item=USGS_LPC_IL_4County_Cook_2017_LAS_2019-hag-2m-5-4&assets=data&colormap_name=lidar-hag&nodata=-9999&format=png",
+          "type": "application/json",
+          "roles": [
+            "tiles"
+          ]
+        },
+        "rendered_preview": {
+          "title": "Rendered preview",
+          "rel": "preview",
+          "href": "https://planetarycomputer.microsoft.com/api/data/v1/item/preview.png?collection=3dep-lidar-hag&item=USGS_LPC_IL_4County_Cook_2017_LAS_2019-hag-2m-5-4&assets=data&colormap_name=lidar-hag&nodata=-9999&format=png",
+          "roles": [
+            "overview"
+          ],
+          "type": "image/png"
+        }
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -87.7758242,
+              41.8034872
+            ],
+            [
+              -87.7749356,
+              41.7296903
+            ],
+            [
+              -87.6764186,
+              41.7303125
+            ],
+            [
+              -87.6771942,
+              41.804111
+            ],
+            [
+              -87.7758242,
+              41.8034872
+            ]
+          ]
+        ]
+      },
+      "collection": "3dep-lidar-hag",
+      "properties": {
+        "datetime": null,
+        "proj:epsg": null,
+        "proj:shape": [
+          4097,
+          4097
+        ],
+        "3dep:usgs_id": "USGS_LPC_IL_4County_Cook_2017_LAS_2019",
+        "end_datetime": "2019-01-01T00:00:00Z",
+        "raster:bands": {
+          "unit": "metre",
+          "nodata": "nan",
+          "sampling": "point",
+          "data_type": "Float32",
+          "histogram": {
+            "max": 67.43962773762516,
+            "min": -4.048211426360961,
+            "count": 256,
+            "buckets": [
+              1,
+              6,
+              2,
+              3,
+              8,
+              7,
+              3,
+              14,
+              27,
+              33,
+              68,
+              90,
+              147,
+              468,
+              5761449,
+              1127803,
+              957531,
+              758027,
+              617203,
+              548369,
+              502663,
+              474722,
+              457094,
+              433035,
+              401578,
+              359981,
+              324719,
+              303775,
+              286790,
+              267851,
+              251966,
+              230758,
+              205008,
+              184658,
+              174300,
+              168174,
+              160648,
+              138864,
+              123836,
+              115275,
+              110464,
+              105690,
+              94898,
+              88239,
+              82732,
+              79278,
+              75909,
+              72781,
+              67877,
+              62139,
+              58297,
+              55210,
+              51481,
+              47859,
+              43715,
+              39564,
+              36024,
+              33455,
+              29582,
+              26339,
+              23612,
+              21000,
+              18471,
+              16667,
+              14319,
+              12288,
+              10859,
+              8816,
+              7243,
+              6216,
+              4888,
+              4041,
+              3358,
+              2945,
+              2501,
+              2102,
+              1617,
+              1461,
+              1155,
+              950,
+              814,
+              632,
+              537,
+              470,
+              379,
+              334,
+              270,
+              232,
+              260,
+              192,
+              138,
+              94,
+              85,
+              82,
+              111,
+              78,
+              85,
+              75,
+              50,
+              32,
+              24,
+              46,
+              41,
+              60,
+              102,
+              146,
+              131,
+              58,
+              12,
+              13,
+              6,
+              21,
+              12,
+              6,
+              5,
+              11,
+              10,
+              5,
+              6,
+              8,
+              0,
+              6,
+              5,
+              3,
+              7,
+              5,
+              6,
+              2,
+              4,
+              10,
+              9,
+              10,
+              6,
+              4,
+              4,
+              2,
+              3,
+              4,
+              2,
+              1,
+              0,
+              5,
+              1,
+              1,
+              2,
+              2,
+              2,
+              2,
+              2,
+              4,
+              1,
+              7,
+              5,
+              7,
+              8,
+              2,
+              8,
+              5,
+              11,
+              16,
+              16,
+              8,
+              3,
+              5,
+              4,
+              7,
+              4,
+              4,
+              2,
+              7,
+              0,
+              2,
+              4,
+              5,
+              3,
+              2,
+              3,
+              2,
+              3,
+              3,
+              5,
+              2,
+              2,
+              2,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              1,
+              1,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              1,
+              0,
+              2,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              0,
+              1,
+              0,
+              2,
+              0,
+              0,
+              1,
+              0,
+              1,
+              2,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          },
+          "statistics": {
+            "mean": "2.2303022934",
+            "stddev": "3.0278079331056",
+            "maximum": "67.300003051758",
+            "minimum": "-3.9085867404938",
+            "valid_percent": "99.9"
+          },
+          "pdal_pipeline": [
+            {
+              "tag": "noise_remover",
+              "type": "filters.range",
+              "limits": "Classification![7:7]"
+            },
+            {
+              "tag": "water_remover",
+              "type": "filters.range",
+              "limits": "Classification![9:9]"
+            },
+            {
+              "tag": "prepare_ground_classifier",
+              "type": "filters.assign",
+              "value": [
+                "Classification = 0",
+                "ReturnNumber = 1 WHERE ReturnNumber < 1",
+                "NumberOfReturns = 1 WHERE NumberOfReturns < 1"
+              ]
+            },
+            {
+              "tag": "merge_filter",
+              "type": "filters.merge"
+            },
+            {
+              "tag": "ground_classifier",
+              "type": "filters.smrf"
+            },
+            {
+              "tag": "hag_filter",
+              "type": "filters.hag_nn"
+            },
+            {
+              "tag": "gdal_writer",
+              "type": "writers.gdal",
+              "filename": null,
+              "dimension": "HeightAboveGround",
+              "resolution": null,
+              "output_type": "idw",
+              "window_size": 3,
+              "pdal_metadata": true
+            }
+          ],
+          "spatial_resolution": 16785409
+        },
+        "proj:geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -87.7758242,
+                41.8034872
+              ],
+              [
+                -87.7749356,
+                41.7296903
+              ],
+              [
+                -87.6764186,
+                41.7303125
+              ],
+              [
+                -87.6771942,
+                41.804111
+              ],
+              [
+                -87.7758242,
+                41.8034872
+              ]
+            ]
+          ]
+        },
+        "proj:projjson": {
+          "name": "NAD83 / UTM zone 16N + NAVD88 height",
+          "type": "CompoundCRS",
+          "$schema": "https://proj.org/schemas/v0.4/projjson.schema.json",
+          "components": [
+            {
+              "id": {
+                "code": 26916,
+                "authority": "EPSG"
+              },
+              "name": "NAD83 / UTM zone 16N",
+              "type": "ProjectedCRS",
+              "base_crs": {
+                "id": {
+                  "code": 4269,
+                  "authority": "EPSG"
+                },
+                "name": "NAD83",
+                "datum": {
+                  "name": "North American Datum 1983",
+                  "type": "GeodeticReferenceFrame",
+                  "ellipsoid": {
+                    "name": "GRS 1980",
+                    "semi_major_axis": 6378137,
+                    "inverse_flattening": 298.257222101
+                  }
+                },
+                "coordinate_system": {
+                  "axis": [
+                    {
+                      "name": "Geodetic latitude",
+                      "unit": "degree",
+                      "direction": "north",
+                      "abbreviation": "Lat"
+                    },
+                    {
+                      "name": "Geodetic longitude",
+                      "unit": "degree",
+                      "direction": "east",
+                      "abbreviation": "Lon"
+                    }
+                  ],
+                  "subtype": "ellipsoidal"
+                }
+              },
+              "conversion": {
+                "name": "UTM zone 16N",
+                "method": {
+                  "id": {
+                    "code": 9807,
+                    "authority": "EPSG"
+                  },
+                  "name": "Transverse Mercator"
+                },
+                "parameters": [
+                  {
+                    "id": {
+                      "code": 8801,
+                      "authority": "EPSG"
+                    },
+                    "name": "Latitude of natural origin",
+                    "unit": "degree",
+                    "value": 0
+                  },
+                  {
+                    "id": {
+                      "code": 8802,
+                      "authority": "EPSG"
+                    },
+                    "name": "Longitude of natural origin",
+                    "unit": "degree",
+                    "value": -87
+                  },
+                  {
+                    "id": {
+                      "code": 8805,
+                      "authority": "EPSG"
+                    },
+                    "name": "Scale factor at natural origin",
+                    "unit": "unity",
+                    "value": 0.9996
+                  },
+                  {
+                    "id": {
+                      "code": 8806,
+                      "authority": "EPSG"
+                    },
+                    "name": "False easting",
+                    "unit": "metre",
+                    "value": 500000
+                  },
+                  {
+                    "id": {
+                      "code": 8807,
+                      "authority": "EPSG"
+                    },
+                    "name": "False northing",
+                    "unit": "metre",
+                    "value": 0
+                  }
+                ]
+              },
+              "coordinate_system": {
+                "axis": [
+                  {
+                    "name": "Easting",
+                    "unit": "metre",
+                    "direction": "east",
+                    "abbreviation": ""
+                  },
+                  {
+                    "name": "Northing",
+                    "unit": "metre",
+                    "direction": "north",
+                    "abbreviation": ""
+                  }
+                ],
+                "subtype": "Cartesian"
+              }
+            },
+            {
+              "id": {
+                "code": 5703,
+                "authority": "EPSG"
+              },
+              "name": "NAVD88 height",
+              "type": "VerticalCRS",
+              "datum": {
+                "name": "North American Vertical Datum 1988",
+                "type": "VerticalReferenceFrame"
+              },
+              "coordinate_system": {
+                "axis": [
+                  {
+                    "name": "Gravity-related height",
+                    "unit": "metre",
+                    "direction": "up",
+                    "abbreviation": ""
+                  }
+                ],
+                "subtype": "vertical"
+              }
+            }
+          ]
+        },
+        "proj:transform": [
+          2.0,
+          0.0,
+          435551.0,
+          0.0,
+          -2.0,
+          4628248.0,
+          0,
+          0,
+          1
+        ],
+        "start_datetime": "2019-01-01T00:00:00Z"
+      },
+      "stac_extensions": [
+        "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
+        "https://stac-extensions.github.io/classification/v1.0.0/schema.json"
+      ],
+      "stac_version": "1.0.0"
+    }
+  ],
+  "numberReturned": 2
+}

@@ -1,0 +1,11 @@
+purpose,seed,derivation,notes
+master,20260804,fixed,Set before confirmatory execution
+exp1_scenario,see_scenarios_csv,100000+site_index*10000+decision_index*100+variant_index,Variant B=1 and S=2
+exp2_ablation,see_scenarios_csv,200000+site_index*10000+decision_index*100+1,Only GE-B AR-B EA-B and IP-B per site
+exp3_expert_allocation,400001,sha256_site_rank_and_cyclic_slots,Within each site rank scenarios by SHA-256 then assign three cyclic slots; each of 12 slots receives three scenarios per site
+exp3_expert_output_order,400100,sha256_expert_scenario_workflow_rank,Rank three workflows separately for every expert-scenario assignment
+case1_deviation,500000+site_index*1000+case_index,fixed_derivation,Case index 1 through 8 within each site
+case2_resident_order,800000+city_index,sha256_rank_20_slots,First 10 ranked slots text-first and remaining 10 spatial-first; realised list is frozen in resident_randomisation.csv
+bootstrap,600001,fixed,All registered bootstrap intervals
+permutation,600002,fixed,All registered permutation procedures
+software_smoke_test,700001,fixed,Uses synthetic data and does not generate study outcomes

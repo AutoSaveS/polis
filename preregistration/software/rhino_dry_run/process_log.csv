@@ -1,0 +1,9 @@
+Date_time,Module,Status,Elapsed_seconds,objects_created,Notes
+2026/8/6 22:54,vegetation,PASS,1,2,Estimated time; one tree canopy and one planting polygon
+2026/8/7 20:53,hardscape,PASS,1,1,Generated one 10 m by 2 m route footprint; elapsed time approximate
+2026/8/7 20:58,hydrology,PASS,1,1,Generated one 4 m by 3 m hydrology zone with 4.5 m3 storage; elapsed time approximate
+2026/8/7 21:03,furniture,PASS,1,1,Generated one 1.2 m by 0.6 m furniture footprint at 30 degrees; elapsed time approximate
+2026/8/7 21:07,activity,PASS,1,1,Generated one 10 m by 10 m usable activity zone linked to synthetic route; elapsed time approximate
+2026/8/7 21:11,ecology,PASS,1,1,Generated one 15 m by 14 m ecology zone; native/adapted fraction 0.80; protected=true; elapsed time approximate
+2026/8/7 21:56,geopackage_export,PASS,1,7,Created genuine GeoPackage with seven required layers in EPSG:32651 using QGIS Desktop LTR 3.44.12; elapsed time approximate
+2026/8/9 23:29,spatial_integration_rerun,PASS,1,24,Rebuilt seven-layer spatial integration in genuine EPSG:32651 coordinates: noded route centreline; connected entrance destination turning circle and usable space; 12 fixed-time shade footprints; 7 design objects; elapsed time approximate

@@ -1,0 +1,19 @@
+item_id,stage,item_type,construct,response_format,scale_min,scale_max,required,analysis_role,english_prompt_or_template,scoring_rule,ethics_status
+RES-S01,eligibility,single_choice,age_eligibility,yes_no,,,yes,eligibility,Are you 18 years of age or older?,Eligible only if yes,pending_approval
+RES-S02,eligibility,single_choice,site_connection,resident_within_1km|routine_user_monthly_6m|neither,,,yes,eligibility,Which statement best describes your connection to the study area?,Eligible for either of first two options,pending_approval
+RES-S03,eligibility,single_choice,duplicate_screen,yes_no,,,yes,eligibility,Have you previously consented to take part in this resident study?,Eligible only if no,pending_approval
+RES-E01,elicitation_text,free_text,intended_need,text,,,yes,input,Describe one specific change or need for green infrastructure at this place and identify where it matters.,Not scored,pending_approval
+RES-E02,elicitation_spatial,map_and_text,intended_need,map feature plus text,,,yes,input,Mark where the need matters and describe one specific green-infrastructure change.,Not scored,pending_approval
+RES-F01,after_each_mode,ordinal,participant_confirmed_need_fidelity,single_choice,1,7,yes,primary,How faithfully does this structured record represent the need you intended to express?,Use ordered value 1 through 7; 1=not at all and 7=fully,pending_approval
+RES-CF1,after_each_mode,single_choice,record_confirmation,confirm|correct|reject,,,yes,secondary,Do you confirm this structured need record or want to correct or reject it?,Count material corrections using frozen codebook,pending_approval
+RES-CF2,after_each_mode,free_text,correction_verbatim,text,,,conditional,secondary,Please state the correction needed.,Code only when correct or reject is selected,pending_approval
+RES-Q01,trace,single_choice,source_need,four_options,,,yes,secondary,Which need was the source of the displayed design decision?,Correct option from frozen trace stimulus key,pending_approval
+RES-Q02,trace,single_choice,design_decision,four_options,,,yes,secondary,What design decision was recorded in the trace?,Correct option from frozen trace stimulus key,pending_approval
+RES-Q03,trace,single_choice,affected_parameter,four_options,,,yes,secondary,Which design parameter was affected by this decision?,Correct option from frozen trace stimulus key,pending_approval
+RES-Q04,trace,single_choice,review_trigger,four_options,,,yes,secondary,Which condition would trigger renewed review of this decision?,Correct option from frozen trace stimulus key,pending_approval
+RES-P01,experience,ordinal,perceived_voice,single_choice,1,7,yes,secondary,I felt able to express what mattered to me in this task.,Higher indicates more voice,pending_approval
+RES-P02,experience,ordinal,procedural_fairness,single_choice,1,7,yes,secondary,The way my need was translated into a record felt fair.,Higher indicates more fairness,pending_approval
+RES-P03,experience,ordinal,trust,single_choice,1,7,yes,secondary,I would trust this record to represent my stated need in a planning discussion.,Higher indicates more trust,pending_approval
+RES-P04,experience,ordinal,usability,single_choice,1,7,yes,secondary,The online task was easy to use.,Higher indicates more usability,pending_approval
+RES-P05,experience,ordinal,burden,single_choice,1,7,yes,secondary,Completing the online task felt burdensome.,Higher indicates more burden,pending_approval
+RES-O01,closing,free_text,optional_comment,text,,,no,exploratory,Is there anything else you would like us to know about the task?,Qualitative coding only,pending_approval

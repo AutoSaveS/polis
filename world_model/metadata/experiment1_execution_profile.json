@@ -1,0 +1,50 @@
+{
+  "profile_id": "POLIS-EXP1-WORLD-MODEL-V1",
+  "status": "FROZEN_COMPUTATIONAL_PROFILE",
+  "field_survey_policy": {
+    "experiment1_allowed": false,
+    "prohibited_inputs_after_freeze": [
+      "site visit",
+      "cadastral or topographic survey",
+      "resident elicitation",
+      "measured building/tree height",
+      "measured path width or slope"
+    ],
+    "missing_data_rule": "Retain missing in observed mode; use only the registered central/low/high image or remote-sensing proxy for the sensitivity arm."
+  },
+  "comparison_conditions": {
+    "EXISTING": "Computable no-intervention baseline evaluated on all five outcomes from the shared frozen world model; not a generated workflow.",
+    "CONVENTIONAL": "Fixed rule-order GIS/parametric template with one-pass review and no multi-agent arbitration.",
+    "DIGITAL": "Deterministic standalone GIS/simulation/parametric workflow with fixed seed and no multi-agent arbitration.",
+    "POLIS": "Provenance-aware multi-agent workflow with conflict, equity, local-feedback, and orchestration layers."
+  },
+  "population": {
+    "source": "JRC GHS-POP R2023A, epoch 2025, 100 m",
+    "missing_rule": "No equal-weight or other population imputation is permitted."
+  },
+  "chicago_boundary": {
+    "source_axis": "OpenStreetMap way 624189839 frozen on 2026-08-06",
+    "operation": "20 m planar buffer around the axis in EPSG:26916",
+    "full_nominal_width_m": 40.0,
+    "basis": "The author manuscript specifies the selected local segment plus a 20 m envelope.",
+    "legal_status": "Analytical boundary only; not a parcel, ownership, or legal right-of-way assertion."
+  },
+  "shade": {
+    "policy": "metadata/shade_evaluation_policy.json",
+    "missing_height_rule": "retain missing; do not impute"
+  },
+  "resource_constraint": {
+    "baseline_cap_units": 100.0,
+    "stress_cap_units": 80.0,
+    "catalog": "metadata/normalized_resource_cost_catalog.csv",
+    "formula": "resource_index = 100 * sum(allocated_area_fraction_d * resource_weight_d) / sum(resource_weight_d); budget_ratio = resource_index / scenario_cap_units",
+    "interpretation": "Unitless controlled resource constraint; not capital cost, procurement estimate, or maintenance budget."
+  },
+  "regulatory_scoring": {
+    "confirmed_suzhou_rule_count": 9,
+    "confirmed_suzhou_rule_ids": ["SUZ-C01", "SUZ-C02", "SUZ-C03", "SUZ-C04", "SUZ-C05", "SUZ-C06", "SUZ-C07", "SUZ-C08", "SUZ-C09"],
+    "active_rule": "Score a regulatory predicate only when its registered analytical trigger condition has frozen scenario evidence.",
+    "missing_trigger_rule": "Record not_evaluable and exclude from the score denominator; never code pass or not_applicable by assumption.",
+    "implementation_claim": "Analytical screening only; no project-level permit or compliance claim is made."
+  }
+}

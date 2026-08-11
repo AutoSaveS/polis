@@ -1,0 +1,46 @@
+{
+  "generated": "2026-08-06",
+  "cities": [
+    {
+      "city": "London",
+      "count_scope": "Formal registered site/analysis boundary; context counts are reported separately.",
+      "world_model_context_building_count": 36,
+      "world_model_context_mapped_tree_count": 8,
+      "output": "world_model/auxiliary/london_public_height_proxy.gpkg",
+      "output_sha256": "823ade82b99290dcf58bc32dcb4066a1e77a73800b734eb0e3a7a2c3c9230354",
+      "formal_boundary_building_footprints": 3,
+      "buildings_with_evaluable_height": 3,
+      "buildings_lidar_derived": 3,
+      "buildings_levels_or_stories_proxy": 0,
+      "buildings_not_evaluable": 0,
+      "lidar_tree_crown_candidates": 2,
+      "tree_crown_area_m2": 17.524,
+      "input_sha256": {
+        "world_model/raster/lon_ea_lidar_dsm_1m.tif": "fdb9cb5dcc6fa54cc10186d327d666469df71187b457efecc9836e336d22506b",
+        "world_model/raster/lon_ea_lidar_dtm_1m.tif": "e06cb78941354411a20c0166199bd5a5b373332d214a363a7c6c2e0e5dc9cd01",
+        "world_model/raster/lon_ea_vom_2022_1m.tif": "68b8d63a4d95359de490216de8246f8880447457975a5899ad1278f7288d0ac8"
+      },
+      "claim_boundary": "Remote-sensing analytical input only; not a field, arboricultural, accessibility, cadastral, or engineering survey."
+    },
+    {
+      "city": "Chicago",
+      "count_scope": "Formal registered site/analysis boundary; context counts are reported separately.",
+      "world_model_context_building_count": 540,
+      "world_model_context_mapped_tree_count": 0,
+      "output": "world_model/auxiliary/chicago_public_height_proxy.gpkg",
+      "output_sha256": "e7d9ce8e228ef1a9c3f6cf3f9f1e7ba6b6c9d7d0c1faae352d3b05c0dfd5c06a",
+      "formal_boundary_building_footprints": 12,
+      "buildings_with_evaluable_height": 10,
+      "buildings_lidar_derived": 7,
+      "buildings_levels_or_stories_proxy": 3,
+      "buildings_not_evaluable": 2,
+      "lidar_tree_crown_candidates": 3,
+      "tree_crown_area_m2": 199.273,
+      "input_sha256": {
+        "world_model/raster/chi_usgs_3dep_hag_2019_2m.tif": "80a097bb81f289d174a6a0ad6062087b65b174a10e45e79b57561c70e8173418",
+        "world_model/raw/chicago_city_building_footprints_2026-08-06.geojson": "833cf0458722c91c8445d3169f3fb912869027682f8d8253797e8ba6ba1a7d80"
+      },
+      "claim_boundary": "Remote-sensing analytical input only; not a field, arboricultural, accessibility, cadastral, or engineering survey."
+    }
+  ]
+}

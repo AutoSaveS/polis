@@ -1,0 +1,218 @@
+{
+  "schema_version": "1.0.0",
+  "site": "Suzhou",
+  "scenario_id": "SUZ-GE-B",
+  "variant": "low",
+  "source_class": "image_derived_formal_proxy",
+  "observation_status": "not_measured",
+  "claim_boundary": "Analytical proxy only; not resident evidence, survey measurement, engineering verification, or legal project applicability.",
+  "conservative_rules": {
+    "missing_rest_or_obstruction_evidence": "fail",
+    "missing_species_or_planting_origin_evidence": "fail",
+    "missing_budget_or_maintenance_plan": "fail",
+    "missing_group_level_validation": "derive from frozen encoded needs and fail below 0.75"
+  },
+  "activity_access_rule": "Activity area must be at least 100 m2 and touch the submitted accessible path surface; surface is the noded route buffered by its submitted clear width/2.",
+  "regulatory_rule": "SUZ-C01..SUZ-C09 are confirmed for Experiment 1 analytical screening. A row remains not_evaluable when its frozen analytical trigger or design-output evidence is absent; confirmation does not establish real-project legal applicability.",
+  "checks": {
+    "accessible_route_clear_width": {
+      "constraint_id": "accessible_route_clear_width",
+      "status": "evaluated",
+      "passed": false,
+      "rule": ">=1.50 m"
+    },
+    "accessible_route_running_slope": {
+      "constraint_id": "accessible_route_running_slope",
+      "status": "evaluated",
+      "passed": true,
+      "rule": "<=0.05"
+    },
+    "accessible_route_cross_slope": {
+      "constraint_id": "accessible_route_cross_slope",
+      "status": "evaluated",
+      "passed": true,
+      "rule": "<=0.02"
+    },
+    "disconnected_accessible_routes": {
+      "constraint_id": "disconnected_accessible_routes",
+      "status": "evaluated",
+      "passed": true,
+      "rule": "0 disconnected route components and every required destination within 0.10 m of the network",
+      "network_component_count": 1,
+      "maximum_destination_offset_m": 0.0005267829682843179
+    },
+    "wheelchair_turning_diameter": {
+      "constraint_id": "wheelchair_turning_diameter",
+      "status": "evaluated",
+      "passed": false,
+      "rule": ">=1.525 m circular clear space at every required destination",
+      "required_destination_count": 1,
+      "missing_turning_space_ids": [],
+      "insufficient_turning_space_ids": [
+        "EXIST-SUZ-PROXY-DEST-low"
+      ]
+    },
+    "cross_domain_overlap_area": {
+      "constraint_id": "cross_domain_overlap_area",
+      "status": "evaluated",
+      "passed": true,
+      "rule": "<=0.01 m2 across different design domains",
+      "observed_overlap_area_m2": 0.0,
+      "design_domain_count": 3
+    },
+    "missing_required_provenance_links": {
+      "constraint_id": "missing_required_provenance_links",
+      "status": "evaluated",
+      "passed": true,
+      "rule": "0 design objects with a missing provenance_reference",
+      "missing_count": 0
+    }
+  },
+  "comfort": {
+    "value": 0.06919675138314947,
+    "status": "evaluated",
+    "usable_area_m2": 2540.046765744724,
+    "schedule": [
+      {
+        "month_day": "06-21",
+        "local_solar_time": "10:00",
+        "shade_fraction": 0.06309591166257664,
+        "weight": 0.06666666666666667
+      },
+      {
+        "month_day": "06-21",
+        "local_solar_time": "12:00",
+        "shade_fraction": 0.04446741711551771,
+        "weight": 0.09999999999999999
+      },
+      {
+        "month_day": "06-21",
+        "local_solar_time": "14:00",
+        "shade_fraction": 0.06309591166257664,
+        "weight": 0.09999999999999999
+      },
+      {
+        "month_day": "06-21",
+        "local_solar_time": "16:00",
+        "shade_fraction": 0.10233328875263081,
+        "weight": 0.06666666666666667
+      },
+      {
+        "month_day": "07-21",
+        "local_solar_time": "10:00",
+        "shade_fraction": 0.06450952278549,
+        "weight": 0.06666666666666667
+      },
+      {
+        "month_day": "07-21",
+        "local_solar_time": "12:00",
+        "shade_fraction": 0.04706790805907262,
+        "weight": 0.09999999999999999
+      },
+      {
+        "month_day": "07-21",
+        "local_solar_time": "14:00",
+        "shade_fraction": 0.06450952278548998,
+        "weight": 0.09999999999999999
+      },
+      {
+        "month_day": "07-21",
+        "local_solar_time": "16:00",
+        "shade_fraction": 0.10522926000272305,
+        "weight": 0.06666666666666667
+      },
+      {
+        "month_day": "08-21",
+        "local_solar_time": "10:00",
+        "shade_fraction": 0.07018909150950674,
+        "weight": 0.06666666666666667
+      },
+      {
+        "month_day": "08-21",
+        "local_solar_time": "12:00",
+        "shade_fraction": 0.054935337234224606,
+        "weight": 0.09999999999999999
+      },
+      {
+        "month_day": "08-21",
+        "local_solar_time": "14:00",
+        "shade_fraction": 0.07018909150950672,
+        "weight": 0.09999999999999999
+      },
+      {
+        "month_day": "08-21",
+        "local_solar_time": "16:00",
+        "shade_fraction": 0.11619641348473249,
+        "weight": 0.06666666666666667
+      }
+    ],
+    "interpretation": "comparative design-induced shade proxy; not measured thermal comfort"
+  },
+  "resource": {
+    "status": "evaluated",
+    "passed": true,
+    "resource_index": 4.60337074129431,
+    "cap_units": 100.0,
+    "class_area_m2": {
+      "activity": 445.4215826266212,
+      "hardscape": 80.77993731080288,
+      "vegetation": 93.22836628783169
+    },
+    "interpretation": "unitless study resource index; not a monetary cost"
+  },
+  "need_dispositions": {
+    "SUZ-N01": {
+      "status": "pass",
+      "evidence_reference": "world_model/auxiliary/formal_proxy_designs/suzhou_existing_low_evidence/suzhou_existing_low_proxy_evidence.json#need-SUZ-N01",
+      "predicate": "disconnected_accessible_routes == 0"
+    },
+    "SUZ-N02": {
+      "status": "fail",
+      "evidence_reference": "world_model/auxiliary/formal_proxy_designs/suzhou_existing_low_evidence/suzhou_existing_low_proxy_evidence.json#need-SUZ-N02",
+      "predicate": "clear_width >= 1.50; running_slope <= 0.05; cross_slope <= 0.02"
+    },
+    "SUZ-N03": {
+      "status": "fail",
+      "evidence_reference": "world_model/auxiliary/formal_proxy_designs/suzhou_existing_low_evidence/suzhou_existing_low_proxy_evidence.json#need-SUZ-N03",
+      "predicate": "weighted_effective_shade_fraction >= 0.60",
+      "observed_value": 0.06919675138314947
+    },
+    "SUZ-N04": {
+      "status": "fail",
+      "evidence_reference": "world_model/auxiliary/formal_proxy_designs/suzhou_existing_low_evidence/suzhou_existing_low_proxy_evidence.json#need-SUZ-N04",
+      "predicate": "rest_interval <= 50 m and obstruction_count == 0",
+      "reason": "No rest-furniture or obstruction inventory is present in the image proxy."
+    },
+    "SUZ-N05": {
+      "status": "fail",
+      "evidence_reference": "world_model/auxiliary/formal_proxy_designs/suzhou_existing_low_evidence/suzhou_existing_low_proxy_evidence.json#need-SUZ-N05",
+      "predicate": "native_or_locally_adapted_fraction >= 0.70 and green_fraction >= 0.35",
+      "reason": "No species or planting-origin evidence is present in the image proxy."
+    },
+    "SUZ-N06": {
+      "status": "pass",
+      "evidence_reference": "world_model/auxiliary/formal_proxy_designs/suzhou_existing_low_evidence/suzhou_existing_low_proxy_evidence.json#need-SUZ-N06",
+      "predicate": "accessible_usable_activity_area_m2 >= 100",
+      "area_m2": 445.4215826266214,
+      "distance_to_path_surface_m": 0.0
+    },
+    "SUZ-N07": {
+      "status": "fail",
+      "evidence_reference": "world_model/auxiliary/formal_proxy_designs/suzhou_existing_low_evidence/suzhou_existing_low_proxy_evidence.json#need-SUZ-N07",
+      "predicate": "budget_ratio <= 1.00 and maintenance_plan_complete == true",
+      "reason": "No bill of quantities or maintenance responsibility schedule is present for an Existing baseline."
+    },
+    "SUZ-N08": {
+      "status": "fail",
+      "evidence_reference": "world_model/auxiliary/formal_proxy_designs/suzhou_existing_low_evidence/suzhou_existing_low_proxy_evidence.json#need-SUZ-N08",
+      "predicate": "turning_diameter >= 1.525 and vulnerable_group_need_retention >= 0.75",
+      "vulnerable_need_ids": "SUZ-N01;SUZ-N02;SUZ-N04",
+      "vulnerable_group_need_retention": 0.3333333333333333
+    }
+  },
+  "vulnerable_group_need_retention": 0.3333333333333333,
+  "unresolved_critical_conflicts": {
+    "status": "pass",
+    "basis": "No disconnected route, cross-domain overlap, or missing provenance link in this proxy package."
+  }
+}

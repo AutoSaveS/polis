@@ -1,0 +1,63 @@
+{
+  "generated": "2026-08-07",
+  "cities": [
+    {
+      "city": "London",
+      "output": "world_model/auxiliary/london_accessibility_proxy.gpkg",
+      "output_sha256": "efdba670e9271465f94872e482319b9c8d8e837f2454cfb2e447608a63609ef4",
+      "path_candidates": 3,
+      "turning_space_candidates": 3,
+      "sidewalk_polygons": 0,
+      "dtm_sha256": "e06cb78941354411a20c0166199bd5a5b373332d214a363a7c6c2e0e5dc9cd01",
+      "sidewalk_clip_sha256": null,
+      "central_clear_width_m": {
+        "minimum": 8.899,
+        "median": 9.405,
+        "maximum": 9.714
+      },
+      "central_running_slope": {
+        "minimum": 0.0063,
+        "median": 0.02538,
+        "maximum": 0.20353
+      },
+      "central_cross_terrain_gradient": {
+        "minimum": 0.00491,
+        "median": 0.02082,
+        "maximum": 0.02635
+      },
+      "central_turning_candidates_at_least_1_525m": 3,
+      "central_turning_candidates_below_1_525m": 0,
+      "cross_slope_resolution_warning": "The 1m DTM gives cross-terrain gradient, not a measured paved-surface cross-slope.",
+      "claim_boundary": "Analytical no-field proxy only; not a field, ADA, BS, engineering, or legal compliance survey."
+    },
+    {
+      "city": "Chicago",
+      "output": "world_model/auxiliary/chicago_accessibility_proxy.gpkg",
+      "output_sha256": "ccbd1ce1457ffe19f60b5b2ab67f77fcf7915db8d5ac71a6a77976d5ab9235e2",
+      "path_candidates": 14,
+      "turning_space_candidates": 14,
+      "sidewalk_polygons": 45,
+      "dtm_sha256": "862e19f1788b97c1caeb3b56d8e55f90e40e30670179d2ddd01e0d7138a6a9cb",
+      "sidewalk_clip_sha256": "f6a0bb3cb5805ccb22a257c566b4aed97c6fbb3ea24f7597859fa3a7656b2c5e",
+      "central_clear_width_m": {
+        "minimum": 0.956,
+        "median": 1.992,
+        "maximum": 6.362
+      },
+      "central_running_slope": {
+        "minimum": 0.00522,
+        "median": 0.01994,
+        "maximum": 0.03413
+      },
+      "central_cross_terrain_gradient": {
+        "minimum": 0.04988,
+        "median": 0.21988,
+        "maximum": 0.32279
+      },
+      "central_turning_candidates_at_least_1_525m": 8,
+      "central_turning_candidates_below_1_525m": 6,
+      "cross_slope_resolution_warning": "The 2m DTM gives cross-terrain gradient, not path-surface cross-slope; cells are wider than many sidewalks.",
+      "claim_boundary": "Analytical no-field proxy only; not a field, ADA, BS, engineering, or legal compliance survey."
+    }
+  ]
+}

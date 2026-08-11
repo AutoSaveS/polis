@@ -1,0 +1,96 @@
+manifest_status: FROZEN_FOR_PREREGISTRATION_API_PREFLIGHT_PENDING
+manifest_date_utc: 2026-08-04T00:00:00Z
+protocol_version: 2.0.0-draft
+
+# Frozen target versions. The Python versions below were also verified in the
+# isolated local environment `.venv-polis39` on 2026-08-06.
+intended_runtime:
+  python: "3.9.7"
+  geopandas: "0.14"
+  networkx: "3.2"
+  osmnx: "1.9"
+  rhino: "8"
+  grasshopper: "Rhino 8 bundled Grasshopper"
+  ortools: "CP-SAT; exact reference solution where available"
+  r: "4.3.3"
+
+analysis_runtime_registration:
+  status: FROZEN_FOR_PREREGISTRATION
+  r_version: "4.3.3"
+  entry_point: ../analysis/confirmatory_analysis.R
+  package_lock: "TO_BE_CREATED_BEFORE_FIRST_CONFIRMATORY_RUN"
+  execution_rule: "The package lock/container digest and successful synthetic-model preflight must be archived before the first confirmatory run and before inspection of real outcomes."
+
+observed_validation_environment_2026_08_04:
+  isolated_environment: ".venv-polis39 (excluded from registration archives)"
+  python: "3.9.7"
+  numpy: "1.26.4"
+  pandas: "2.2.3"
+  pyyaml: "6.0.3"
+  r: absent
+  statsmodels: absent
+  geopandas: "0.14.4"
+  networkx: "3.2.1"
+  ortools: "9.11.4210"
+  osmnx: "1.9.4"
+  jsonschema: "4.23.0"
+  openai: "1.109.1"
+  rhino: "executed on a separate fixed workstation under rhino_export_contract.schema.json"
+  conclusion: "The local Python evaluator environment is verified. R 4.3.3 and the external Rhino workstation remain execution-time gates."
+
+model:
+  provider: OpenAI
+  model_id: gpt-5.6-terra
+  immutable_model_version_or_snapshot: gpt-5.6-terra
+  endpoint: /v1/responses
+  official_model_page: https://developers.openai.com/api/docs/models/gpt-5.6-terra
+  official_structured_outputs_page: https://developers.openai.com/api/docs/guides/structured-outputs
+  official_data_controls_page: https://developers.openai.com/api/docs/guides/your-data
+  official_docs_access_date: 2026-08-04
+  prompt_bundle_path: prompts/
+  schema_bundle_path: schemas/
+  request_config_path: openai_responses_config.json
+  artifact_manifest_path: prompt_schema_manifest.csv
+  artifact_manifest_sha256: 130116b72570e9c488750bdb45be0911a3433097390151297d26883f78dc269d
+  reasoning_effort: medium
+  reasoning_context: current_turn
+  temperature: omitted_not_claimed
+  top_p: omitted_not_claimed
+  provider_seed: not_used_or_claimed
+  structured_outputs: strict_json_schema
+  store: false
+  hosted_tools: disabled
+  web_search: disabled
+  file_search: disabled
+  provider_multi_agent_beta: disabled
+  logical_agent_policy: "Four POLIS roles use the same model; orchestration is implemented by the frozen POLIS workflow."
+  participant_data: prohibited
+  seed_policy: "Study seeds control scenario construction, allocation, bootstrap, permutation, and deterministic local tools; they do not make hosted LLM generation deterministic."
+  retry_policy: "one retry with the identical frozen input plus the schema-validation error only for schema-invalid output; retain both raw responses; no provider seed is used"
+
+model_sensitivity:
+  model_id: gpt-5.6-sol
+  scope: "Full POLIS on the same 12 Experiment 2 base scenarios"
+  role: descriptive_appendix_only
+  inferential_tests: prohibited
+  model_selection_from_results: prohibited
+  participant_data: prohibited
+
+api_preflight:
+  script: api_preflight.py
+  result: api_preflight_result.json
+  current_status: OFFLINE_CONTRACT_CHECK_ONLY
+  live_schema_requests_required: 4
+  input_class: benign_synthetic_non_study_only
+  local_refusal_handler_fixture: passed
+  live_run_status: pending_api_key_and_verified_project
+  project_data_controls_template: api_project_data_controls.template.md
+  completed_project_record: api_project_data_controls_record.md
+  credential_logging: prohibited
+
+required_freeze_evidence:
+  - package lock or container digest for the stated Python and R environments
+  - four successful benign synthetic strict-schema API requests plus a passed local refusal-handler fixture
+  - API project/region and data-retention-control record
+  - request and response metadata fields to be retained in raw logs
+  - one schema-valid Rhino/Grasshopper export record and design GeoPackage hash per run

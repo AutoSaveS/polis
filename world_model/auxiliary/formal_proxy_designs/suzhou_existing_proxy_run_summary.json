@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "created_date": "2026-08-06",
+  "site": "Suzhou",
+  "scenario_id": "SUZ-GE-B",
+  "workflow": "EXISTING",
+  "input_class": "image_derived_formal_proxy",
+  "observation_status": "not_measured",
+  "all_variants_five_outcomes_evaluated": true,
+  "variants": {
+    "central": {
+      "A_green": 0.05545278010338307,
+      "E_equity": 0.5705862326169272,
+      "C_comfort": 0.14564662784574506,
+      "P_ret": 0.375,
+      "I_impl": 1.0,
+      "all_hard_constraints_passed": true
+    },
+    "low": {
+      "A_green": 0.05545278010338307,
+      "E_equity": 0.5705862326169272,
+      "C_comfort": 0.06919675138314947,
+      "P_ret": 0.25,
+      "I_impl": 0.7777777777777778,
+      "all_hard_constraints_passed": false
+    },
+    "high": {
+      "A_green": 0.05545278010338307,
+      "E_equity": 0.5705862326169272,
+      "C_comfort": 0.2359870461886674,
+      "P_ret": 0.25,
+      "I_impl": 0.8888888888888888,
+      "all_hard_constraints_passed": false
+    }
+  },
+  "evidence_counts_per_variant": {
+    "need_rows": 8,
+    "constraint_rows": 10,
+    "confirmed_analytical_regulatory_rules": 9,
+    "project_level_regulatory_rows_not_evaluable": 9
+  },
+  "interpretation": {
+    "all_five_evaluated": "All five metrics received computable values; this does not mean thresholds were passed.",
+    "I_impl": "SUZ-C01 through SUZ-C09 are confirmed for analytical screening, but their project-level triggers are absent in this Existing proxy run and therefore remain not_evaluable and excluded from the denominator. I_impl reports only the evaluable shared geometry, provenance, conflict, and study-resource predicates.",
+    "claim_boundary": "Analytical proxy only; not resident evidence, survey measurement, engineering verification, permit evidence, or legal compliance."
+  },
+  "hash_manifest": "world_model/auxiliary/formal_proxy_designs/suzhou_existing_proxy_sha256.txt"
+}

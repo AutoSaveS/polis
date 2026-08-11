@@ -1,0 +1,7 @@
+{
+  "agent_role": "conflict_detection",
+  "scenario_id": "$SCENARIO_ID",
+  "input_hash": "$INPUT_HASH",
+  "conflicts": [],
+  "unresolved_items": ["Offline fixture: no substantive conflict conclusion produced."]
+}

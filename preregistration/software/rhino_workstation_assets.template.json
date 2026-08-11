@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.1.0",
+  "status": "PARTIALLY_FILLED_SOURCE_READY_WORKSTATION_VERIFICATION_REQUIRED",
+  "workstation_id": "TO_BE_OBSERVED_ON_FIXED_RHINO_WORKSTATION",
+  "operating_system": "TO_BE_OBSERVED_ON_FIXED_RHINO_WORKSTATION",
+  "rhino_version": "8.TO_BE_OBSERVED_ON_FIXED_RHINO_WORKSTATION",
+  "grasshopper_version": "TO_BE_OBSERVED_ON_FIXED_RHINO_WORKSTATION",
+  "plugins": [],
+  "source_assets": [
+    {
+      "relative_path": "rhino_generators/polis_generator_common.py",
+      "sha256": "4bf813849abb6b28b13610790303a6c97e319d059db4c273c06dc04eb03eaf73",
+      "purpose": "Shared provenance, unit, parameter, and failure-handling logic for the six registered generators.",
+      "asset_type": "python_source",
+      "status": "verified_in_project"
+    },
+    {
+      "relative_path": "rhino_generators/vegetation_generator.py",
+      "sha256": "5e034a2654cc1fadb2e38eb2ca1c154db84ace40b252a19a6823dc235637ea6c",
+      "purpose": "Vegetation generator source.",
+      "asset_type": "python_source",
+      "status": "verified_in_project"
+    },
+    {
+      "relative_path": "rhino_generators/hardscape_generator.py",
+      "sha256": "3b7aec391d38d22b6b5c384291a812a0ef7374b7c6e94e1625c7129d034dcbce",
+      "purpose": "Hardscape and accessible-route generator source.",
+      "asset_type": "python_source",
+      "status": "verified_in_project"
+    },
+    {
+      "relative_path": "rhino_generators/hydrology_generator.py",
+      "sha256": "6aec06903fc221a768d14a011cb107dee09a18c5181022d0a940df11d44ff856",
+      "purpose": "Hydrology generator source.",
+      "asset_type": "python_source",
+      "status": "verified_in_project"
+    },
+    {
+      "relative_path": "rhino_generators/furniture_generator.py",
+      "sha256": "2a3b594f88c146effbc377889a9c51919c44c6d880836e16fd101228a59a7779",
+      "purpose": "Furniture generator source.",
+      "asset_type": "python_source",
+      "status": "verified_in_project"
+    },
+    {
+      "relative_path": "rhino_generators/activity_generator.py",
+      "sha256": "b827c1021744dc10a05f91d61e63cef779835dfbe3be34dcb1de5c8b08eda5a7",
+      "purpose": "Activity-zone generator source.",
+      "asset_type": "python_source",
+      "status": "verified_in_project"
+    },
+    {
+      "relative_path": "rhino_generators/ecology_generator.py",
+      "sha256": "b8fe4a1b082e218311f69d2aeb18058e0cbd27eb903714de55944633b23678a1",
+      "purpose": "Ecological-feature generator source.",
+      "asset_type": "python_source",
+      "status": "verified_in_project"
+    },
+    {
+      "relative_path": "rhino_generators/generator_contract.json",
+      "sha256": "c52bd96d6aef088b1d77ea33be508f96598c2700c7a195930ee4334fdca0ad0f",
+      "purpose": "Frozen six-domain input/output and provenance contract.",
+      "asset_type": "generator_contract",
+      "status": "verified_in_project"
+    }
+  ],
+  "workstation_assets_required": [
+    {"relative_path": "POLIS_vegetation_v1.gh", "sha256": "TO_BE_HASHED_AFTER_ACTUAL_CREATION", "purpose": "Vegetation Grasshopper definition", "asset_type": "gh", "status": "must_be_created_on_fixed_workstation"},
+    {"relative_path": "POLIS_vegetation_v1.ghx", "sha256": "TO_BE_HASHED_AFTER_ACTUAL_CREATION", "purpose": "Vegetation Grasshopper XML definition", "asset_type": "ghx", "status": "must_be_created_on_fixed_workstation"},
+    {"relative_path": "POLIS_hardscape_v1.gh", "sha256": "TO_BE_HASHED_AFTER_ACTUAL_CREATION", "purpose": "Hardscape Grasshopper definition", "asset_type": "gh", "status": "must_be_created_on_fixed_workstation"},
+    {"relative_path": "POLIS_hardscape_v1.ghx", "sha256": "TO_BE_HASHED_AFTER_ACTUAL_CREATION", "purpose": "Hardscape Grasshopper XML definition", "asset_type": "ghx", "status": "must_be_created_on_fixed_workstation"},
+    {"relative_path": "POLIS_hydrology_v1.gh", "sha256": "TO_BE_HASHED_AFTER_ACTUAL_CREATION", "purpose": "Hydrology Grasshopper definition", "asset_type": "gh", "status": "must_be_created_on_fixed_workstation"},
+    {"relative_path": "POLIS_hydrology_v1.ghx", "sha256": "TO_BE_HASHED_AFTER_ACTUAL_CREATION", "purpose": "Hydrology Grasshopper XML definition", "asset_type": "ghx", "status": "must_be_created_on_fixed_workstation"},
+    {"relative_path": "POLIS_furniture_v1.gh", "sha256": "TO_BE_HASHED_AFTER_ACTUAL_CREATION", "purpose": "Furniture Grasshopper definition", "asset_type": "gh", "status": "must_be_created_on_fixed_workstation"},
+    {"relative_path": "POLIS_furniture_v1.ghx", "sha256": "TO_BE_HASHED_AFTER_ACTUAL_CREATION", "purpose": "Furniture Grasshopper XML definition", "asset_type": "ghx", "status": "must_be_created_on_fixed_workstation"},
+    {"relative_path": "POLIS_activity_v1.gh", "sha256": "TO_BE_HASHED_AFTER_ACTUAL_CREATION", "purpose": "Activity-zone Grasshopper definition", "asset_type": "gh", "status": "must_be_created_on_fixed_workstation"},
+    {"relative_path": "POLIS_activity_v1.ghx", "sha256": "TO_BE_HASHED_AFTER_ACTUAL_CREATION", "purpose": "Activity-zone Grasshopper XML definition", "asset_type": "ghx", "status": "must_be_created_on_fixed_workstation"},
+    {"relative_path": "POLIS_ecology_v1.gh", "sha256": "TO_BE_HASHED_AFTER_ACTUAL_CREATION", "purpose": "Ecological-feature Grasshopper definition", "asset_type": "gh", "status": "must_be_created_on_fixed_workstation"},
+    {"relative_path": "POLIS_ecology_v1.ghx", "sha256": "TO_BE_HASHED_AFTER_ACTUAL_CREATION", "purpose": "Ecological-feature Grasshopper XML definition", "asset_type": "ghx", "status": "must_be_created_on_fixed_workstation"},
+    {"relative_path": "POLIS_workstation_master_v1.3dm", "sha256": "TO_BE_HASHED_AFTER_ACTUAL_CREATION", "purpose": "Rhino master document containing the six-domain project layer conventions", "asset_type": "3dm", "status": "must_be_created_on_fixed_workstation"}
+  ],
+  "generator_contract": "preregistration/software/rhino_generators/generator_contract.json",
+  "workstation_sop": "preregistration/software/rhino_generators/RHINO_WORKSTATION_SOP.md",
+  "inventory_command": "python preregistration/software/rhino_generators/collect_workstation_assets.py --help",
+  "export_contract": "preregistration/software/rhino_export_contract.schema.json",
+  "verified_by_operator_id": "TO_BE_COMPLETED_AFTER_REAL_ASSET_CHECK",
+  "verified_at_utc": "TO_BE_COMPLETED_AFTER_REAL_ASSET_CHECK",
+  "notes": "The source hashes above are real project files. Workstation-version fields and .gh/.ghx/.3dm hashes must be observed on the fixed Rhino device; do not record passwords, licence keys, API keys, or participant data."
+}

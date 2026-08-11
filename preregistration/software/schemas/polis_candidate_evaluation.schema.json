@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "POLIS candidate formal-evaluation state",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "candidate_id", "design_geopackage_sha256", "feedback_output_sha256",
+    "revision_cycle", "metrics", "critical_access_objects",
+    "vulnerable_use_zones", "hard_constraints", "parameter_departure",
+    "elapsed_minutes", "professional_person_hours", "scenario_compute_minutes"
+  ],
+  "properties": {
+    "candidate_id": {"type": "string", "minLength": 1},
+    "design_geopackage_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "feedback_output_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "revision_cycle": {"type": "integer", "minimum": 0, "maximum": 30},
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["acc", "sol", "thm", "grn", "eco", "bgt"],
+      "properties": {
+        "acc": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "sol": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "thm": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "grn": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "eco": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "bgt": {"type": ["number", "null"], "minimum": 0, "maximum": 1}
+      }
+    },
+    "critical_access_objects": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/accessObject"}
+    },
+    "vulnerable_use_zones": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/shadeObject"}
+    },
+    "hard_constraints": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["constraint_id", "satisfied"],
+        "properties": {
+          "constraint_id": {"type": "string", "minLength": 1},
+          "satisfied": {"type": ["boolean", "null"]}
+        }
+      }
+    },
+    "parameter_departure": {"type": "number", "minimum": 0, "maximum": 1},
+    "elapsed_minutes": {"type": "number", "minimum": 0},
+    "professional_person_hours": {"type": "number", "minimum": 0},
+    "scenario_compute_minutes": {"type": "number", "minimum": 0}
+  },
+  "$defs": {
+    "baseObject": {
+      "type": "object",
+      "required": ["object_id", "need_ids", "source_ids"],
+      "properties": {
+        "object_id": {"type": "string", "minLength": 1},
+        "need_ids": {"type": "array", "items": {"type": "string"}},
+        "source_ids": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "accessObject": {
+      "allOf": [
+        {"$ref": "#/$defs/baseObject"},
+        {"type": "object", "properties": {"access": {"type": ["number", "null"], "minimum": 0, "maximum": 1}}, "required": ["access"]}
+      ],
+      "unevaluatedProperties": false
+    },
+    "shadeObject": {
+      "allOf": [
+        {"$ref": "#/$defs/baseObject"},
+        {"type": "object", "properties": {"shade_thermal_proxy": {"type": ["number", "null"], "minimum": 0, "maximum": 1}}, "required": ["shade_thermal_proxy"]}
+      ],
+      "unevaluatedProperties": false
+    }
+  }
+}

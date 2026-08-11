@@ -1,0 +1,265 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "SUZ-GE-B",
+  "workflow": "EXISTING",
+  "city": "Suzhou",
+  "world_model": "/Users/a123/Desktop/AI_Empowered_Participatory_Green_Infrastructure_Planning_for_Equitable_Urban_Wellbeing__The_POLIS_Decision_Support_Framework/world_model/vector/suz_world_model.gpkg",
+  "design_package": "world_model/auxiliary/formal_proxy_designs/suzhou_existing_low.gpkg",
+  "design_layers_observed": [
+    "accessible_network",
+    "design_objects",
+    "green_entrances",
+    "required_destinations",
+    "shade_footprints",
+    "turning_spaces",
+    "usable_spaces"
+  ],
+  "outcomes": {
+    "A_green": {
+      "value": 0.05545278010338307,
+      "status": "evaluated",
+      "threshold_m": 300.0,
+      "origin_count": 340,
+      "population_total": 66865.7387085557,
+      "finite_distance_count": 340,
+      "distance_method": "shortest path on submitted accessible_network with straight origin connector"
+    },
+    "E_equity": {
+      "value": 0.5705862326169272,
+      "status": "evaluated",
+      "distance_normalisation_m": 1000.0,
+      "origin_count": 340,
+      "population_total": 66865.7387085557,
+      "finite_distance_count": 340,
+      "distance_method": "shortest path on submitted accessible_network with straight origin connector"
+    },
+    "C_comfort": {
+      "value": 0.06919675138314947,
+      "status": "evaluated",
+      "usable_area_m2": 2540.046765744724,
+      "schedule": [
+        {
+          "month_day": "06-21",
+          "local_solar_time": "10:00",
+          "shade_fraction": 0.06309591166257664,
+          "weight": 0.06666666666666667
+        },
+        {
+          "month_day": "06-21",
+          "local_solar_time": "12:00",
+          "shade_fraction": 0.04446741711551771,
+          "weight": 0.09999999999999999
+        },
+        {
+          "month_day": "06-21",
+          "local_solar_time": "14:00",
+          "shade_fraction": 0.06309591166257664,
+          "weight": 0.09999999999999999
+        },
+        {
+          "month_day": "06-21",
+          "local_solar_time": "16:00",
+          "shade_fraction": 0.10233328875263081,
+          "weight": 0.06666666666666667
+        },
+        {
+          "month_day": "07-21",
+          "local_solar_time": "10:00",
+          "shade_fraction": 0.06450952278549,
+          "weight": 0.06666666666666667
+        },
+        {
+          "month_day": "07-21",
+          "local_solar_time": "12:00",
+          "shade_fraction": 0.04706790805907262,
+          "weight": 0.09999999999999999
+        },
+        {
+          "month_day": "07-21",
+          "local_solar_time": "14:00",
+          "shade_fraction": 0.06450952278548998,
+          "weight": 0.09999999999999999
+        },
+        {
+          "month_day": "07-21",
+          "local_solar_time": "16:00",
+          "shade_fraction": 0.10522926000272305,
+          "weight": 0.06666666666666667
+        },
+        {
+          "month_day": "08-21",
+          "local_solar_time": "10:00",
+          "shade_fraction": 0.07018909150950674,
+          "weight": 0.06666666666666667
+        },
+        {
+          "month_day": "08-21",
+          "local_solar_time": "12:00",
+          "shade_fraction": 0.054935337234224606,
+          "weight": 0.09999999999999999
+        },
+        {
+          "month_day": "08-21",
+          "local_solar_time": "14:00",
+          "shade_fraction": 0.07018909150950672,
+          "weight": 0.09999999999999999
+        },
+        {
+          "month_day": "08-21",
+          "local_solar_time": "16:00",
+          "shade_fraction": 0.11619641348473249,
+          "weight": 0.06666666666666667
+        }
+      ],
+      "interpretation": "comparative design-induced shade proxy; not measured thermal comfort"
+    },
+    "P_ret": {
+      "value": 0.25,
+      "status": "evaluated",
+      "expected_count": 8,
+      "evaluated_count": 8,
+      "not_evaluable_count": 0,
+      "critical_retention": 0.5,
+      "evidence_complete": true
+    },
+    "I_impl": {
+      "value": 0.7777777777777778,
+      "status": "evaluated",
+      "evaluated_count": 9,
+      "passed_count": 7,
+      "failed_count": 2,
+      "not_evaluable_count": 9,
+      "all_hard_constraints_passed": false,
+      "checks": [
+        {
+          "constraint_id": "accessible_route_clear_width",
+          "status": "evaluated",
+          "passed": false,
+          "rule": ">=1.50 m"
+        },
+        {
+          "constraint_id": "accessible_route_running_slope",
+          "status": "evaluated",
+          "passed": true,
+          "rule": "<=0.05"
+        },
+        {
+          "constraint_id": "accessible_route_cross_slope",
+          "status": "evaluated",
+          "passed": true,
+          "rule": "<=0.02"
+        },
+        {
+          "constraint_id": "disconnected_accessible_routes",
+          "status": "evaluated",
+          "passed": true,
+          "rule": "0 disconnected route components and every required destination within 0.10 m of the network",
+          "network_component_count": 1,
+          "maximum_destination_offset_m": 0.0005267829682843179
+        },
+        {
+          "constraint_id": "wheelchair_turning_diameter",
+          "status": "evaluated",
+          "passed": false,
+          "rule": ">=1.525 m circular clear space at every required destination",
+          "required_destination_count": 1,
+          "missing_turning_space_ids": [],
+          "insufficient_turning_space_ids": [
+            "EXIST-SUZ-PROXY-DEST-low"
+          ]
+        },
+        {
+          "constraint_id": "cross_domain_overlap_area",
+          "status": "evaluated",
+          "passed": true,
+          "rule": "<=0.01 m2 across different design domains",
+          "observed_overlap_area_m2": 0.0,
+          "design_domain_count": 3
+        },
+        {
+          "constraint_id": "missing_required_provenance_links",
+          "status": "evaluated",
+          "passed": true,
+          "rule": "0 design objects with a missing provenance_reference",
+          "missing_count": 0
+        },
+        {
+          "constraint_id": "study_resource_cap",
+          "status": "evaluated",
+          "passed": true,
+          "resource_index": 4.60337074129431,
+          "cap_units": 100.0,
+          "class_area_m2": {
+            "activity": 445.4215826266212,
+            "hardscape": 80.77993731080288,
+            "vegetation": 93.22836628783169
+          },
+          "interpretation": "unitless study resource index; not a monetary cost"
+        },
+        {
+          "constraint_id": "SUZ-C01",
+          "status": "not_evaluable",
+          "passed": null,
+          "evidence_reference": "world_model/metadata/suzhou_nine_rule_confirmation.csv#SUZ-C01"
+        },
+        {
+          "constraint_id": "SUZ-C02",
+          "status": "not_evaluable",
+          "passed": null,
+          "evidence_reference": "world_model/metadata/suzhou_nine_rule_confirmation.csv#SUZ-C02"
+        },
+        {
+          "constraint_id": "SUZ-C03",
+          "status": "not_evaluable",
+          "passed": null,
+          "evidence_reference": "world_model/metadata/suzhou_nine_rule_confirmation.csv#SUZ-C03"
+        },
+        {
+          "constraint_id": "SUZ-C04",
+          "status": "not_evaluable",
+          "passed": null,
+          "evidence_reference": "world_model/metadata/suzhou_nine_rule_confirmation.csv#SUZ-C04"
+        },
+        {
+          "constraint_id": "SUZ-C05",
+          "status": "not_evaluable",
+          "passed": null,
+          "evidence_reference": "world_model/metadata/suzhou_nine_rule_confirmation.csv#SUZ-C05"
+        },
+        {
+          "constraint_id": "SUZ-C06",
+          "status": "not_evaluable",
+          "passed": null,
+          "evidence_reference": "world_model/metadata/suzhou_nine_rule_confirmation.csv#SUZ-C06"
+        },
+        {
+          "constraint_id": "SUZ-C07",
+          "status": "not_evaluable",
+          "passed": null,
+          "evidence_reference": "world_model/metadata/suzhou_nine_rule_confirmation.csv#SUZ-C07"
+        },
+        {
+          "constraint_id": "SUZ-C08",
+          "status": "not_evaluable",
+          "passed": null,
+          "evidence_reference": "world_model/metadata/suzhou_nine_rule_confirmation.csv#SUZ-C08"
+        },
+        {
+          "constraint_id": "SUZ-C09",
+          "status": "not_evaluable",
+          "passed": null,
+          "evidence_reference": "world_model/metadata/suzhou_nine_rule_confirmation.csv#SUZ-C09"
+        },
+        {
+          "constraint_id": "unresolved_critical_conflicts",
+          "status": "evaluated",
+          "passed": true,
+          "evidence_reference": "world_model/auxiliary/formal_proxy_designs/suzhou_existing_low_evidence/suzhou_existing_low_proxy_evidence.json#unresolved_critical_conflicts"
+        }
+      ],
+      "denominator_rule": "not_evaluable predicates excluded; never treated as pass or not applicable"
+    }
+  },
+  "all_five_evaluated": true,
+  "claim_boundary": "analytical comparison only; not legal compliance, permission, cost, or construction readiness"
+}

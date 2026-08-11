@@ -1,0 +1,7 @@
+resource_class,measurement_basis,resource_weight,status,interpretation
+vegetation,allocated_area_fraction,1.00,FROZEN_STUDY_INDEX,Relative analytical burden only; not a market price.
+hardscape,allocated_area_fraction,1.50,FROZEN_STUDY_INDEX,Relative analytical burden only; not a market price.
+hydrology,allocated_area_fraction,2.00,FROZEN_STUDY_INDEX,Relative analytical burden only; not a market price.
+furniture,allocated_area_fraction,1.25,FROZEN_STUDY_INDEX,Relative analytical burden only; not a market price.
+activity,allocated_area_fraction,1.75,FROZEN_STUDY_INDEX,Relative analytical burden only; not a market price.
+ecology,allocated_area_fraction,1.00,FROZEN_STUDY_INDEX,Relative analytical burden only; not a market price.

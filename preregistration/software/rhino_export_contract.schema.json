@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://polis.local/schemas/rhino-export-contract-v1.1.json",
+  "title": "POLIS Experiment 1 Rhino/Grasshopper export record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "operator_id",
+    "workstation_id",
+    "rhino_version",
+    "grasshopper_version",
+    "plugins",
+    "source_files",
+    "design_geopackage",
+    "analysis_crs",
+    "exported_at_utc",
+    "required_layers",
+    "status",
+    "failure_log"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.1.0"},
+    "run_id": {"type": "string", "minLength": 1},
+    "operator_id": {"type": "string", "minLength": 1},
+    "workstation_id": {"type": "string", "minLength": 1},
+    "rhino_version": {"type": "string", "pattern": "^8(?:\\.|$)"},
+    "grasshopper_version": {"type": "string", "minLength": 1},
+    "plugins": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "version"],
+        "properties": {
+          "name": {"type": "string", "minLength": 1},
+          "version": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "source_files": {
+      "type": "array",
+      "minItems": 13,
+      "allOf": [
+        {"contains": {"type": "object", "properties": {"path": {"pattern": "POLIS_vegetation_v1\\.gh$"}}}},
+        {"contains": {"type": "object", "properties": {"path": {"pattern": "POLIS_vegetation_v1\\.ghx$"}}}},
+        {"contains": {"type": "object", "properties": {"path": {"pattern": "POLIS_hardscape_v1\\.gh$"}}}},
+        {"contains": {"type": "object", "properties": {"path": {"pattern": "POLIS_hardscape_v1\\.ghx$"}}}},
+        {"contains": {"type": "object", "properties": {"path": {"pattern": "POLIS_hydrology_v1\\.gh$"}}}},
+        {"contains": {"type": "object", "properties": {"path": {"pattern": "POLIS_hydrology_v1\\.ghx$"}}}},
+        {"contains": {"type": "object", "properties": {"path": {"pattern": "POLIS_furniture_v1\\.gh$"}}}},
+        {"contains": {"type": "object", "properties": {"path": {"pattern": "POLIS_furniture_v1\\.ghx$"}}}},
+        {"contains": {"type": "object", "properties": {"path": {"pattern": "POLIS_activity_v1\\.gh$"}}}},
+        {"contains": {"type": "object", "properties": {"path": {"pattern": "POLIS_activity_v1\\.ghx$"}}}},
+        {"contains": {"type": "object", "properties": {"path": {"pattern": "POLIS_ecology_v1\\.gh$"}}}},
+        {"contains": {"type": "object", "properties": {"path": {"pattern": "POLIS_ecology_v1\\.ghx$"}}}},
+        {"contains": {"type": "object", "properties": {"path": {"pattern": "POLIS_workstation_master_v1\\.3dm$"}}}}
+      ],
+      "items": {"$ref": "#/$defs/hashedFile"}
+    },
+    "design_geopackage": {"$ref": "#/$defs/hashedFile"},
+    "analysis_crs": {"enum": ["EPSG:32651", "EPSG:27700", "EPSG:26916"]},
+    "exported_at_utc": {"type": "string", "format": "date-time"},
+    "required_layers": {
+      "type": "array",
+      "uniqueItems": true,
+      "allOf": [
+        {"contains": {"const": "accessible_network"}},
+        {"contains": {"const": "green_entrances"}},
+        {"contains": {"const": "required_destinations"}},
+        {"contains": {"const": "turning_spaces"}},
+        {"contains": {"const": "usable_spaces"}},
+        {"contains": {"const": "shade_footprints"}},
+        {"contains": {"const": "design_objects"}}
+      ],
+      "items": {"type": "string"}
+    },
+    "status": {"enum": ["exported", "failed"]},
+    "failure_log": {"type": "string"}
+  },
+  "$defs": {
+    "hashedFile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "title": "POLIS six-domain Rhino generator contract",
+  "status": "SOURCE_CONTRACT_READY_RHINO_EXECUTION_REQUIRED",
+  "units": "metres",
+  "analysis_crs_required": true,
+  "no_imputation_rule": "The workstation must fail the record if geometry, dimensions, slopes, species/habitat status, or provenance inputs are absent. It must not infer heights, budgets, legal applicability, or need IDs.",
+  "context_required": ["scenario_id", "analysis_crs", "units", "provenance_reference", "generator_version"],
+  "output_layer": "design_objects",
+  "output_geometry_rule": "Every accepted record exports one valid planar geometry in the frozen analysis CRS and one complete attribute record.",
+  "required_output_attributes": [
+    "object_id",
+    "scenario_id",
+    "design_domain",
+    "resource_class",
+    "source_need_ids",
+    "source_id",
+    "provenance_reference",
+    "generator_version"
+  ],
+  "resource_classes": {
+    "vegetation": {"resource_weight": 1.0},
+    "hardscape": {"resource_weight": 1.5},
+    "hydrology": {"resource_weight": 2.0},
+    "furniture": {"resource_weight": 1.25},
+    "activity": {"resource_weight": 1.75},
+    "ecology": {"resource_weight": 1.0}
+  },
+  "domains": {
+    "vegetation": {
+      "script": "vegetation_generator.py",
+      "input_geometry": "closed planar planting curve or Rhino Point3d",
+      "required_fields": ["geometry", "source_id", "source_need_ids", "planting_type", "species_status"],
+      "conditional_fields": {"shade_model_eligible=true": ["canopy_radius_m", "height_m"]},
+      "output_geometry": "planting zone or explicit canopy circle",
+      "forbidden_defaults": ["canopy_radius_m", "height_m", "species_status"]
+    },
+    "hardscape": {
+      "script": "hardscape_generator.py",
+      "input_geometry": "Rhino curve centreline",
+      "required_fields": ["geometry", "source_id", "source_need_ids", "clear_width_m", "running_slope", "cross_slope", "route_role", "accessible_route"],
+      "output_geometry": "closed route footprint from explicit centreline offset",
+      "forbidden_defaults": ["clear_width_m", "running_slope", "cross_slope"]
+    },
+    "hydrology": {
+      "script": "hydrology_generator.py",
+      "input_geometry": "closed planar hydrology-zone curve",
+      "required_fields": ["geometry", "source_id", "source_need_ids", "design_storage_m3", "hydraulic_type", "drainage_destination"],
+      "output_geometry": "hydrology zone",
+      "forbidden_defaults": ["design_storage_m3", "drainage_destination"]
+    },
+    "furniture": {
+      "script": "furniture_generator.py",
+      "input_geometry": "Rhino Point3d insertion point",
+      "required_fields": ["geometry", "source_id", "source_need_ids", "footprint_width_m", "footprint_depth_m", "orientation_deg", "furniture_type", "clearance_reviewed"],
+      "output_geometry": "oriented furniture footprint",
+      "forbidden_defaults": ["footprint_width_m", "footprint_depth_m", "orientation_deg"]
+    },
+    "activity": {
+      "script": "activity_generator.py",
+      "input_geometry": "closed planar usable-space curve",
+      "required_fields": ["geometry", "source_id", "source_need_ids", "use_type", "accessible_connection_id", "unobstructed"],
+      "output_geometry": "activity-zone polygon",
+      "forbidden_defaults": ["accessible_connection_id", "unobstructed"]
+    },
+    "ecology": {
+      "script": "ecology_generator.py",
+      "input_geometry": "closed planar ecology-zone curve",
+      "required_fields": ["geometry", "source_id", "source_need_ids", "habitat_type", "native_or_adapted_fraction", "protected"],
+      "output_geometry": "ecological-zone polygon",
+      "forbidden_defaults": ["habitat_type", "native_or_adapted_fraction", "protected"]
+    }
+  },
+  "handoff_requirements": {
+    "source_assets": [".gh", ".ghx", ".3dm"],
+    "required_design_layers": ["accessible_network", "green_entrances", "required_destinations", "turning_spaces", "usable_spaces", "shade_footprints", "design_objects"],
+    "required_records": ["rhino_export_record.json", "process_log.csv", "need_results.csv", "constraint_results.csv"],
+    "hash_algorithm": "SHA-256",
+    "crs_rule": "Export geometries in the scenario's frozen projected analysis CRS; do not reproject after export."
+  }
+}

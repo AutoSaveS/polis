@@ -1,0 +1,27 @@
+{
+  "title": "POLIS demand capture output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["agent_role", "scenario_id", "input_hash", "demand_records", "unresolved_items"],
+  "properties": {
+    "agent_role": {"type": "string", "enum": ["demand_capture"]},
+    "scenario_id": {"type": "string"},
+    "input_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "demand_records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["need_id", "source_ids", "world_object_ids", "candidate_parameters", "predicate_preserved"],
+        "properties": {
+          "need_id": {"type": "string"},
+          "source_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "world_object_ids": {"type": "array", "items": {"type": "string"}},
+          "candidate_parameters": {"type": "array", "items": {"type": "string"}},
+          "predicate_preserved": {"type": "boolean"}
+        }
+      }
+    },
+    "unresolved_items": {"type": "array", "items": {"type": "string"}}
+  }
+}

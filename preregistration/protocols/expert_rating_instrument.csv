@@ -1,0 +1,10 @@
+item_id,item_type,construct,scale_min,scale_max,tie_allowed,required,analysis_role,approved_wording_status,implementation_note
+EXP3-R01,rating,stakeholder_responsiveness,1,7,NA,yes,secondary,pending_exact_rubric_import,Use the exact bilingual item and anchors from the approved Expert_Rating_Rubric.pdf.
+EXP3-R02,rating,spatial_coherence,1,7,NA,yes,secondary,pending_exact_rubric_import,Use the exact bilingual item and anchors from the approved Expert_Rating_Rubric.pdf.
+EXP3-R03,rating,constructability,1,7,NA,yes,secondary,pending_exact_rubric_import,Use the exact bilingual item and anchors from the approved Expert_Rating_Rubric.pdf.
+EXP3-R04,rating,equity_sensitivity,1,7,NA,yes,secondary,pending_exact_rubric_import,Use the exact bilingual item and anchors from the approved Expert_Rating_Rubric.pdf.
+EXP3-R05,rating,overall_integration,1,7,NA,yes,primary,pending_exact_rubric_import,Use the exact bilingual item and anchors from the approved Expert_Rating_Rubric.pdf.
+EXP3-P01,pairwise_preference,workflow_preference,,,no,yes,supporting,pending_exact_rubric_import,Forced choice only; do not add a tie option unless an approved amendment permits it.
+EXP3-B01,blinding_check,perceived_workflow_identity,,,NA,yes,supporting,protocol_defined_not_an_eligibility_item,Collected after ratings and never used to exclude a rating.
+EXP3-B02,blinding_check,identity_confidence,1,7,NA,yes,supporting,protocol_defined_not_an_eligibility_item,Collected after ratings and never used to exclude a rating.
+EXP3-C01,free_text,optional_comment,,,NA,no,exploratory,approved_optional_comment,Do not process comments with generative AI; remove direct identifiers before analysis or sharing.

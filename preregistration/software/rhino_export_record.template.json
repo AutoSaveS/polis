@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.1.0",
+  "run_id": "TO_BE_COMPLETED",
+  "operator_id": "TO_BE_COMPLETED",
+  "workstation_id": "TO_BE_COMPLETED",
+  "rhino_version": "8.TO_BE_COMPLETED",
+  "grasshopper_version": "TO_BE_COMPLETED",
+  "plugins": [
+    {"name": "TO_BE_COMPLETED", "version": "TO_BE_COMPLETED"}
+  ],
+  "source_files": [
+    {"path": "POLIS_vegetation_v1.gh", "sha256": "TO_BE_COMPLETED"},
+    {"path": "POLIS_vegetation_v1.ghx", "sha256": "TO_BE_COMPLETED"},
+    {"path": "POLIS_hardscape_v1.gh", "sha256": "TO_BE_COMPLETED"},
+    {"path": "POLIS_hardscape_v1.ghx", "sha256": "TO_BE_COMPLETED"},
+    {"path": "POLIS_hydrology_v1.gh", "sha256": "TO_BE_COMPLETED"},
+    {"path": "POLIS_hydrology_v1.ghx", "sha256": "TO_BE_COMPLETED"},
+    {"path": "POLIS_furniture_v1.gh", "sha256": "TO_BE_COMPLETED"},
+    {"path": "POLIS_furniture_v1.ghx", "sha256": "TO_BE_COMPLETED"},
+    {"path": "POLIS_activity_v1.gh", "sha256": "TO_BE_COMPLETED"},
+    {"path": "POLIS_activity_v1.ghx", "sha256": "TO_BE_COMPLETED"},
+    {"path": "POLIS_ecology_v1.gh", "sha256": "TO_BE_COMPLETED"},
+    {"path": "POLIS_ecology_v1.ghx", "sha256": "TO_BE_COMPLETED"},
+    {"path": "POLIS_workstation_master_v1.3dm", "sha256": "TO_BE_COMPLETED"}
+  ],
+  "design_geopackage": {
+    "path": "TO_BE_COMPLETED.gpkg",
+    "sha256": "TO_BE_COMPLETED"
+  },
+  "analysis_crs": "EPSG:32651",
+  "exported_at_utc": "TO_BE_COMPLETED",
+  "required_layers": [
+    "accessible_network",
+    "green_entrances",
+    "required_destinations",
+    "turning_spaces",
+    "usable_spaces",
+    "shade_footprints",
+    "design_objects"
+  ],
+  "status": "exported",
+  "failure_log": ""
+}

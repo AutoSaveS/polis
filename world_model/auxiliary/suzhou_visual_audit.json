@@ -1,0 +1,65 @@
+{
+  "audit_id": "AUX-AUDIT-SUZ-ESRI-20260806",
+  "site_id": "SUZ",
+  "site_feature": "Xutai Road neighbourhood grass parcel",
+  "boundary_source": "world_model/raw/suzhou_osm_overpass_2026-08-06.json",
+  "boundary_osm_way": 741252447,
+  "imagery_provider": "Esri World Imagery",
+  "imagery_service_url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer",
+  "tile_template": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+  "retrieved_local": "2026-08-06T20:54:33+08:00",
+  "imagery_zoom": 18,
+  "tile_range": {
+    "x_min": 218879,
+    "x_max": 218880,
+    "y_min": 107064,
+    "y_max": 107065
+  },
+  "audit_bbox_wgs84": [
+    120.5858,
+    31.2863,
+    120.5872,
+    31.2878
+  ],
+  "local_audit_artifact": {
+    "file": "/tmp/suzhou_esri_auxiliary_boundary_audit.jpg",
+    "sha256": "dcc100d91cfaa9fe15a8673e774eb357182f43550efd407c23c1322427204bc0",
+    "note": "Local visual audit only; do not redistribute without checking service terms and attribution."
+  },
+  "observations": [
+    {
+      "feature": "vegetation_canopy",
+      "status": "visual_candidate_present",
+      "evidence_class": "visual_candidate",
+      "measured_fields_available": [],
+      "required_follow_up": [
+        "digitize candidate tree or canopy geometry",
+        "obtain tree height",
+        "obtain crown radius or canopy polygon",
+        "record survey date and positional uncertainty"
+      ]
+    },
+    {
+      "feature": "building_footprint_inside_registered_polygon",
+      "status": "not_confirmed_absent",
+      "evidence_class": "visual_candidate",
+      "measured_fields_available": [],
+      "required_follow_up": [
+        "check a georeferenced high-resolution source or survey",
+        "do not code building_count=0 as a verified absence"
+      ]
+    },
+    {
+      "feature": "accessible_route_and_turning_space",
+      "status": "not_evaluable",
+      "evidence_class": "visual_candidate",
+      "measured_fields_available": [],
+      "required_follow_up": [
+        "measure clear width",
+        "measure running and cross slope",
+        "survey entrances, barriers and 1.525 m turning spaces"
+      ]
+    }
+  ],
+  "promotion_rule": "This audit does not change world_model/vector/suz_world_model.gpkg. Promotion requires independent operator verification and a source-backed measurement record."
+}

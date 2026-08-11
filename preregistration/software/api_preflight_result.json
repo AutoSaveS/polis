@@ -1,0 +1,23 @@
+{
+  "status": "OFFLINE_CONTRACT_CHECK_ONLY",
+  "run_utc": "2026-08-06T10:22:42.979445+00:00",
+  "model": "gpt-5.6-terra",
+  "endpoint": "/v1/responses",
+  "synthetic_input_only": true,
+  "participant_data_used": false,
+  "schema_request_contracts_passed": [
+    "conflict_detection",
+    "demand_capture",
+    "equity_guardian",
+    "orchestrator"
+  ],
+  "local_refusal_handler_passed": true,
+  "network_requests_sent": 0,
+  "live_results": [],
+  "not_yet_confirmed": [
+    "API authentication and model access",
+    "four live strict-schema responses",
+    "returned model and request identifiers",
+    "API project region and data-retention controls"
+  ]
+}

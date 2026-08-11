@@ -1,0 +1,42 @@
+[
+  {
+    "candidate_id": "REPLACE-WITH-CANDIDATE-ID",
+    "design_geopackage_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "feedback_output_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "revision_cycle": 0,
+    "metrics": {
+      "acc": null,
+      "sol": null,
+      "thm": null,
+      "grn": null,
+      "eco": null,
+      "bgt": null
+    },
+    "critical_access_objects": [
+      {
+        "object_id": "REPLACE-WITH-OBJECT-ID",
+        "access": null,
+        "need_ids": [],
+        "source_ids": []
+      }
+    ],
+    "vulnerable_use_zones": [
+      {
+        "object_id": "REPLACE-WITH-ZONE-ID",
+        "shade_thermal_proxy": null,
+        "need_ids": [],
+        "source_ids": []
+      }
+    ],
+    "hard_constraints": [
+      {
+        "constraint_id": "REPLACE-WITH-CONSTRAINT-ID",
+        "satisfied": null
+      }
+    ],
+    "parameter_departure": 0.0,
+    "elapsed_minutes": 0.0,
+    "professional_person_hours": 0.0,
+    "scenario_compute_minutes": 0.0
+  }
+]

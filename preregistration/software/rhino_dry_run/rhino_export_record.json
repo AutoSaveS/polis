@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.1.0",
+  "run_id": "DRYRUN-SUZ-GE-20260806-01",
+  "operator_id": "OP01",
+  "workstation_id": "RHINO-M1-01",
+  "rhino_version": "8.15.25019.13002",
+  "grasshopper_version": "1.0.0008",
+  "plugins": [
+    {"name": "QGIS Desktop LTR", "version": "3.44.12"}
+  ],
+  "source_files": [
+    {"path": "POLIS_vegetation_v1.gh", "sha256": "6ebc2742842ef4dd57fdccf7ff900a631b9ea35d6cd3cc315d89b4a322bbd518"},
+    {"path": "POLIS_vegetation_v1.ghx", "sha256": "cc21222bceac46e1e7a9675e602b28ff7a6f95652218b9c691cfbe00a3ea127a"},
+    {"path": "POLIS_hardscape_v1.gh", "sha256": "cef22fa08be60cb14b922b2852c131b8a5436ba8d7192c800d2f2bb3c76a84da"},
+    {"path": "POLIS_hardscape_v1.ghx", "sha256": "c70f4ab739d2400807586a7d866962ce7be847048153b85f1957712787e8f8cc"},
+    {"path": "POLIS_hydrology_v1.gh", "sha256": "76cc141f920794f30dbef518112a7dcb4efd4f87070849fd2567b531a8463152"},
+    {"path": "POLIS_hydrology_v1.ghx", "sha256": "56ee09695b5be3ad33d7405a42c7a8ef21cb6a693f81c278a2e4b70a99e27c2d"},
+    {"path": "POLIS_furniture_v1.gh", "sha256": "cc928573de597be512847f7d9d651572c9a742959e66694d30e7faa51c3f6dcc"},
+    {"path": "POLIS_furniture_v1.ghx", "sha256": "35542f2a665b3d03e8918abc834cd0dfb89f41ea9e77f765b9b90c96191227a5"},
+    {"path": "POLIS_activity_v1.gh", "sha256": "6dfb1852f1c8fe146da7020efda833dc0346aa9aee11a1d945ad81f3645a8c36"},
+    {"path": "POLIS_activity_v1.ghx", "sha256": "31aeedbf12216b04569f4d63073244a0f4f8057dcf8df6707537ccd4b2d85526"},
+    {"path": "POLIS_ecology_v1.gh", "sha256": "fa0a191ff04e9cc6192f351f16a83ecdb212cef2c4f9c7119e42449270114f6e"},
+    {"path": "POLIS_ecology_v1.ghx", "sha256": "61c3cb6c07c3e2184d516066423c27cbe73fffe8943b49f93c50ce8e3656646e"},
+    {"path": "POLIS_workstation_master_v1.3dm", "sha256": "b6732671b5877308773d0a0916a6cb35c5e20c5e5549075c8d5a4c6661be84ee"}
+  ],
+  "design_geopackage": {
+    "path": "dry_run_design.gpkg",
+    "sha256": "94a6c24e5ddb906b4fd286583bd5df59ec3975b0599622abfca2c3f9f21a4005"
+  },
+  "analysis_crs": "EPSG:32651",
+  "exported_at_utc": "2026-08-09T15:46:55Z",
+  "required_layers": [
+    "accessible_network",
+    "green_entrances",
+    "required_destinations",
+    "turning_spaces",
+    "usable_spaces",
+    "shade_footprints",
+    "design_objects"
+  ],
+  "status": "exported",
+  "failure_log": "The first GeoPackage failed the seven-layer spatial contract despite passing layer-name and CRS-label checks. The 2026-08-09 rerun corrected geometry types, required fields, spatial connectivity, 12 registered shade times, and genuine EPSG:32651 coordinates. All six Rhino generators remained unchanged and passed. The analysis machine separately passed the Shapely 2.0.7 simulation regression test."
+}

@@ -1,0 +1,405 @@
+protocol:
+  name: POLIS revised confirmatory evaluation
+  version: 2.0.0-draft
+  status: NOT_YET_REGISTERED
+  created_utc: 2026-08-04T00:00:00Z
+  canonical_title: "POLIS: Provenance-Traceable AI Decision Support Linking Stakeholder Needs to Buildable Green Infrastructure for Equitable Urban Wellbeing"
+  study_structure: 3_experiments_2_case_studies
+  primary_analysis_alpha: 0.05
+  confidence_level: 0.95
+  multiplicity_method: holm
+  numerical_tolerance: 1.0e-9
+
+expert_ethics_approval:
+  status: APPROVED
+  application_number: "11000110520260706104327"
+  approval_date: 2026-07-06
+  applicant: "John Moraros"
+  department: "Department of Biosciences and Bioinformatics"
+  review_category: "LRR-Research Involving Human Participant, Survey Respondent or Personal Data"
+  study_type: "Doctoral Research"
+  application_title: "POLIS: An AI-Enabled Decision-Support System for Equitable Green Infrastructure Planning"
+  approved_scope: "independent expert-review component only"
+  approved_participant_min: 8
+  approved_participant_max: 12
+  participant_group: "professional and academic experts in urban planning, landscape architecture, green-infrastructure design, or urban spatial analysis"
+  approved_mode: fully_online_blinded_rating_task
+  collection_platform: Wenjuanxing
+  approved_session_minutes_min: 30
+  approved_session_minutes_max: 60
+  compensation: none
+  public_or_resident_participants: none
+  generative_ai_for_participant_data: prohibited
+
+resident_ethics:
+  status: PENDING_NEW_APPLICATION
+  application_number: TO_BE_ASSIGNED
+  approval_date: TO_BE_ASSIGNED
+  required_action: "Obtain a new application or approved amendment before any resident recruitment, consent, screening, or data collection."
+  proposed_application_title: "Online Resident Validation of POLIS: A Three-City Study of Need Expression and Decision-Trace Comprehension"
+  participant_group: residents_and_routine_users
+  approved_participant_count: 0
+  approved_participant_max: 0
+  recruitment_allowed: false
+  data_collection_allowed: false
+  exact_address_collection: prohibited
+
+design:
+  sites: [SUZ, LON, CHI]
+  decision_types: [GE, AR, CU, RR, EA, IP]
+  variants: [B, S]
+  total_scenarios: 36
+  workflows_exp1: [EXISTING, CONVENTIONAL, DIGITAL, POLIS]
+  exp1_input_policy: "NO_FIELD_SURVEY_COMPUTATIONAL_COMPARISON"
+  exp1_shared_input_contract: "Same frozen public-data world model, remote-sensing proxy variants, need profiles, analytical constraints, resource caps, generator library, seeds, and evaluator for every workflow."
+  exp1_workflow_logic_contrast: "EXISTING=no intervention; CONVENTIONAL=fixed rule-order template; DIGITAL=deterministic standalone optimisation; POLIS=provenance-aware multi-agent coordination."
+  exp1_suzhou_confirmed_analytical_rules: [SUZ-C01, SUZ-C02, SUZ-C03, SUZ-C04, SUZ-C05, SUZ-C06, SUZ-C07, SUZ-C08, SUZ-C09]
+  primary_contrast_exp1: POLIS_MINUS_DIGITAL
+  secondary_contrasts_exp1: [POLIS_MINUS_CONVENTIONAL, DIGITAL_MINUS_CONVENTIONAL]
+  existing_reference_analysis: "COMPUTABLE_PAIRED_NO_INTERVENTION_BASELINE"
+  exp1_primary_generated_outputs: 108
+  exp1_existing_scenario_evaluations: 36
+  exp1_central_condition_evaluations: 144
+  exp1_baseline_relative_contrasts: [CONVENTIONAL_MINUS_EXISTING, DIGITAL_MINUS_EXISTING, POLIS_MINUS_EXISTING]
+  exp1_proxy_variants: [central, low, high]
+  exp1_proxy_sensitivity_rule: "Low/high reruns are sensitivity analyses and are not additional experimental units."
+  exp2_scenarios: 12
+  exp2_configurations: 6
+  exp2_total_runs: 72
+  exp3_target_experts: 12
+  exp3_approved_expert_min: 8
+  exp3_approved_expert_max: 12
+  exp3_scenarios_per_expert: 9
+  exp3_outputs_per_expert: 27
+  exp3_experts_per_output: 3
+  minimum_real_operators: 3
+  active_workflow_assignments: 108
+
+case_studies:
+  case1_name: three_city_technical_regulatory_provenance
+  case1_sites: [Suzhou, London, Chicago]
+  case1_deviation_cases_per_site: 8
+  case1_analysis: descriptive_only
+  case2_name: three_city_online_resident_validation
+  case2_sites: [Suzhou, London, Chicago]
+  case2_online_only: true
+  case2_modes: [TEXT, POLIS_SPATIAL]
+  case2_design: within_participant_city_stratified_order_counterbalanced
+  case2_target_analysable_per_city: 15
+  case2_max_consent_per_city: 20
+  case2_target_total_analysable: 45
+  case2_max_consent_total: 60
+  case2_age_min: 18
+  case2_site_connection_rule: "residence within the frozen 1-km site catchment OR routine use at least monthly during the previous 6 months"
+  case2_exact_address_collection: false
+  case2_primary_outcome: participant_confirmed_need_fidelity
+  case2_fidelity_scale_min: 1
+  case2_fidelity_scale_max: 7
+  case2_trace_comprehension_items: 4
+  case2_population_representativeness: prohibited
+
+scenario_generation:
+  base_need_count: 8
+  stress_need_count: 10
+  base_critical_need_count: 2
+  stress_critical_need_count: 3
+  base_conflict_count: 2
+  stress_conflict_count: 4
+  base_budget_multiplier: 1.00
+  stress_budget_multiplier: 0.80
+  requirement_revision_base_steps: [5]
+  requirement_revision_stress_steps: [5, 10]
+  need_composition_base:
+    access_mobility: 2
+    shade_comfort: 2
+    ecology: 1
+    activity_use: 1
+    maintenance_budget: 1
+    vulnerable_group_priority: 1
+  stress_additions:
+    conflicting_critical_need: 1
+    conflicting_high_priority_need: 1
+
+outcomes:
+  green_access:
+    symbol: A_green
+    qualifying_network_distance_m: 300
+    analysis_catchment_m: 1000
+    target: 0.80
+    direction: higher_is_better
+  access_equity:
+    symbol: E_equity
+    distance_normalisation_m: 1000
+    zero_guard: 1.0e-9
+    target: 0.80
+    direction: higher_is_better
+  shade_comfort:
+    symbol: C_comfort
+    dates: ["06-21", "07-21", "08-21"]
+    local_solar_times: ["10:00", "12:00", "14:00", "16:00"]
+    time_weights: [0.20, 0.30, 0.30, 0.20]
+    effective_shade_fraction_floor: 0.50
+    target: 0.60
+    direction: higher_is_better
+  need_retention:
+    symbol: P_ret
+    target: 0.80
+    critical_need_target: 1.00
+    predicate_tolerances:
+      continuous_relative: 0.02
+      location_centroid_m: 5.0
+      polygon_intersection_over_union: 0.80
+      categorical: exact
+  implementation_feasibility:
+    symbol: I_impl
+    target: 0.95
+    all_hard_constraints_required: true
+    direction: higher_is_better
+
+quality_target:
+  A_green_min: 0.80
+  E_equity_min: 0.80
+  C_comfort_min: 0.60
+  P_ret_min: 0.80
+  critical_need_retention_min: 1.00
+  I_impl_min: 0.95
+  all_hard_constraints_required: true
+  stable_evaluations_required: 2
+
+internal_feedback:
+  v_acc_min: 0.80
+  v_sol_min: 0.60
+  v_thm_min: 0.60
+  v_grn_min: 0.35
+  v_eco_min: 0.50
+  v_bgt_min: 0.95
+  critical_access_object_z_acc_min: 0.70
+  vulnerable_use_zone_z_thm_min: 0.50
+  objective_weights:
+    acc: 0.25
+    sol: 0.10
+    thm: 0.20
+    grn: 0.15
+    eco: 0.15
+    bgt: 0.15
+  departure_penalty_mu: 0.10
+
+equity_guardian:
+  baseline_access_epsilon: 0.05
+  vulnerability_weight_cap: 5.0
+  retention_gini_alert: 0.20
+  retention_gini_reengagement: 0.25
+  minimum_group_need_retention: 0.75
+
+shared_hard_constraints:
+  budget_ratio_max: 1.00
+  cross_domain_overlap_area_m2_max: 0.01
+  disconnected_accessible_routes_max: 0
+  unresolved_critical_conflicts_max: 0
+  missing_required_provenance_links_max: 0
+  accessible_route_clear_width_m_min: 1.50
+  accessible_route_running_slope_max: 0.05
+  accessible_route_cross_slope_max: 0.02
+  wheelchair_turning_diameter_m_min: 1.525
+  categorical_regulatory_predicates: exact
+  site_specific_predicates_source: constraints/site_constraints.csv
+
+stopping:
+  max_revision_cycles: 30
+  max_elapsed_minutes: 120
+  max_professional_person_hours: 8.0
+  max_scenario_compute_minutes: 120
+  early_success: quality_target_met_for_two_consecutive_evaluations
+  early_futility: none
+  cap_outcome: target_not_reached
+
+implementation_deviation_tests:
+  continuous_dimension_tolerance_rule: max_0.10m_or_5pct
+  area_or_canopy_relative_tolerance: 0.05
+  budget_relative_tolerance: 0.02
+  categorical_tolerance: exact_match
+  positive_test_multiplier: 1.50
+  null_test_multipliers: [0.00, 0.25, 0.50, 0.75]
+  positive_cases_per_site: 4
+  null_cases_per_site: 4
+
+expert_review:
+  rating_scale_min: 1
+  rating_scale_max: 7
+  rating_dimensions: [stakeholder_responsiveness, spatial_coherence, constructability, equity_sensitivity, overall_integration]
+  primary_rating: overall_integration
+  pairwise_preference: forced_choice
+  ties_allowed: false
+  session_minutes_min: 30
+  session_minutes_max: 60
+  timing_pilot_nonstudy_data_required: true
+  online_languages: [English, Chinese]
+  compensation: none
+  optional_free_text: true
+  participant_data_processed_by_generative_ai: false
+  minimum_completed_ratings_per_scenario: 2
+  maximum_primary_missing_fraction: 0.10
+
+resident_review:
+  modes: [TEXT, POLIS_SPATIAL]
+  fidelity_scale_min: 1
+  fidelity_scale_max: 7
+  comprehension_items: [source_need, design_decision, affected_parameter, review_trigger]
+  primary_model: "cumulative-link mixed model: fidelity ~ mode * city + order + (1|participant_id)"
+  no_primary_imputation: true
+  qualitative_coding: frozen_bilingual_codebook_two_coders
+  no_exact_address: true
+
+llm_configuration:
+  provider: OpenAI
+  endpoint: /v1/responses
+  primary_model: gpt-5.6-terra
+  snapshot_identifier: gpt-5.6-terra
+  reasoning_effort: medium
+  reasoning_context: current_turn
+  max_output_tokens: 8192
+  strict_structured_outputs: true
+  same_model_for_all_four_agents: true
+  hosted_tools_enabled: false
+  web_search_enabled: false
+  file_search_enabled: false
+  provider_multi_agent_beta_enabled: false
+  participant_data_allowed: false
+  temperature_or_top_p_sent: false
+  provider_seed_used_or_claimed: false
+  primary_response_rule: first_schema_valid_non_refusal_response
+  schema_invalid_retry_limit: 1
+  api_preflight_live_schema_requests: 4
+  api_preflight_local_refusal_fixtures: 1
+  sensitivity_model: gpt-5.6-sol
+  sensitivity_scenarios: 12
+  sensitivity_analysis: descriptive_appendix_only
+
+randomness:
+  master_seed: 20260804
+  python_hash_seed: 20260804
+  llm_primary_response_rule: first_valid_response_only
+  hosted_llm_determinism_claim: prohibited
+  ortools_num_search_workers: 1
+  deterministic_algorithms_required: true
+  expert_allocation_seed: 400001
+  expert_order_seed_base: 400100
+  expert_allocation_rule: "Within each site rank scenarios by SHA-256(400001:site_index:scenario_id); ranked scenario j receives expert slots ((3*j+k) mod 12)+1 for k=0,1,2."
+  expert_workflow_order_rule: "Within each expert-scenario assignment rank CONVENTIONAL, DIGITAL, and POLIS by SHA-256(400100:expert_slot:scenario_id:workflow)."
+  resident_allocation_seed_base: 800000
+  resident_slot_rule: "SHA-256(seed:slot) ranking; first 10 of 20 slots TEXT_THEN_SPATIAL and remaining 10 SPATIAL_THEN_TEXT per city"
+  bootstrap_seed: 600001
+  permutation_seed: 600002
+
+analysis:
+  exp1_model: "OLS outcome ~ workflow + site + decision_type + variant; scenario-clustered CR2 standard errors"
+  exp1_primary_family: "five POLIS-DIGITAL outcome contrasts, Holm alpha 0.05"
+  exp2_model: "paired full-minus-ablation contrasts with scenario-clustered CR2 standard errors"
+  exp2_achievement_test: "exact paired McNemar test per component, Holm alpha 0.05"
+  exp2_A4_definition: "single general-purpose agent using gpt-5.6-terra with the same frozen inputs, local tools, and output contracts; no role separation or cross-agent orchestration"
+  exp3_primary_model: "cumulative-link mixed model: overall_integration ~ workflow + (1|expert_id) + (1|scenario_id)"
+  exp3_secondary_model: "same cumulative-link model for four secondary dimensions, Holm adjusted"
+  exp3_preference_model: "Bradley-Terry model with scenario-clustered bootstrap"
+  exp3_agreement_primary: "Fleiss kappa using exactly three completed ratings; no imputation"
+  case1_analysis: "counts, proportions, and exact Clopper-Pearson 95 percent intervals; no hypothesis tests"
+  resident_primary_model: "cumulative-link mixed model: fidelity ~ mode * city + order + (1|participant_id)"
+  resident_secondary_analysis: "city-stratified paired differences and descriptive distributions; no population or national comparisons"
+  resident_comprehension: "four-item proportion correct with exact binomial intervals; no imputation of item responses"
+  bootstrap_repetitions: 10000
+  permutation_repetitions: 10000
+  resource_reporting: "descriptive appendix only; no confirmatory efficiency experiment or causal resource claim"
+  llm_sensitivity_reporting: "gpt-5.6-sol Full POLIS on the 12 Experiment 2 scenarios; descriptive appendix only; no hypothesis test or model selection"
+
+readiness:
+  author_thresholds_approved: false
+  api_live_schema_preflight_completed: false
+  api_project_data_controls_confirmed: false
+  expert_attachment_versions_confirmed: false
+  expert_timing_pilot_completed: false
+  operator_roster_complete: false
+  operator_identity_and_evidence_verified_by_pi: false
+  resident_ethics_approved: false
+  resident_translation_and_permissions_approved: false
+  study_constraint_applicability_frozen: true
+  model_manifest_frozen: true
+  synthetic_pipeline_structural_smoke_tested: true
+  confirmatory_analysis_specification_frozen: true
+  freeze_manifest_generated: false
+
+implementation_readiness:
+  real_project_legal_applicability_confirmed: false
+  compliance_claim_permitted: false
+  rule: "These flags do not block preregistration of the analytical study, but they prohibit any real-project legal-compliance, permission, or construction-readiness claim."
+
+analysis_execution_readiness:
+  registered_runtime: "R 4.3.3"
+  registered_analysis_script: analysis/confirmatory_analysis.R
+  python_structural_smoke_test_passed: true
+  r_package_lock_created: false
+  r_confirmatory_models_synthetic_tested: false
+  execution_gate: "Create and archive renv.lock/container digest and pass all R synthetic-model tests before the first confirmatory run and before inspecting any real outcome or participant result."
+
+required_before_freeze:
+  - inputs/source_inventory.csv
+  - inputs/need_profiles.csv
+  - inputs/need_predicates.csv
+  - inputs/human_need_profile_collection_template.csv
+  - inputs/resident_session_collection_template.csv
+  - constraints/site_constraints.csv
+  - constraints/real_project_confirmation_log.template.csv
+  - constraints/design_parameter_tolerances.csv
+  - protocols/operator_roles.csv
+  - protocols/operator_assignment_plan.csv
+  - protocols/operator_registration_instructions.md
+  - protocols/operator_training_log.template.csv
+  - protocols/operator_practice_task_rubric.md
+  - protocols/operator_verification_attestation.template.md
+  - protocols/author_threshold_inventory.csv
+  - protocols/author_threshold_review.template.md
+  - protocols/expert_eligibility.md
+  - protocols/expert_rating_instrument.csv
+  - protocols/expert_timing_pilot_SOP.md
+  - protocols/expert_timing_pilot_log.template.csv
+  - protocols/participant_data_SOP.md
+  - protocols/resident_eligibility.md
+  - protocols/resident_online_SOP.md
+  - protocols/resident_data_SOP.md
+  - protocols/resident_instrument.csv
+  - protocols/resident_randomisation.csv
+  - ethics/expert_attachment_version_audit.md
+  - ethics/approved/PIS_expert_reviewers.pdf
+  - ethics/approved/Informed_Consent_Form.pdf
+  - ethics/approved/Expert_Rating_Rubric.pdf
+  - ethics/approval_version_confirmation.pdf
+  - ethics/resident_approved/approval_notice.pdf
+  - ethics/resident_approved/PIS_resident.pdf
+  - ethics/resident_approved/Informed_Consent_Form_resident.pdf
+  - software/model_manifest.yaml
+  - software/openai_responses_config.json
+  - software/api_preflight.py
+  - software/api_preflight_result.json
+  - software/api_project_data_controls_record.md
+  - software/prompt_schema_manifest.csv
+  - software/prompts/demand_capture.txt
+  - software/prompts/conflict_detection.txt
+  - software/prompts/equity_guardian.txt
+  - software/prompts/orchestrator.txt
+  - software/schemas/demand_capture.schema.json
+  - software/schemas/conflict_detection.schema.json
+  - software/schemas/equity_guardian.schema.json
+  - software/schemas/orchestrator.schema.json
+  - analysis/confirmatory_analysis.R
+  - analysis/synthetic_smoke_test.py
+  - analysis/synthetic_smoke_test_result.json
+  - prepare_experiment1_run_manifest.py
+  - prepare_experiment1_scenario_packages.py
+  - experiment1_run_manifest.csv
+  - experiment1_runner.py
+  - experiment1_run_readiness.py
+  - experiment1_run_readiness.json
+  - analysis/experiment1_evaluator.py
+  - analysis/EXPERIMENT1_EVALUATOR.md
+  - software/rhino_export_contract.schema.json
+  - software/rhino_export_record.template.json
+  - software/rhino_workstation_assets.template.json
+  - EXPERIMENT1_RUN_ORDER.md

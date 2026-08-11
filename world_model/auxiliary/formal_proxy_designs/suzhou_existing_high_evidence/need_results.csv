@@ -1,0 +1,9 @@
+need_id,status,evidence_reference
+SUZ-N01,pass,world_model/auxiliary/formal_proxy_designs/suzhou_existing_high_evidence/suzhou_existing_high_proxy_evidence.json#need-SUZ-N01
+SUZ-N02,fail,world_model/auxiliary/formal_proxy_designs/suzhou_existing_high_evidence/suzhou_existing_high_proxy_evidence.json#need-SUZ-N02
+SUZ-N03,fail,world_model/auxiliary/formal_proxy_designs/suzhou_existing_high_evidence/suzhou_existing_high_proxy_evidence.json#need-SUZ-N03
+SUZ-N04,fail,world_model/auxiliary/formal_proxy_designs/suzhou_existing_high_evidence/suzhou_existing_high_proxy_evidence.json#need-SUZ-N04
+SUZ-N05,fail,world_model/auxiliary/formal_proxy_designs/suzhou_existing_high_evidence/suzhou_existing_high_proxy_evidence.json#need-SUZ-N05
+SUZ-N06,pass,world_model/auxiliary/formal_proxy_designs/suzhou_existing_high_evidence/suzhou_existing_high_proxy_evidence.json#need-SUZ-N06
+SUZ-N07,fail,world_model/auxiliary/formal_proxy_designs/suzhou_existing_high_evidence/suzhou_existing_high_proxy_evidence.json#need-SUZ-N07
+SUZ-N08,fail,world_model/auxiliary/formal_proxy_designs/suzhou_existing_high_evidence/suzhou_existing_high_proxy_evidence.json#need-SUZ-N08

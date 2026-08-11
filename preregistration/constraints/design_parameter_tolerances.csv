@@ -1,0 +1,9 @@
+tolerance_id,parameter_family,rule,value,unit,applies_to,source_id,hard_or_soft,notes
+TOL-01,continuous_design_dimension,greater_of_absolute_or_relative,0.10 or 0.05,m or fraction,"Implementation-deviation tests for widths, lengths, and diameters",INT-PREREG,study_rule,"Tolerance is max(0.10 m, 5% of registered target)."
+TOL-02,area_or_canopy,relative,0.05,fraction,"Implementation-deviation tests for areas, green fraction, and canopy values",INT-PREREG,study_rule,Positive cases are injected at 1.5 times tolerance.
+TOL-03,budget,relative,0.02,fraction,Budget implementation-deviation tests and need predicates,INT-PREREG,study_rule,Does not permit the hard scenario budget cap itself to be exceeded.
+TOL-04,categorical,exact_match,0,mismatch count,"Regulatory categories, required approvals, and boolean design states",INT-PREREG,study_rule,No categorical substitution is accepted.
+TOL-05,continuous_need_target,relative,0.02,fraction,Stakeholder-need predicate evaluation unless a stricter rule is specified,INT-PREREG,study_rule,Hard legal thresholds are not relaxed by this need-predicate tolerance.
+TOL-06,location_centroid,absolute,5,m,Need predicates specifying a point or object location,INT-PREREG,study_rule,Distance is calculated in the frozen projected CRS.
+TOL-07,polygon_match,intersection_over_union_minimum,0.8,fraction,Need predicates specifying a polygon,INT-PREREG,study_rule,IoU is area(intersection)/area(union).
+TOL-08,regulatory_numeric_threshold,no_relaxation,0,tolerance,Applicable hard regulatory thresholds,INT-PREREG,hard,Only measurement precision stated by the controlling source is allowed; study tolerances cannot legalise a failed rule.
