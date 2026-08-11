@@ -1,3 +1,5 @@
+<div align="center">
+
 ![POLIS](assets/banner.png)
 
 ![deck.gl](https://img.shields.io/badge/deck.gl-9-DC312F?labelColor=2F2F31)
@@ -10,14 +12,36 @@ A research demo of a multi-agent urban-planning pipeline — **sense a street,
 negotiate its needs, govern what gets built** — rendered on real geography
 with [deck.gl](https://deck.gl) + [MapLibre](https://maplibre.org).
 
+</div>
+
+## Pipeline
+
+```mermaid
+flowchart LR
+    S["Sense<br/>R1–R4 records,<br/>heat / vulnerability fields"]:::sense --> C["Conflict<br/>Detection"]:::conflict
+    C --> E["Equity<br/>Review"]:::equity
+    E --> O["Orchestrator<br/>budget allocation"]:::orch
+    O --> D["Design<br/>trees, benches,<br/>canopy"]:::design
+    D --> F["Feedback<br/>agents re-route,<br/>heat exposure"]:::feedback
+    F --> L["Lifecycle<br/>as-built review"]:::lifecycle
+    classDef sense fill:#2F2F31,stroke:#889A51,color:#EDEDEA
+    classDef conflict fill:#2F2F31,stroke:#DC312F,color:#EDEDEA
+    classDef equity fill:#2F2F31,stroke:#C9A932,color:#EDEDEA
+    classDef orch fill:#2F2F31,stroke:#E07041,color:#EDEDEA
+    classDef design fill:#2F2F31,stroke:#527855,color:#EDEDEA
+    classDef feedback fill:#2F2F31,stroke:#889A51,color:#EDEDEA
+    classDef lifecycle fill:#2F2F31,stroke:#C9A932,color:#EDEDEA
+```
+
 Three cases run through the same pipeline, each on frozen OpenStreetMap
 geometry with a locally packaged CARTO Dark Matter vector style and
 3D-extruded buildings:
 
-- **Chicago** — selected New ERA Trail corridor segment (OSM way `624189839`)
-  with its study-derived 40 m analytical envelope and live movement simulation
-- **London** — Mitre Yard brownfield (OSM way `49601059`), multi-constraint case
-- **Suzhou** — pocket retrofit parcel (OSM way `741252447`), low-complexity anchor
+| Case | Site | Role |
+|---|---|---|
+| **Chicago** | New ERA Trail corridor segment (OSM way `624189839`), 40 m analytical envelope | live movement simulation |
+| **London** | Mitre Yard brownfield (OSM way `49601059`) | multi-constraint case |
+| **Suzhou** | pocket retrofit parcel (OSM way `741252447`) | low-complexity anchor |
 
 The interface is a workflow demonstrator. Its R1-R4 records, heat/vulnerability
 fields, live movement metrics and controlled implementation deviation are
