@@ -1,14 +1,17 @@
 # POLIS · multi-agent planning on real geography
 
 A research demo of a multi-agent urban-planning pipeline — **sense a street,
-negotiate its needs, govern what gets built** — rendered on real Chicago
-geography with [deck.gl](https://deck.gl) + [MapLibre](https://maplibre.org).
+negotiate its needs, govern what gets built** — rendered on real geography
+with [deck.gl](https://deck.gl) + [MapLibre](https://maplibre.org).
 
-This is the deck.gl successor to the hand-drawn SVG prototype
-(`POLIS_Product_Prototype_v9.html`). All pipeline logic was ported 1:1; the
-scenario now uses the manuscript's selected New ERA Trail corridor segment
-(OpenStreetMap way `624189839`) and its study-derived 40 m analytical envelope,
-with a locally packaged CARTO Dark Matter vector style and 3D-extruded buildings.
+Three cases run through the same pipeline, each on frozen OpenStreetMap
+geometry with a locally packaged CARTO Dark Matter vector style and
+3D-extruded buildings:
+
+- **Chicago** — selected New ERA Trail corridor segment (OSM way `624189839`)
+  with its study-derived 40 m analytical envelope and live movement simulation
+- **London** — Mitre Yard brownfield (OSM way `49601059`), multi-constraint case
+- **Suzhou** — pocket retrofit parcel (OSM way `741252447`), low-complexity anchor
 
 The interface is a workflow demonstrator. Its R1-R4 records, heat/vulnerability
 fields, live movement metrics and controlled implementation deviation are
@@ -45,7 +48,7 @@ full pipeline state, decision trace and live metrics as JSON.
 
 | file | role |
 |---|---|
-| `src/scenario.ts` | corridor data in real lng/lat (needs, zones, paths) |
+| `src/scenario.ts` | the three cases in real lng/lat (needs, zones, paths) |
 | `src/pipeline.ts` | pure pipeline: conflicts / equity / orchestration |
 | `src/sim.ts` | pedestrian & vehicle simulation + per-frame metrics |
 | `src/mapLayers.ts` | deck.gl layer factory (heat, conflicts, greenway…) |
