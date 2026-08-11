@@ -16,19 +16,19 @@ export function stepCopy(step: number, P: Pipeline, params: Params): StepCopy {
   const all: StepCopy[] = [
     {
       meta: 'Stage 1 · Shared world model', title: 'Sense the place',
-      text: 'The frozen New ERA Trail alignment, 40 m analytical envelope, movement network and illustrative fields form a shared spatial state.',
+      text: 'Alignment, envelope and movement form one shared spatial state.',
       state: 'Environment → shared world model',
       stats: [['Heat zones', SCENARIO.heat.length], ['Records', '4'], ['Protected', '2'], ['Flow', 'mixed']],
     },
     {
-      meta: 'Stage 2 · Demand Capture', title: 'Encode needs',
-      text: 'Demand Capture converts frozen analytical needs into source-linked spatial demand records; they are not observed resident preferences.',
+      meta: 'Stage 2 · Demand capture', title: 'Encode needs',
+      text: 'Four needs become source-linked spatial demand records.',
       state: 'Needs → R1–R4',
       stats: [['Records', '4'], ['Cost total', `$${SCENARIO.needs.reduce((s, n) => s + n.cost, 0).toFixed(1)}M`], ['Protected', '2'], ['State', 'ready']],
     },
     {
-      meta: 'Stage 2 · Conflict Detection', title: 'Detect conflicts',
-      text: 'Conflict Detection checks where demand records collide in space, timing, or budget — computed from record geometry and the current budget.',
+      meta: 'Stage 2 · Conflict detection', title: 'Detect conflicts',
+      text: 'Records collide in space, timing and budget.',
       state: 'R1–R4 → conflicts',
       stats: [
         ['Spatial', P.conflicts.filter(x => x.kind === 'spatial').length],
@@ -38,32 +38,32 @@ export function stepCopy(step: number, P: Pipeline, params: Params): StepCopy {
       ],
     },
     {
-      meta: 'Stage 2 · Equity Review', title: 'Protect equity',
-      text: 'Equity Review flags protected groups whose current access falls below the floor you set on the left.',
+      meta: 'Stage 2 · Equity review', title: 'Protect equity',
+      text: 'Protected groups below the access floor are flagged.',
       state: 'Conflicts → equity flags',
       stats: [['Floor', params.floor], ['Flags', P.flags.length], ['Protected', '2'], ['Status', 'checked']],
     },
     {
       meta: 'Stage 2 · Orchestration', title: 'Resolve the needs',
-      text: 'The Orchestrator allocates the budget greedily, protected needs first, and enforces the equity floor by reallocating if necessary.',
+      text: 'Budget is allocated under the equity floor, protected needs first.',
       state: 'Evidence + constraints → R*',
       stats: [['Retain', c.retain], ['Revise', c.revise], ['Reject', c.reject], ['Used', `$${P.used}M`]],
     },
     {
       meta: 'Stage 3 · Parametric design', title: 'Grow the intervention',
-      text: 'The resolved allocation becomes geometry: canopy and seating scale with the budget that actually reached them.',
+      text: 'The resolved allocation becomes canopy and seating.',
       state: 'R* → geometry',
       stats: [['Trees', `${P.treeCount}/${SCENARIO.designPoints.length}`], ['Benches', `${P.benchCount}/${SCENARIO.benches.length}`], ['Canopy', `${Math.round(P.treeShare * 100)}%`], ['Budget', 'OK']],
     },
     {
       meta: 'Stage 3 · Local feedback', title: 'Let the city respond',
-      text: 'Pedestrians re-evaluate routes by utility — shade and seating gains vs detour cost, weighted by role. Watch the live metrics respond.',
+      text: 'Pedestrians re-route by utility; the metrics respond.',
       state: 'Design → updated evidence',
       stats: [['Heat field', `${Math.round(P.heatFactor * 100)}%`], ['Choice', 'utility'], ['Roles', '4'], ['Metrics', 'live']],
     },
     {
       meta: 'Lifecycle governance', title: 'Review implementation',
-      text: 'POLIS compares an approved alignment with a controlled implementation-deviation case and triggers review when tolerance fails.',
+      text: 'Built is compared with approved; deviation triggers review.',
       state: 'Planned vs built',
       stats: [['Planned', 'frozen'], ['Case', 'controlled'], ['Tolerance', 'fail'], ['Review', 'on']],
     },

@@ -60,8 +60,8 @@ export default function App() {
   const [countdown, setCountdown] = useState(0);
   const [recordElapsed, setRecordElapsed] = useState(0);
   const [pick, setPick] = useState<PickInfo>({
-    title: 'Click a person or map element',
-    desc: 'Actor identity, needs and intervention meaning appear here on demand.',
+    title: 'Click any person or element',
+    desc: '',
   });
   const [frame, setFrame] = useState(0);
   const mapRef = useRef<MapRef>(null);
@@ -108,10 +108,7 @@ export default function App() {
     setCountdown(0);
     setRecordElapsed(0);
     recordCueRef.current = -1;
-    setPick({
-      title: 'Click a person or map element',
-      desc: 'Actor identity, needs and intervention meaning appear here on demand.',
-    });
+    setPick({ title: 'Click any person or element', desc: '' });
     // settle the camera on the current step instead of a half-finished cue flight
     flyTo(STEP_VIEWS[simRef.current.step], 900);
   }, [flyTo]);
@@ -128,7 +125,7 @@ export default function App() {
     resetRoutes(pedsRef.current);
     setPick({
       title: 'Frozen New ERA Trail case inputs',
-      desc: 'Workflow demonstrator values are illustrative and are not completed experimental or resident results.',
+      desc: 'Illustrative demonstrator values, not resident results.',
     });
     flyTo(STEP_VIEWS[0], 900);
     recordCueRef.current = -1;
@@ -316,14 +313,14 @@ export default function App() {
       <header className="header">
         <div className="brand">
           <span className="logo">POLIS</span>
-          <span className="sub">sense · negotiate · govern — multi-agent planning on real geography</span>
+          <span className="sub">multi-agent planning on real geography</span>
         </div>
         <div className="right">
           <span className="badge">{SCENARIO.name}</span>
           <button className="recordBtn" onClick={startRecord} disabled={recordMode} title="Run the 60-second recording cue sequence">
-            {recordMode ? `REC ${Math.floor(recordElapsed / 60).toString().padStart(2, '0')}:${Math.floor(recordElapsed % 60).toString().padStart(2, '0')}` : 'Record demo'}
+            {recordMode ? `REC ${Math.floor(recordElapsed / 60).toString().padStart(2, '0')}:${Math.floor(recordElapsed % 60).toString().padStart(2, '0')}` : 'Record'}
           </button>
-          <button className="exportBtn" onClick={exportRun} disabled={recordMode}>Export run</button>
+          <button className="exportBtn" onClick={exportRun} disabled={recordMode}>Export</button>
         </div>
       </header>
 
@@ -340,11 +337,10 @@ export default function App() {
           <div className="metricBig">{floor.toFixed(2)}</div>
           <input className="slider" type="range" min={35} max={90} step={5} value={floor * 100}
             disabled={recordMode} onChange={e => setFloor(+e.target.value / 100)} />
-          <div className="hint">Minimum access level every protected group must reach. Raise it and watch the Orchestrator reallocate.</div>
         </div>
         <div className="card">
           <button className="primary" disabled={recordMode} onClick={() => setAutoPlay(a => !a)}>
-            {autoPlay ? '❚❚ Pause' : '▶ Run pipeline'}
+            {autoPlay ? 'Pause' : 'Run pipeline'}
           </button>
           <div className="row" style={{ marginTop: 8 }}>
             <button className="secondary" disabled={recordMode} onClick={() => { setAutoPlay(false); setStepRaw(0); metricsRef.current.reset(); resetRoutes(pedsRef.current); }}>Reset</button>
@@ -365,12 +361,6 @@ export default function App() {
         <div className="stageMeta">{copy.meta}</div>
         <div className="stageTitle">{copy.title}</div>
         <div className="stageText">{copy.text}</div>
-        <div className="stepPills">
-          {STEP_NAMES.map((n, i) => (
-            <button key={n} className={`stepPill ${i === step ? 'active' : ''}`}
-              disabled={recordMode} onClick={() => { setAutoPlay(false); setStep(i); }}>{i}·{n}</button>
-          ))}
-        </div>
       </section>
       {step === 2 && (
         <div className="conflictChip">{pipeline.conflicts.length} conflicts detected</div>
@@ -399,7 +389,6 @@ export default function App() {
                 <div key={a.key} className={`agent ${a.cls} ${state}`}>
                   <div className="agentIcon">{a.short}</div>
                   <div className="agentName">{a.name}</div>
-                  <div className="agentState">{state}</div>
                 </div>
               );
             })}
@@ -409,7 +398,7 @@ export default function App() {
         <div className="card">
           <div className="k">Decision trace</div>
           <div className="trace">
-            {traceLines.length === 0 && <div className="traceEmpty">Step through the pipeline to see each agent's evidence → conclusion.</div>}
+            {traceLines.length === 0 && <div className="traceEmpty">Run the pipeline to see evidence → conclusion.</div>}
             {traceLines.map((t, i) => (
               <div key={i} className={`traceLine ${t.cls}`} dangerouslySetInnerHTML={{ __html: t.html }} />
             ))}
@@ -428,7 +417,6 @@ export default function App() {
             {sparkG && <polyline points={sparkG} fill="none" stroke="#8E8E93" strokeWidth={1.4} opacity={0.7} />}
             {sparkP && <polyline points={sparkP} fill="none" stroke="#E15857" strokeWidth={1.8} />}
           </svg>
-          <div className="liveNote">Red — protected groups · grey — general population. Heat exposure share of walking time.</div>
         </div>
 
         <div className="card">
@@ -450,7 +438,6 @@ export default function App() {
       <footer className="bottomBar">
         <div>
           <div className="bottomTitle">{step + 1} · {copy.title}</div>
-          <div className="bottomSub">{copy.state}</div>
         </div>
         <div className="timeline">
           <input type="range" min={0} max={7} step={1} value={step}
