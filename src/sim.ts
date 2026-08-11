@@ -54,7 +54,7 @@ export function createPeds(): Ped[] {
       peds.push({
         id: id++, role: ROLES.includes(role) ? role : 'commuter',
         homePath: gp, path: gp, onGreen: false,
-        corridor: pi === 0 || pi === 1,          // N–S sidewalk walkers can adopt the greenway
+        corridor: pi === 0 || pi === 1,          // walkers on the two parallel streets can adopt the trail
         d: rand() * gp.total, dir: rand() < 0.5 ? 1 : -1,
         speed: ROLE_SPEED[role] * (0.85 + rand() * 0.3),
         pauseUntil: 0, pos: gp.pointAt(0),

@@ -1,8 +1,8 @@
-/* Geo helpers — flat-earth approximation, fine at neighbourhood scale (~41.845°N). */
+/* Geo helpers — flat-earth approximation, fine at the New ERA neighbourhood scale. */
 export type LngLat = [number, number];
 
 export const M_LAT = 111132;               // metres per degree latitude
-export const M_LNG = 82920;                // metres per degree longitude at 41.845°N
+export const M_LNG = 82920;                // metres per degree longitude near the Chicago study site
 
 export function distM(a: LngLat, b: LngLat): number {
   const dx = (a[0] - b[0]) * M_LNG;

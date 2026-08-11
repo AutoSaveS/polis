@@ -90,6 +90,22 @@ export function buildLayers(o: LayerOpts): Layer[] {
   const showNeeds = step >= 1;
   const midRoute = SCENARIO.route[Math.floor(SCENARIO.route.length / 2)];
 
+  /* Study-derived 40 m analytical envelope and frozen OSM centreline. */
+  layers.push(
+    new PathLayer({
+      id: 'analytical-envelope', data: [SCENARIO.route],
+      getPath: d => d, getColor: [228, 208, 133, 24],
+      getWidth: SCENARIO.analyticalEnvelopeM, widthUnits: 'meters',
+      capRounded: true, jointRounded: true,
+    }),
+    new PathLayer({
+      id: 'osm-centreline', data: [SCENARIO.route],
+      getPath: d => d, getColor: [228, 208, 133, 145],
+      getWidth: 2.2, widthUnits: 'meters',
+      capRounded: true, jointRounded: true,
+    }),
+  );
+
   /* heat field — always visible, contracts with built canopy */
   layers.push(new HeatmapLayer<HeatPoint>({
     id: 'heat',
@@ -189,14 +205,14 @@ export function buildLayers(o: LayerOpts): Layer[] {
         getDashArray: [6, 4], extensions: [dashExt],
       }),
       new PolygonLayer({
-        id: 'review-ring', data: [{ c: [-87.70560, 41.8459] as LngLat }],
+        id: 'review-ring', data: [{ c: SCENARIO.reviewPoint }],
         getPolygon: d => ellipse(d.c, 90, 70),
         getFillColor: [...RED, 30] as [number, number, number, number],
         getLineColor: [...RED, 230] as [number, number, number, number],
         getLineWidth: 2.5, lineWidthUnits: 'pixels', stroked: true, filled: true,
       }),
       new TextLayer({
-        id: 'review-label', data: [{ pos: [-87.7056, 41.84665] as LngLat, txt: 'REVIEW TRIGGERED · built ≠ approved' }],
+        id: 'review-label', data: [{ pos: [SCENARIO.reviewPoint[0], SCENARIO.reviewPoint[1] + 0.00062] as LngLat, txt: 'REVIEW TRIGGERED · controlled deviation > tolerance' }],
         getPosition: d => d.pos, getText: d => d.txt,
         getSize: 13, getColor: [255, 235 as number, 235, 255],
         background: true, getBackgroundColor: [90, 20, 19, 235], backgroundPadding: [8, 4],

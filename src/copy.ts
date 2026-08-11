@@ -16,13 +16,13 @@ export function stepCopy(step: number, P: Pipeline, params: Params): StepCopy {
   const all: StepCopy[] = [
     {
       meta: 'Stage 1 · Shared world model', title: 'Sense the place',
-      text: 'People and vehicles move through a hot, weakly shaded corridor. POLIS starts from this shared spatial state.',
+      text: 'The frozen New ERA Trail alignment, 40 m analytical envelope, movement network and illustrative fields form a shared spatial state.',
       state: 'Environment → shared world model',
       stats: [['Heat zones', SCENARIO.heat.length], ['Records', '4'], ['Protected', '2'], ['Flow', 'mixed']],
     },
     {
       meta: 'Stage 2 · Demand Capture', title: 'Encode needs',
-      text: 'Demand Capture converts place-based needs into structured spatial demand records.',
+      text: 'Demand Capture converts frozen analytical needs into source-linked spatial demand records; they are not observed resident preferences.',
       state: 'Needs → R1–R4',
       stats: [['Records', '4'], ['Cost total', `$${SCENARIO.needs.reduce((s, n) => s + n.cost, 0).toFixed(1)}M`], ['Protected', '2'], ['State', 'ready']],
     },
@@ -63,9 +63,9 @@ export function stepCopy(step: number, P: Pipeline, params: Params): StepCopy {
     },
     {
       meta: 'Lifecycle governance', title: 'Review implementation',
-      text: 'POLIS compares the built intervention to the approved design and triggers review if tolerance fails.',
+      text: 'POLIS compares an approved alignment with a controlled implementation-deviation case and triggers review when tolerance fails.',
       state: 'Planned vs built',
-      stats: [['Planned', 'yes'], ['Built', 'shifted'], ['Tolerance', 'fail'], ['Review', 'on']],
+      stats: [['Planned', 'frozen'], ['Case', 'controlled'], ['Tolerance', 'fail'], ['Review', 'on']],
     },
   ];
   return all[step];

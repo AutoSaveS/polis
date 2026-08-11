@@ -12,7 +12,7 @@ import {
 import { buildLayers, makeHeatPoints, type PickInfo, type ViewMode } from './mapLayers';
 import './App.css';
 
-const BASEMAP = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json';
+const BASEMAP = './carto-dark-style.json';
 
 function DeckGLOverlay(props: MapboxOverlayProps) {
   const overlay = useControl<MapboxOverlay>(() => new MapboxOverlay(props));
@@ -23,15 +23,21 @@ function DeckGLOverlay(props: MapboxOverlayProps) {
 interface StepView { longitude: number; latitude: number; zoom: number; pitch: number; bearing: number }
 
 const STEP_VIEWS: StepView[] = [
-  { longitude: -87.7043, latitude: 41.8452, zoom: 15.05, pitch: 50, bearing: -20 },
-  { longitude: -87.7046, latitude: 41.846, zoom: 15.35, pitch: 48, bearing: -18 },
-  { longitude: -87.7048, latitude: 41.8455, zoom: 15.3, pitch: 48, bearing: -18 },
-  { longitude: -87.7055, latitude: 41.8452, zoom: 15.4, pitch: 48, bearing: -14 },
-  { longitude: -87.7051, latitude: 41.8455, zoom: 15.35, pitch: 50, bearing: -18 },
-  { longitude: -87.7051, latitude: 41.8452, zoom: 15.6, pitch: 56, bearing: -28 },
-  { longitude: -87.7049, latitude: 41.8452, zoom: 15.45, pitch: 56, bearing: -24 },
-  { longitude: -87.7055, latitude: 41.8456, zoom: 15.8, pitch: 35, bearing: -8 },
+  { longitude: -87.67050, latitude: 41.78769, zoom: 14.20, pitch: 47, bearing: -82 },
+  { longitude: -87.67320, latitude: 41.78767, zoom: 14.75, pitch: 48, bearing: -80 },
+  { longitude: -87.67085, latitude: 41.78769, zoom: 14.65, pitch: 50, bearing: -84 },
+  { longitude: -87.67025, latitude: 41.78770, zoom: 14.85, pitch: 43, bearing: -78 },
+  { longitude: -87.67050, latitude: 41.78769, zoom: 14.50, pitch: 48, bearing: -82 },
+  { longitude: -87.66960, latitude: 41.78771, zoom: 14.85, pitch: 56, bearing: -86 },
+  { longitude: -87.66880, latitude: 41.78772, zoom: 14.72, pitch: 54, bearing: -83 },
+  { longitude: -87.67060, latitude: 41.78778, zoom: 14.68, pitch: 34, bearing: -88 },
 ];
+
+const CONTEXT_VIEW: StepView = { longitude: -87.67050, latitude: 41.78769, zoom: 14.45, pitch: 46, bearing: -82 };
+const CLOSING_VIEW: StepView = { longitude: -87.67050, latitude: 41.78769, zoom: 13.95, pitch: 42, bearing: -84 };
+
+const RECORD_CUES = [0, 4, 10, 16, 22, 28, 34, 41, 48, 56];
+const RECORD_LABELS = ['Title', 'World model', 'Demand', 'Conflict', 'Equity', 'Orchestration', 'Design', 'Feedback', 'Review', 'Closing'];
 
 const AGENTS = [
   { key: 'demand', short: 'D', name: 'Demand', cls: 'demand' },
@@ -47,12 +53,16 @@ export default function App() {
   const [viewMode, setViewMode] = useState<ViewMode>('mobility');
   const [simSpeed, setSimSpeed] = useState(1);
   const [autoPlay, setAutoPlay] = useState(false);
+  const [recordMode, setRecordMode] = useState(false);
+  const [countdown, setCountdown] = useState(0);
+  const [recordElapsed, setRecordElapsed] = useState(0);
   const [pick, setPick] = useState<PickInfo>({
     title: 'Click a person or map element',
     desc: 'Actor identity, needs and intervention meaning appear here on demand.',
   });
   const [frame, setFrame] = useState(0);
   const mapRef = useRef<MapRef>(null);
+  const recordCueRef = useRef(-1);
 
   const pedsRef = useRef(createPeds());
   const carsRef = useRef(createCars());
@@ -83,6 +93,82 @@ export default function App() {
     });
   }, []);
 
+  const flyTo = useCallback((v: StepView, duration = 1500) => {
+    mapRef.current?.flyTo({
+      center: [v.longitude, v.latitude], zoom: v.zoom,
+      pitch: v.pitch, bearing: v.bearing, duration, essential: true,
+    });
+  }, []);
+
+  const cancelRecord = useCallback(() => {
+    setRecordMode(false);
+    setCountdown(0);
+    setRecordElapsed(0);
+    recordCueRef.current = -1;
+  }, []);
+
+  const startRecord = useCallback(() => {
+    if (recordMode) return;
+    setAutoPlay(false);
+    setBudget(22);
+    setFloor(0.75);
+    setViewMode('mobility');
+    setSimSpeed(1);
+    setStepRaw(0);
+    metricsRef.current.reset();
+    resetRoutes(pedsRef.current);
+    setPick({
+      title: 'Frozen New ERA Trail case inputs',
+      desc: 'Workflow demonstrator values are illustrative and are not completed experimental or resident results.',
+    });
+    flyTo(STEP_VIEWS[0], 900);
+    recordCueRef.current = -1;
+    setRecordElapsed(0);
+    setCountdown(3);
+    setRecordMode(true);
+  }, [flyTo, recordMode]);
+
+  /* One-click, deterministic 60 s cue mode. Screen capture remains external. */
+  useEffect(() => {
+    if (!recordMode) return;
+    if (countdown > 0) {
+      const timer = window.setTimeout(() => setCountdown(v => Math.max(0, v - 1)), 1000);
+      return () => window.clearTimeout(timer);
+    }
+
+    const startedAt = performance.now();
+    const tick = () => {
+      const elapsed = Math.min(60, (performance.now() - startedAt) / 1000);
+      setRecordElapsed(elapsed);
+      let cue = 0;
+      for (let i = 0; i < RECORD_CUES.length; i++) if (elapsed >= RECORD_CUES[i]) cue = i;
+      if (cue !== recordCueRef.current) {
+        recordCueRef.current = cue;
+        if (cue === 1) flyTo(CONTEXT_VIEW, 1600);
+        if (cue >= 2 && cue <= 8) {
+          const nextStep = cue - 1;
+          setStep(nextStep);
+          setViewMode(nextStep === 2 ? 'conflict' : nextStep === 3 ? 'equity' : 'mobility');
+        }
+        if (cue === 9) flyTo(CLOSING_VIEW, 1700);
+      }
+      if (elapsed >= 60) {
+        window.clearInterval(timer);
+        window.setTimeout(cancelRecord, 1000);
+      }
+    };
+    tick();
+    const timer = window.setInterval(tick, 100);
+    return () => window.clearInterval(timer);
+  }, [recordMode, countdown, cancelRecord, flyTo, setStep]);
+
+  useEffect(() => {
+    if (!recordMode) return;
+    const onKey = (event: KeyboardEvent) => { if (event.key === 'Escape') cancelRecord(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [recordMode, cancelRecord]);
+
   /* entering the feedback stage: everyone re-evaluates their route immediately */
   useEffect(() => {
     if (step >= 6) reevaluateRoutes(pedsRef.current, step, pipeline.treeShare, pipeline.benchShare);
@@ -91,12 +177,8 @@ export default function App() {
   /* camera follows the pipeline step */
   useEffect(() => {
     const v = STEP_VIEWS[step];
-    mapRef.current?.flyTo({
-      center: [v.longitude, v.latitude],
-      zoom: v.zoom, pitch: v.pitch, bearing: v.bearing,
-      duration: 1700, essential: true,
-    });
-  }, [step]);
+    flyTo(v, 1700);
+  }, [step, flyTo]);
 
   /* single animation loop — movers always alive, metrics measured per frame */
   useEffect(() => {
@@ -129,18 +211,31 @@ export default function App() {
 
   const onMapLoad = useCallback((e: { target: ReturnType<MapRef['getMap']> }) => {
     const map = e.target;
+    (window as unknown as { __map: typeof map }).__map = map; // debug handle
+    if (!map.getSource('carto')) return;
+
     for (const id of ['building', 'building-top']) {
       if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', 'none');
     }
-    const firstSymbol = map.getStyle().layers?.find(l => l.type === 'symbol')?.id;
+    if (map.getLayer('buildings-3d')) return;
+
+    const firstSymbol = map.getStyle().layers?.find(layer => layer.type === 'symbol')?.id;
     map.addLayer({
-      id: '3d-buildings', type: 'fill-extrusion',
-      source: 'carto', 'source-layer': 'building', minzoom: 13,
+      id: 'buildings-3d',
+      type: 'fill-extrusion',
+      source: 'carto',
+      'source-layer': 'building',
+      minzoom: 13,
+      filter: ['!=', ['get', 'hide_3d'], true],
       paint: {
-        'fill-extrusion-color': '#28313c',
-        'fill-extrusion-height': ['coalesce', ['get', 'render_height'], 12],
+        'fill-extrusion-color': '#323b42',
+        'fill-extrusion-height': [
+          'interpolate', ['linear'], ['zoom'],
+          13, 0,
+          14.5, ['coalesce', ['get', 'render_height'], 6],
+        ],
         'fill-extrusion-base': ['coalesce', ['get', 'render_min_height'], 0],
-        'fill-extrusion-opacity': 0.88,
+        'fill-extrusion-opacity': 0.84,
       },
     }, firstSymbol);
   }, []);
@@ -191,15 +286,18 @@ export default function App() {
   const H = m.history;
   const sparkP = H.length > 1 ? H.map((h, i) => `${(i / (H.length - 1)) * 300},${34 - h.p * 30 - 2}`).join(' ') : '';
   const sparkG = H.length > 1 ? H.map((h, i) => `${(i / (H.length - 1)) * 300},${34 - h.g * 30 - 2}`).join(' ') : '';
+  const recordShot = RECORD_CUES.reduce((active, cue, i) => recordElapsed >= cue ? i : active, 0);
 
   return (
-    <div className="app">
+    <div className={`app ${recordMode ? 'recording' : ''}`}>
       <div className="world">
         <Map
           ref={mapRef}
           initialViewState={STEP_VIEWS[0]}
           mapStyle={BASEMAP}
           onLoad={onMapLoad}
+          onStyleData={(e) => { (window as unknown as { __map: unknown }).__map = e.target; }}
+          onError={(e) => console.error('map error:', e.error?.message ?? e)}
           attributionControl={false}
         >
           <DeckGLOverlay layers={layers} />
@@ -213,7 +311,10 @@ export default function App() {
         </div>
         <div className="right">
           <span className="badge">{SCENARIO.name}</span>
-          <button className="exportBtn" onClick={exportRun}>⤓ Export run</button>
+          <button className="recordBtn" onClick={startRecord} disabled={recordMode} title="Run the 60-second recording cue sequence">
+            {recordMode ? `REC ${Math.floor(recordElapsed / 60).toString().padStart(2, '0')}:${Math.floor(recordElapsed % 60).toString().padStart(2, '0')}` : 'Record demo'}
+          </button>
+          <button className="exportBtn" onClick={exportRun} disabled={recordMode}>Export run</button>
         </div>
       </header>
 
@@ -222,30 +323,30 @@ export default function App() {
           <div className="k">Budget</div>
           <div className="metricBig">${budget.toFixed(1)}M</div>
           <input className="slider" type="range" min={8} max={40} step={1} value={budget}
-            onChange={e => setBudget(+e.target.value)} />
+            disabled={recordMode} onChange={e => setBudget(+e.target.value)} />
           <div className="paramRow"><span>Used</span><span className="paramVal">{step >= 4 ? `$${pipeline.used}M` : '—'}</span></div>
         </div>
         <div className="card">
           <div className="k">Equity floor</div>
           <div className="metricBig">{floor.toFixed(2)}</div>
           <input className="slider" type="range" min={35} max={90} step={5} value={floor * 100}
-            onChange={e => setFloor(+e.target.value / 100)} />
+            disabled={recordMode} onChange={e => setFloor(+e.target.value / 100)} />
           <div className="hint">Minimum access level every protected group must reach. Raise it and watch the Orchestrator reallocate.</div>
         </div>
         <div className="card">
-          <button className="primary" onClick={() => setAutoPlay(a => !a)}>
+          <button className="primary" disabled={recordMode} onClick={() => setAutoPlay(a => !a)}>
             {autoPlay ? '❚❚ Pause' : '▶ Run pipeline'}
           </button>
           <div className="row" style={{ marginTop: 8 }}>
-            <button className="secondary" onClick={() => { setAutoPlay(false); setStepRaw(0); metricsRef.current.reset(); resetRoutes(pedsRef.current); }}>Reset</button>
-            <button className="secondary" onClick={() => { setAutoPlay(false); setStep(step + 1); }}>Step</button>
+            <button className="secondary" disabled={recordMode} onClick={() => { setAutoPlay(false); setStepRaw(0); metricsRef.current.reset(); resetRoutes(pedsRef.current); }}>Reset</button>
+            <button className="secondary" disabled={recordMode} onClick={() => { setAutoPlay(false); setStep(step + 1); }}>Step</button>
           </div>
         </div>
         <div className="card">
           <div className="k">Sim speed</div>
           <div className="row">
             {[0.5, 1, 1.6, 2.5].map(s => (
-              <button key={s} className={`secondary ${simSpeed === s ? 'on' : ''}`} onClick={() => setSimSpeed(s)}>{s}×</button>
+              <button key={s} className={`secondary ${simSpeed === s ? 'on' : ''}`} disabled={recordMode} onClick={() => setSimSpeed(s)}>{s}×</button>
             ))}
           </div>
         </div>
@@ -258,7 +359,7 @@ export default function App() {
         <div className="stepPills">
           {STEP_NAMES.map((n, i) => (
             <button key={n} className={`stepPill ${i === step ? 'active' : ''}`}
-              onClick={() => { setAutoPlay(false); setStep(i); }}>{i}·{n}</button>
+              disabled={recordMode} onClick={() => { setAutoPlay(false); setStep(i); }}>{i}·{n}</button>
           ))}
         </div>
       </section>
@@ -268,7 +369,7 @@ export default function App() {
           <div className="k">View</div>
           <div className="toggleBar">
             {(['mobility', 'conflict', 'equity'] as ViewMode[]).map(v => (
-              <button key={v} className={`toggle ${viewMode === v ? 'active' : ''}`} onClick={() => setViewMode(v)}>
+              <button key={v} className={`toggle ${viewMode === v ? 'active' : ''}`} disabled={recordMode} onClick={() => setViewMode(v)}>
                 {v[0].toUpperCase() + v.slice(1)}
               </button>
             ))}
@@ -341,7 +442,7 @@ export default function App() {
         </div>
         <div className="timeline">
           <input type="range" min={0} max={7} step={1} value={step}
-            onChange={e => { setAutoPlay(false); setStep(+e.target.value); }} />
+            disabled={recordMode} onChange={e => { setAutoPlay(false); setStep(+e.target.value); }} />
           <div className="labels">
             {STEP_NAMES.map((n, i) => (
               <div key={n} className={`labelStep ${i === step ? 'active' : ''}`}>{n}</div>
@@ -349,11 +450,46 @@ export default function App() {
           </div>
         </div>
         <div className="controls">
-          <button className="ctrl" onClick={() => { setAutoPlay(false); setStep(step - 1); }}>←</button>
-          <button className="ctrl" onClick={() => setAutoPlay(a => !a)}>{autoPlay ? '❚❚' : '▶'}</button>
-          <button className="ctrl" onClick={() => { setAutoPlay(false); setStep(step + 1); }}>→</button>
+          <button className="ctrl" disabled={recordMode} onClick={() => { setAutoPlay(false); setStep(step - 1); }}>←</button>
+          <button className="ctrl" disabled={recordMode} onClick={() => setAutoPlay(a => !a)}>{autoPlay ? '❚❚' : '▶'}</button>
+          <button className="ctrl" disabled={recordMode} onClick={() => { setAutoPlay(false); setStep(step + 1); }}>→</button>
         </div>
       </footer>
+
+      {recordMode && countdown > 0 && (
+        <div className="recordCountdown" aria-live="polite">
+          <div className="countNumber">{countdown}</div>
+          <div className="countLabel">Recording cue mode</div>
+          <div className="countHint">Start screen capture now · Esc cancels</div>
+        </div>
+      )}
+      {recordMode && countdown === 0 && recordShot === 0 && (
+        <div className="recordTitle">
+          <div className="recordKicker">Interactive workflow demonstrator</div>
+          <div className="recordName">POLIS</div>
+          <div className="recordThesis">Provenance-aware AI decision support for equitable green infrastructure planning</div>
+          <div className="recordChain">Needs → evidence → rules → geometry → review</div>
+        </div>
+      )}
+      {recordMode && countdown === 0 && recordShot === 1 && (
+        <div className="recordContext">
+          <span>Suzhou pocket retrofit</span><span>London brownfield retrofit</span><span className="selected">Chicago · New ERA Trail selected</span>
+        </div>
+      )}
+      {recordMode && countdown === 0 && recordShot === 6 && (
+        <div className="recordDomains">Vegetation <b>·</b> Hardscape <b>·</b> Hydrology <b>·</b> Furniture <b>·</b> Activity <b>·</b> Ecology</div>
+      )}
+      {recordMode && countdown === 0 && recordShot === 7 && (
+        <div className="recordDomains">Access <b>·</b> Solar <b>·</b> Thermal <b>·</b> Green <b>·</b> Ecology <b>·</b> Budget</div>
+      )}
+      {recordMode && countdown === 0 && recordShot === 9 && (
+        <div className="recordClosing">
+          <div className="recordName">POLIS</div>
+          <div className="recordThesis">Keeping planning commitments inspectable</div>
+          <div className="recordChain">Workflow demonstrator · not completed case-study results</div>
+        </div>
+      )}
+      {recordMode && countdown === 0 && <div className="recordShotLabel">SHOT {recordShot + 1}/10 · {RECORD_LABELS[recordShot]}</div>}
     </div>
   );
 }

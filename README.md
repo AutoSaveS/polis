@@ -6,8 +6,14 @@ geography with [deck.gl](https://deck.gl) + [MapLibre](https://maplibre.org).
 
 This is the deck.gl successor to the hand-drawn SVG prototype
 (`POLIS_Product_Prototype_v9.html`). All pipeline logic was ported 1:1; the
-scenario now lives on the S Kedzie Ave corridor in Little Village, with a dark
-vector basemap and 3D-extruded buildings.
+scenario now uses the manuscript's selected New ERA Trail corridor segment
+(OpenStreetMap way `624189839`) and its study-derived 40 m analytical envelope,
+with a locally packaged CARTO Dark Matter vector style and 3D-extruded buildings.
+
+The interface is a workflow demonstrator. Its R1-R4 records, heat/vulnerability
+fields, live movement metrics and controlled implementation deviation are
+frozen illustrative inputs or outputs, not resident observations or completed
+Experiment 1 results.
 
 ## Run
 
