@@ -1,4 +1,10 @@
-# POLIS · multi-agent planning on real geography
+![POLIS](assets/banner.png)
+
+![deck.gl](https://img.shields.io/badge/deck.gl-9-DC312F?labelColor=2F2F31)
+![TypeScript](https://img.shields.io/badge/TypeScript-strict-889A51?labelColor=2F2F31)
+![Cases](https://img.shields.io/badge/cases-Chicago%20%C2%B7%20London%20%C2%B7%20Suzhou-E07041?labelColor=2F2F31)
+![Preregistered](https://img.shields.io/badge/experiment%201-preregistered-527855?labelColor=2F2F31)
+![License](https://img.shields.io/badge/license-MIT-C9A932?labelColor=2F2F31)
 
 A research demo of a multi-agent urban-planning pipeline — **sense a street,
 negotiate its needs, govern what gets built** — rendered on real geography
@@ -70,3 +76,10 @@ retrieval timestamps. OSM extracts are © OpenStreetMap contributors (ODbL);
 USGS 3DEP and city open-data sources are credited in `world_model/metadata/`.
 
 Basemap: CARTO Dark Matter (© OpenStreetMap contributors, © CARTO).
+
+## License
+
+Code is released under the [MIT License](LICENSE). Spatial data snapshots and
+derived layers retain the licenses of their original providers (OSM/ODbL,
+USGS public domain, city open-data portals) — see the notice in `LICENSE`
+and the provenance records in `world_model/metadata/`.
