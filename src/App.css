@@ -139,6 +139,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:15px;height:15px;b
 .recordName{font-size:64px;line-height:1;font-weight:900;color:var(--green2);margin-top:12px}
 .recordThesis{max-width:760px;font-size:21px;line-height:1.35;font-weight:750;margin-top:16px}
 .recordChain{font-size:12px;color:var(--muted);margin-top:18px}
+.conflictChip{position:absolute;z-index:18;left:50%;transform:translateX(-50%);bottom:96px;padding:8px 14px;border:1px solid rgba(170,119,96,.55);background:rgba(13,19,25,.92);font-size:12px;font-weight:800;color:#f3ded2;letter-spacing:.04em;pointer-events:none;white-space:nowrap}
 .recordContext,.recordDomains{position:absolute;z-index:55;left:50%;transform:translateX(-50%);bottom:100px;display:flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid var(--line);background:rgba(13,19,25,.92);font-size:10px;color:var(--muted);pointer-events:none;white-space:nowrap}
 .recordContext span{padding:6px 9px;border-left:2px solid var(--muted2)}
 .recordContext .selected{color:var(--green2);border-left-color:var(--green)}

@@ -44,25 +44,37 @@ const dashExt = new PathStyleExtension({ dash: true });
 
 export interface HeatPoint { pos: LngLat; w: number }
 
-/** Deterministic scatter inside each heat ellipse; radii contract with the heat factor. */
+/** Deterministic scatter inside each heat ellipse; radii contract with the heat factor.
+    Uniform-in-ellipse sampling (not centre-weighted) so the overlapping zones read as one
+    continuous corridor-hugging field instead of three stamped blobs. */
 export function makeHeatPoints(hf: number): HeatPoint[] {
   const rand = mulberry32(1234);
   const pts: HeatPoint[] = [];
   for (const z of SCENARIO.heat) {
-    for (let i = 0; i < 70; i++) {
-      const gx = (rand() + rand() - 1) * 0.9;   // triangular ≈ gaussian
-      const gy = (rand() + rand() - 1) * 0.9;
+    for (let i = 0; i < 110; i++) {
+      const r = Math.sqrt(rand());
+      const a = rand() * Math.PI * 2;
       pts.push({
         pos: [
-          z.center[0] + (gx * z.rx * hf) / 82920,
-          z.center[1] + (gy * z.ry * hf) / 111132,
+          z.center[0] + (Math.cos(a) * r * z.rx * hf) / 82920,
+          z.center[1] + (Math.sin(a) * r * z.ry * hf) / 111132,
         ],
-        w: z.severity,
+        w: z.severity * (0.7 + 0.6 * rand()),
       });
     }
   }
   return pts;
 }
+
+/** Deterministic two-row label layout so map annotations never stack.
+    Downward (south-side) offsets are unreliable over the extruded blocks,
+    so everything sits above the trail: adjacent records alternate rows,
+    and each record's verdict/equity chip stacks directly above its label. */
+const LABEL_ROW: Record<string, number> = { R1: 0, R4: 1, R2: 0, R3: 1 };
+const needLabelOffset = (id: string): [number, number] =>
+  [0, -30 - (LABEL_ROW[id] ?? 0) * 40];
+const verdictOffset = (id: string): [number, number] =>
+  [0, -58 - (LABEL_ROW[id] ?? 0) * 40];
 
 export interface PickInfo { title: string; desc: string }
 
@@ -88,7 +100,6 @@ export function buildLayers(o: LayerOpts): Layer[] {
   const N = SCENARIO.needs;
   const layers: (Layer | false)[] = [];
   const showNeeds = step >= 1;
-  const midRoute = SCENARIO.route[Math.floor(SCENARIO.route.length / 2)];
 
   /* Study-derived 40 m analytical envelope and frozen OSM centreline. */
   layers.push(
@@ -112,9 +123,9 @@ export function buildLayers(o: LayerOpts): Layer[] {
     data: o.heatPoints,
     getPosition: d => d.pos,
     getWeight: d => d.w,
-    radiusPixels: 62,
-    intensity: 1.15,
-    threshold: 0.06,
+    radiusPixels: 46,
+    intensity: 1.0,
+    threshold: 0.05,
     colorRange: HEAT_RANGE,
     aggregation: 'SUM',
     updateTriggers: { getPosition: o.heatPoints },
@@ -212,10 +223,11 @@ export function buildLayers(o: LayerOpts): Layer[] {
         getLineWidth: 2.5, lineWidthUnits: 'pixels', stroked: true, filled: true,
       }),
       new TextLayer({
-        id: 'review-label', data: [{ pos: [SCENARIO.reviewPoint[0], SCENARIO.reviewPoint[1] + 0.00062] as LngLat, txt: 'REVIEW TRIGGERED · controlled deviation > tolerance' }],
+        id: 'review-label', data: [{ pos: SCENARIO.reviewPoint, txt: 'REVIEW TRIGGERED\ncontrolled deviation > tolerance' }],
         getPosition: d => d.pos, getText: d => d.txt,
         getSize: 13, getColor: [255, 235 as number, 235, 255],
-        background: true, getBackgroundColor: [90, 20, 19, 235], backgroundPadding: [8, 4],
+        getPixelOffset: [0, -64], lineHeight: 1.25,
+        background: true, getBackgroundColor: [90, 20, 19, 235], backgroundPadding: [8, 5],
         fontFamily: FONT, fontWeight: 700, characterSet: 'auto',
       }),
     );
@@ -239,14 +251,6 @@ export function buildLayers(o: LayerOpts): Layer[] {
         getWidth: 3.5, getHeight: 0.6, pickable: true,
         onClick: (info) => { const d = uniq[info.index]; o.onPick({ title: `${d.a} × ${d.b} — ${d.kind} conflict`, desc: d.detail }); },
       }),
-      new TextLayer({
-        id: 'conflict-count',
-        data: [{ pos: [midRoute[0] + 0.0016, midRoute[1]] as LngLat, txt: `${P.conflicts.length} conflicts detected` }],
-        getPosition: d => d.pos, getText: d => d.txt,
-        getSize: 14, getColor: [255, 255, 255, 255],
-        background: true, getBackgroundColor: PANEL_BG, backgroundPadding: [9, 5],
-        fontFamily: FONT, fontWeight: 800, characterSet: 'auto',
-      }),
     );
   }
 
@@ -262,12 +266,13 @@ export function buildLayers(o: LayerOpts): Layer[] {
         getLineWidth: 2.5, lineWidthUnits: 'pixels', stroked: true, filled: true,
         transitions: { getRadius: { duration: 700, enter: () => [0] } },
       }),
-      new TextLayer({
+      // gap labels only on the dedicated equity step — verdicts reuse this slot later
+      step === 3 && new TextLayer({
         id: 'equity-labels', data: P.flags,
         getPosition: d => N.find(n => n.id === d.id)!.pos,
         getText: d => `${Math.round(d.gap * 100)}pt below floor`,
         getSize: 12, getColor: [255, 230, 230, 255],
-        getPixelOffset: [0, -46],
+        getPixelOffset: d => verdictOffset(d.id),
         background: true, getBackgroundColor: [90, 20, 19, 225], backgroundPadding: [7, 4],
         fontFamily: FONT, fontWeight: 700, characterSet: 'auto',
       }),
@@ -294,12 +299,13 @@ export function buildLayers(o: LayerOpts): Layer[] {
         onClick: (info) => { const d = info.object as Need; o.onPick({ title: `${d.id} · ${d.label}`, desc: needDesc(d, P) }); },
         transitions: { getRadius: { duration: 600, enter: () => [0] } },
       }),
-      new TextLayer({
+      // hidden on the review step so the deviation banner owns the frame
+      step !== 7 && new TextLayer({
         id: 'need-labels', data: N,
         getPosition: d => d.pos,
         getText: d => `${d.id} · ${d.label}`,
-        getSize: 12, getColor: [255, 255, 255, 255],
-        getPixelOffset: [0, -24],
+        getSize: 12.5, getColor: [255, 255, 255, 255],
+        getPixelOffset: d => needLabelOffset(d.id),
         background: true, getBackgroundColor: PANEL_BG, backgroundPadding: [7, 4],
         fontFamily: FONT, fontWeight: 700, characterSet: 'auto',
       }),
@@ -317,7 +323,7 @@ export function buildLayers(o: LayerOpts): Layer[] {
       getPosition: d => N.find(n => n.id === d.id)!.pos,
       getText: d => `${d.action.toUpperCase()}${d.alloc ? ` $${d.alloc}M` : ''}`,
       getSize: 12, getColor: d => verdictColor(d.action),
-      getPixelOffset: [0, -48],
+      getPixelOffset: d => verdictOffset(d.id),
       background: true, getBackgroundColor: PANEL_BG, backgroundPadding: [7, 4],
       fontFamily: FONT, fontWeight: 800, characterSet: 'auto',
       updateTriggers: { getText: P, getColor: P },

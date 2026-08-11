@@ -22,19 +22,22 @@ function DeckGLOverlay(props: MapboxOverlayProps) {
 
 interface StepView { longitude: number; latitude: number; zoom: number; pitch: number; bearing: number }
 
+/* The trail runs east–west: a small bearing keeps it diagonal across the
+   widescreen frame instead of compressed into a vertical column, and closer
+   zooms make the extruded buildings actually read as 3D. */
 const STEP_VIEWS: StepView[] = [
-  { longitude: -87.67050, latitude: 41.78769, zoom: 14.20, pitch: 47, bearing: -82 },
-  { longitude: -87.67320, latitude: 41.78767, zoom: 14.75, pitch: 48, bearing: -80 },
-  { longitude: -87.67085, latitude: 41.78769, zoom: 14.65, pitch: 50, bearing: -84 },
-  { longitude: -87.67025, latitude: 41.78770, zoom: 14.85, pitch: 43, bearing: -78 },
-  { longitude: -87.67050, latitude: 41.78769, zoom: 14.50, pitch: 48, bearing: -82 },
-  { longitude: -87.66960, latitude: 41.78771, zoom: 14.85, pitch: 56, bearing: -86 },
-  { longitude: -87.66880, latitude: 41.78772, zoom: 14.72, pitch: 54, bearing: -83 },
-  { longitude: -87.67060, latitude: 41.78778, zoom: 14.68, pitch: 34, bearing: -88 },
+  { longitude: -87.67050, latitude: 41.78769, zoom: 15.05, pitch: 52, bearing: -24 },
+  { longitude: -87.67200, latitude: 41.78770, zoom: 15.25, pitch: 50, bearing: -24 },
+  { longitude: -87.67190, latitude: 41.78771, zoom: 15.08, pitch: 47, bearing: -24 },
+  { longitude: -87.67240, latitude: 41.78770, zoom: 15.50, pitch: 48, bearing: -26 },
+  { longitude: -87.67100, latitude: 41.78770, zoom: 15.20, pitch: 50, bearing: -24 },
+  { longitude: -87.67000, latitude: 41.78771, zoom: 15.60, pitch: 57, bearing: -30 },
+  { longitude: -87.66950, latitude: 41.78772, zoom: 15.45, pitch: 56, bearing: -26 },
+  { longitude: -87.67060, latitude: 41.78785, zoom: 15.55, pitch: 38, bearing: -18 },
 ];
 
-const CONTEXT_VIEW: StepView = { longitude: -87.67050, latitude: 41.78769, zoom: 14.45, pitch: 46, bearing: -82 };
-const CLOSING_VIEW: StepView = { longitude: -87.67050, latitude: 41.78769, zoom: 13.95, pitch: 42, bearing: -84 };
+const CONTEXT_VIEW: StepView = { longitude: -87.67050, latitude: 41.78769, zoom: 14.90, pitch: 50, bearing: -24 };
+const CLOSING_VIEW: StepView = { longitude: -87.67050, latitude: 41.78769, zoom: 14.50, pitch: 45, bearing: -28 };
 
 const RECORD_CUES = [0, 4, 10, 16, 22, 28, 34, 41, 48, 56];
 const RECORD_LABELS = ['Title', 'World model', 'Demand', 'Conflict', 'Equity', 'Orchestration', 'Design', 'Feedback', 'Review', 'Closing'];
@@ -105,7 +108,13 @@ export default function App() {
     setCountdown(0);
     setRecordElapsed(0);
     recordCueRef.current = -1;
-  }, []);
+    setPick({
+      title: 'Click a person or map element',
+      desc: 'Actor identity, needs and intervention meaning appear here on demand.',
+    });
+    // settle the camera on the current step instead of a half-finished cue flight
+    flyTo(STEP_VIEWS[simRef.current.step], 900);
+  }, [flyTo]);
 
   const startRecord = useCallback(() => {
     if (recordMode) return;
@@ -228,14 +237,14 @@ export default function App() {
       minzoom: 13,
       filter: ['!=', ['get', 'hide_3d'], true],
       paint: {
-        'fill-extrusion-color': '#323b42',
+        'fill-extrusion-color': '#3a444e',
         'fill-extrusion-height': [
           'interpolate', ['linear'], ['zoom'],
           13, 0,
           14.5, ['coalesce', ['get', 'render_height'], 6],
         ],
         'fill-extrusion-base': ['coalesce', ['get', 'render_min_height'], 0],
-        'fill-extrusion-opacity': 0.84,
+        'fill-extrusion-opacity': 0.9,
       },
     }, firstSymbol);
   }, []);
@@ -363,6 +372,9 @@ export default function App() {
           ))}
         </div>
       </section>
+      {step === 2 && (
+        <div className="conflictChip">{pipeline.conflicts.length} conflicts detected</div>
+      )}
 
       <aside className="rightDock">
         <div className="card">
