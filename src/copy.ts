@@ -1,4 +1,4 @@
-import { SCENARIO } from './scenario';
+import type { Scenario } from './scenario';
 import type { Params, Pipeline } from './pipeline';
 
 export interface StepCopy {
@@ -11,20 +11,21 @@ export interface StepCopy {
 
 export const STEP_NAMES = ['Scene', 'Demand', 'Conflict', 'Equity', 'Orchestrate', 'Design', 'Feedback', 'Review'];
 
-export function stepCopy(step: number, P: Pipeline, params: Params): StepCopy {
+export function stepCopy(scn: Scenario, step: number, P: Pipeline, params: Params): StepCopy {
   const c = P.counts;
+  const SCENARIO = scn;
   const all: StepCopy[] = [
     {
       meta: 'Stage 1 · Shared world model', title: 'Sense the place',
       text: 'Alignment, envelope and movement form one shared spatial state.',
       state: 'Environment → shared world model',
-      stats: [['Heat zones', SCENARIO.heat.length], ['Records', '4'], ['Protected', '2'], ['Flow', 'mixed']],
+      stats: [['Heat zones', SCENARIO.heat.length], ['Records', SCENARIO.needs.length], ['Protected', SCENARIO.needs.filter(n => n.protected).length], ['Flow', SCENARIO.hasMovement ? 'mixed' : '—']],
     },
     {
       meta: 'Stage 2 · Demand capture', title: 'Encode needs',
       text: 'Four needs become source-linked spatial demand records.',
       state: 'Needs → R1–R4',
-      stats: [['Records', '4'], ['Cost total', `$${SCENARIO.needs.reduce((s, n) => s + n.cost, 0).toFixed(1)}M`], ['Protected', '2'], ['State', 'ready']],
+      stats: [['Records', SCENARIO.needs.length], ['Cost total', `$${SCENARIO.needs.reduce((s, n) => s + n.cost, 0).toFixed(1)}M`], ['Protected', SCENARIO.needs.filter(n => n.protected).length], ['State', 'ready']],
     },
     {
       meta: 'Stage 2 · Conflict detection', title: 'Detect conflicts',
@@ -57,9 +58,11 @@ export function stepCopy(step: number, P: Pipeline, params: Params): StepCopy {
     },
     {
       meta: 'Stage 3 · Local feedback', title: 'Let the city respond',
-      text: 'Pedestrians re-route by utility; the metrics respond.',
+      text: SCENARIO.hasMovement
+        ? 'Pedestrians re-route by utility; the metrics respond.'
+        : 'The heat field contracts with the built canopy.',
       state: 'Design → updated evidence',
-      stats: [['Heat field', `${Math.round(P.heatFactor * 100)}%`], ['Choice', 'utility'], ['Roles', '4'], ['Metrics', 'live']],
+      stats: [['Heat field', `${Math.round(P.heatFactor * 100)}%`], ['Choice', 'utility'], ['Roles', '4'], ['Metrics', SCENARIO.hasMovement ? 'live' : '—']],
     },
     {
       meta: 'Lifecycle governance', title: 'Review implementation',

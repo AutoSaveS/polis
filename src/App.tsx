@@ -3,7 +3,7 @@ import { MapboxOverlay, type MapboxOverlayProps } from '@deck.gl/mapbox';
 import { Map, useControl, type MapRef } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
-import { SCENARIO } from './scenario';
+import { CASES, CASE_ORDER, type CaseId, type StepView } from './scenario';
 import { computePipeline } from './pipeline';
 import { stepCopy, STEP_NAMES } from './copy';
 import {
@@ -20,25 +20,6 @@ function DeckGLOverlay(props: MapboxOverlayProps) {
   return null;
 }
 
-interface StepView { longitude: number; latitude: number; zoom: number; pitch: number; bearing: number }
-
-/* The trail runs east–west: a small bearing keeps it diagonal across the
-   widescreen frame instead of compressed into a vertical column, and closer
-   zooms make the extruded buildings actually read as 3D. */
-const STEP_VIEWS: StepView[] = [
-  { longitude: -87.67050, latitude: 41.78769, zoom: 15.05, pitch: 52, bearing: -24 },
-  { longitude: -87.67200, latitude: 41.78770, zoom: 15.25, pitch: 50, bearing: -24 },
-  { longitude: -87.67190, latitude: 41.78771, zoom: 15.08, pitch: 47, bearing: -24 },
-  { longitude: -87.67240, latitude: 41.78770, zoom: 15.50, pitch: 48, bearing: -26 },
-  { longitude: -87.67100, latitude: 41.78770, zoom: 15.20, pitch: 50, bearing: -24 },
-  { longitude: -87.67000, latitude: 41.78771, zoom: 15.60, pitch: 57, bearing: -30 },
-  { longitude: -87.66950, latitude: 41.78772, zoom: 15.45, pitch: 56, bearing: -26 },
-  { longitude: -87.67060, latitude: 41.78785, zoom: 15.55, pitch: 38, bearing: -18 },
-];
-
-const CONTEXT_VIEW: StepView = { longitude: -87.67050, latitude: 41.78769, zoom: 14.90, pitch: 50, bearing: -24 };
-const CLOSING_VIEW: StepView = { longitude: -87.67050, latitude: 41.78769, zoom: 14.50, pitch: 45, bearing: -28 };
-
 const RECORD_CUES = [0, 4, 10, 16, 22, 28, 34, 41, 48, 56];
 const RECORD_LABELS = ['Title', 'World model', 'Demand', 'Conflict', 'Equity', 'Orchestration', 'Design', 'Feedback', 'Review', 'Closing'];
 
@@ -50,6 +31,7 @@ const AGENTS = [
 ];
 
 export default function App() {
+  const [caseId, setCaseId] = useState<CaseId>('chicago');
   const [step, setStepRaw] = useState(0);
   const [budget, setBudget] = useState(22);
   const [floor, setFloor] = useState(0.75);
@@ -72,11 +54,15 @@ export default function App() {
   const metricsRef = useRef(new Metrics());
   const simRef = useRef({ step: 0, treeShare: 0, benchShare: 0, heatFactor: 1, simSpeed: 1 });
 
+  const scn = CASES[caseId];
+  const scnRef = useRef(scn);
+  scnRef.current = scn;
+
   const params = useMemo(() => ({ budget, floor }), [budget, floor]);
-  const pipeline = useMemo(() => computePipeline(params), [params]);
+  const pipeline = useMemo(() => computePipeline(scn, params), [scn, params]);
   const hf = step >= 6 ? pipeline.heatFactor : 1;
-  const heatPoints = useMemo(() => makeHeatPoints(hf), [hf]);
-  const copy = stepCopy(step, pipeline, params);
+  const heatPoints = useMemo(() => makeHeatPoints(scn, hf), [scn, hf]);
+  const copy = stepCopy(scn, step, pipeline, params);
 
   useEffect(() => {
     simRef.current = {
@@ -110,7 +96,7 @@ export default function App() {
     recordCueRef.current = -1;
     setPick({ title: 'Click any person or element', desc: '' });
     // settle the camera on the current step instead of a half-finished cue flight
-    flyTo(STEP_VIEWS[simRef.current.step], 900);
+    flyTo(scnRef.current.views[simRef.current.step], 900);
   }, [flyTo]);
 
   const startRecord = useCallback(() => {
@@ -124,10 +110,10 @@ export default function App() {
     metricsRef.current.reset();
     resetRoutes(pedsRef.current);
     setPick({
-      title: 'Frozen New ERA Trail case inputs',
+      title: `Frozen ${scnRef.current.chip} case inputs`,
       desc: 'Illustrative demonstrator values, not resident results.',
     });
-    flyTo(STEP_VIEWS[0], 900);
+    flyTo(scnRef.current.views[0], 900);
     recordCueRef.current = -1;
     setRecordElapsed(0);
     setCountdown(3);
@@ -150,13 +136,13 @@ export default function App() {
       for (let i = 0; i < RECORD_CUES.length; i++) if (elapsed >= RECORD_CUES[i]) cue = i;
       if (cue !== recordCueRef.current) {
         recordCueRef.current = cue;
-        if (cue === 1) flyTo(CONTEXT_VIEW, 1600);
+        if (cue === 1) flyTo(scnRef.current.contextView, 1600);
         if (cue >= 2 && cue <= 8) {
           const nextStep = cue - 1;
           setStep(nextStep);
           setViewMode(nextStep === 2 ? 'conflict' : nextStep === 3 ? 'equity' : 'mobility');
         }
-        if (cue === 9) flyTo(CLOSING_VIEW, 1700);
+        if (cue === 9) flyTo(scnRef.current.closingView, 1700);
       }
       if (elapsed >= 60) {
         window.clearInterval(timer);
@@ -182,9 +168,23 @@ export default function App() {
 
   /* camera follows the pipeline step */
   useEffect(() => {
-    const v = STEP_VIEWS[step];
-    flyTo(v, 1700);
-  }, [step, flyTo]);
+    flyTo(scn.views[step], 1700);
+  }, [step, scn, flyTo]);
+
+  /* case switch: fresh movers, metrics and camera */
+  const switchCase = useCallback((id: CaseId) => {
+    setCaseId(prev => {
+      if (prev === id) return prev;
+      setAutoPlay(false);
+      setStepRaw(0);
+      setViewMode('mobility');
+      metricsRef.current.reset();
+      pedsRef.current = CASES[id].hasMovement ? createPeds() : [];
+      carsRef.current = CASES[id].hasMovement ? createCars() : [];
+      setPick({ title: 'Click any person or element', desc: '' });
+      return id;
+    });
+  }, []);
 
   /* single animation loop — movers always alive, metrics measured per frame */
   useEffect(() => {
@@ -247,17 +247,17 @@ export default function App() {
   }, []);
 
   const layers = useMemo(() => buildLayers({
-    step, viewMode, pipeline,
+    scn, step, viewMode, pipeline,
     peds: pedsRef.current, cars: carsRef.current,
     heatPoints, frame, onPick: setPick,
-  }), [step, viewMode, pipeline, heatPoints, frame]);
+  }), [scn, step, viewMode, pipeline, heatPoints, frame]);
 
   const exportRun = useCallback(() => {
     const m = metricsRef.current;
     const data = {
       tool: 'POLIS research prototype · deck.gl',
       exportedAt: new Date().toISOString(),
-      scenario: SCENARIO.name,
+      scenario: scn.name,
       params: { budget, equityFloor: floor },
       pipeline: {
         conflicts: pipeline.conflicts, flags: pipeline.flags, decisions: pipeline.decisions,
@@ -279,7 +279,7 @@ export default function App() {
     a.download = `polis_run_${Date.now()}.json`;
     a.click();
     URL.revokeObjectURL(a.href);
-  }, [pipeline, budget, floor]);
+  }, [scn, pipeline, budget, floor]);
 
   const m = metricsRef.current;
   const activeAgentIdx = step >= 1 && step <= 4 ? step - 1 : -1;
@@ -299,7 +299,7 @@ export default function App() {
       <div className="world">
         <Map
           ref={mapRef}
-          initialViewState={STEP_VIEWS[0]}
+          initialViewState={CASES.chicago.views[0]}
           mapStyle={BASEMAP}
           onLoad={onMapLoad}
           onStyleData={(e) => { (window as unknown as { __map: unknown }).__map = e.target; }}
@@ -316,7 +316,15 @@ export default function App() {
           <span className="sub">multi-agent planning on real geography</span>
         </div>
         <div className="right">
-          <span className="badge">{SCENARIO.name}</span>
+          <nav className="caseBar">
+            {CASE_ORDER.map(id => (
+              <button key={id} className={`caseBtn ${id === caseId ? 'active' : ''}`}
+                disabled={recordMode} onClick={() => switchCase(id)}>
+                {id}
+              </button>
+            ))}
+          </nav>
+          <span className="badge">{scn.name}</span>
           <button className="recordBtn" onClick={startRecord} disabled={recordMode} title="Run the 60-second recording cue sequence">
             {recordMode ? `REC ${Math.floor(recordElapsed / 60).toString().padStart(2, '0')}:${Math.floor(recordElapsed % 60).toString().padStart(2, '0')}` : 'Record'}
           </button>
@@ -407,16 +415,22 @@ export default function App() {
 
         <div className="card">
           <div className="k">Live metrics · measured from moving agents</div>
-          <div className="liveGrid">
-            <div className="stat"><div className="sK">Heat exposure · protected</div><div className="sV red">{m.expP.total ? `${(m.rate(m.expP) * 100).toFixed(1)}%` : '—'}</div></div>
-            <div className="stat"><div className="sK">Heat exposure · general</div><div className="sV">{m.expG.total ? `${(m.rate(m.expG) * 100).toFixed(1)}%` : '—'}</div></div>
-            <div className="stat"><div className="sK">Green route use</div><div className="sV mint">{step >= 6 ? `${(m.adoption(pedsRef.current) * 100).toFixed(0)}%` : '—'}</div></div>
-            <div className="stat"><div className="sK">Sim time</div><div className="sV">{(m.simMs / 1000).toFixed(1)}s</div></div>
-          </div>
-          <svg className="spark" viewBox="0 0 300 34" preserveAspectRatio="none">
-            {sparkG && <polyline points={sparkG} fill="none" stroke="#8E8E93" strokeWidth={1.4} opacity={0.7} />}
-            {sparkP && <polyline points={sparkP} fill="none" stroke="#E15857" strokeWidth={1.8} />}
-          </svg>
+          {scn.hasMovement ? (
+            <>
+              <div className="liveGrid">
+                <div className="stat"><div className="sK">Heat exposure · protected</div><div className="sV red">{m.expP.total ? `${(m.rate(m.expP) * 100).toFixed(1)}%` : '—'}</div></div>
+                <div className="stat"><div className="sK">Heat exposure · general</div><div className="sV">{m.expG.total ? `${(m.rate(m.expG) * 100).toFixed(1)}%` : '—'}</div></div>
+                <div className="stat"><div className="sK">Green route use</div><div className="sV mint">{step >= 6 ? `${(m.adoption(pedsRef.current) * 100).toFixed(0)}%` : '—'}</div></div>
+                <div className="stat"><div className="sK">Sim time</div><div className="sV">{(m.simMs / 1000).toFixed(1)}s</div></div>
+              </div>
+              <svg className="spark" viewBox="0 0 300 34" preserveAspectRatio="none">
+                {sparkG && <polyline points={sparkG} fill="none" stroke="#8E8E93" strokeWidth={1.4} opacity={0.7} />}
+                {sparkP && <polyline points={sparkP} fill="none" stroke="#E15857" strokeWidth={1.8} />}
+              </svg>
+            </>
+          ) : (
+            <div className="traceEmpty">Movement study runs on the Chicago corridor case.</div>
+          )}
         </div>
 
         <div className="card">
@@ -472,7 +486,11 @@ export default function App() {
       )}
       {recordMode && countdown === 0 && recordShot === 1 && (
         <div className="recordContext">
-          <span>Suzhou pocket retrofit</span><span>London brownfield retrofit</span><span className="selected">Chicago · New ERA Trail selected</span>
+          {CASE_ORDER.map(id => (
+            <span key={id} className={id === caseId ? 'selected' : ''}>
+              {CASES[id].chip}{id === caseId ? ' · selected' : ''}
+            </span>
+          ))}
         </div>
       )}
       {recordMode && countdown === 0 && recordShot === 6 && (

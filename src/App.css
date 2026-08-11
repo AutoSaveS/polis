@@ -37,6 +37,13 @@ html,body,#root{margin:0;height:100%;background:var(--bg);color:var(--text);
 .sub{font-size:10px;color:var(--muted);letter-spacing:.06em}
 .right{display:flex;align-items:center;gap:18px}
 .badge{font-size:10px;color:var(--muted);letter-spacing:.05em}
+.caseBar{display:flex;align-items:center;gap:0}
+.caseBtn{height:26px;padding:0 12px;border:none;background:transparent;cursor:pointer;
+  color:var(--muted);font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  border-bottom:1px solid transparent}
+.caseBtn+.caseBtn{border-left:1px solid var(--line)}
+.caseBtn:hover{color:var(--text)}
+.caseBtn.active{color:var(--text);border-bottom-color:var(--text)}
 .exportBtn,.recordBtn{height:26px;padding:0 14px;border-radius:0;border:1px solid var(--line);
   background:transparent;color:var(--text);font-size:9px;font-weight:600;letter-spacing:.18em;
   text-transform:uppercase;cursor:pointer}

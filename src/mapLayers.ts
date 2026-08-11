@@ -7,7 +7,7 @@ import { HeatmapLayer } from '@deck.gl/aggregation-layers';
 import { PathStyleExtension } from '@deck.gl/extensions';
 
 import { ellipse, mulberry32, type LngLat } from './geo';
-import { SCENARIO, ROLE_LABEL, type Need, type Role } from './scenario';
+import { ROLE_LABEL, type Need, type Role, type Scenario } from './scenario';
 import type { Pipeline } from './pipeline';
 import type { Car, Ped } from './sim';
 
@@ -47,10 +47,10 @@ export interface HeatPoint { pos: LngLat; w: number }
 /** Deterministic scatter inside each heat ellipse; radii contract with the heat factor.
     Uniform-in-ellipse sampling (not centre-weighted) so the overlapping zones read as one
     continuous corridor-hugging field instead of three stamped blobs. */
-export function makeHeatPoints(hf: number): HeatPoint[] {
+export function makeHeatPoints(scn: Scenario, hf: number): HeatPoint[] {
   const rand = mulberry32(1234);
   const pts: HeatPoint[] = [];
-  for (const z of SCENARIO.heat) {
+  for (const z of scn.heat) {
     for (let i = 0; i < 110; i++) {
       const r = Math.sqrt(rand());
       const a = rand() * Math.PI * 2;
@@ -72,13 +72,14 @@ export function makeHeatPoints(hf: number): HeatPoint[] {
     and each record's verdict/equity chip stacks directly above its label. */
 const LABEL_ROW: Record<string, number> = { R1: 0, R4: 1, R2: 0, R3: 1 };
 const needLabelOffset = (id: string): [number, number] =>
-  [0, -30 - (LABEL_ROW[id] ?? 0) * 40];
+  [0, -30 - (LABEL_ROW[id] ?? 0) * 56];
 const verdictOffset = (id: string): [number, number] =>
-  [0, -58 - (LABEL_ROW[id] ?? 0) * 40];
+  [0, -58 - (LABEL_ROW[id] ?? 0) * 56];
 
 export interface PickInfo { title: string; desc: string }
 
 export interface LayerOpts {
+  scn: Scenario;
   step: number;
   viewMode: ViewMode;
   pipeline: Pipeline;
@@ -96,8 +97,9 @@ function needDesc(n: Need, P: Pipeline): string {
 }
 
 export function buildLayers(o: LayerOpts): Layer[] {
-  const { step, viewMode, pipeline: P } = o;
+  const { scn: SCENARIO, step, viewMode, pipeline: P } = o;
   const N = SCENARIO.needs;
+  const S = SCENARIO.sizeScale;
   const layers: (Layer | false)[] = [];
   const showNeeds = step >= 1;
 
@@ -150,24 +152,24 @@ export function buildLayers(o: LayerOpts): Layer[] {
       new PathLayer({
         id: 'greenway-curb', data: [SCENARIO.route],
         getPath: d => d, getColor: [...CURB, 235] as [number, number, number, number],
-        getWidth: 21, widthUnits: 'meters', capRounded: true, jointRounded: true,
+        getWidth: 21 * S, widthUnits: 'meters', capRounded: true, jointRounded: true,
       }),
       new PathLayer({
         id: 'greenway-grass', data: [SCENARIO.route],
         getPath: d => d, getColor: [...GRASS, 245] as [number, number, number, number],
-        getWidth: 16, widthUnits: 'meters', capRounded: true, jointRounded: true,
+        getWidth: 16 * S, widthUnits: 'meters', capRounded: true, jointRounded: true,
       }),
       new PathLayer({
         id: 'greenway-stripe', data: [SCENARIO.route],
         getPath: d => d, getColor: [...GRASS_LIGHT, 220] as [number, number, number, number],
-        getWidth: 6, widthUnits: 'meters', capRounded: true, jointRounded: true,
+        getWidth: 6 * S, widthUnits: 'meters', capRounded: true, jointRounded: true,
       }),
     );
     const trees = SCENARIO.designPoints.slice(0, P.treeCount);
     layers.push(
       new ScatterplotLayer({
         id: 'tree-canopy', data: trees,
-        getPosition: d => d, getRadius: 8.5, radiusUnits: 'meters', radiusMinPixels: 4,
+        getPosition: d => d, getRadius: 8.5 * S, radiusUnits: 'meters', radiusMinPixels: 4,
         getFillColor: [...CANOPY, 255] as [number, number, number, number],
         getLineColor: [56, 64, 35, 255], getLineWidth: 1.5, lineWidthUnits: 'pixels', stroked: true,
         pickable: true,
@@ -177,15 +179,15 @@ export function buildLayers(o: LayerOpts): Layer[] {
       }),
       new ScatterplotLayer({
         id: 'tree-hi', data: trees,
-        getPosition: d => [d[0] - 2.6 / 82920, d[1] + 2.6 / 111132] as LngLat,
-        getRadius: 3, radiusUnits: 'meters',
+        getPosition: d => [d[0] - 2.6 * S / 82920, d[1] + 2.6 * S / 111132] as LngLat,
+        getRadius: 3 * S, radiusUnits: 'meters',
         getFillColor: [...CANOPY_HI, 140] as [number, number, number, number],
         transitions: { getRadius: { duration: 900, enter: () => [0] } },
         updateTriggers: { getPosition: P.treeCount },
       }),
       new ScatterplotLayer({
         id: 'benches', data: SCENARIO.benches.slice(0, P.benchCount),
-        getPosition: d => d, getRadius: 2.4, radiusUnits: 'meters',
+        getPosition: d => d, getRadius: 2.4 * S, radiusUnits: 'meters',
         getFillColor: [150, 119, 95, 255],
         getLineColor: [107, 83, 68, 255], getLineWidth: 1, lineWidthUnits: 'pixels', stroked: true,
         pickable: true,
@@ -201,7 +203,7 @@ export function buildLayers(o: LayerOpts): Layer[] {
     layers.push(new PathLayer({
       id: 'proposal', data: [SCENARIO.route],
       getPath: d => d, getColor: [...YELLOW, 235] as [number, number, number, number],
-      getWidth: 9, widthUnits: 'meters', capRounded: true, jointRounded: true,
+      getWidth: 9 * S, widthUnits: 'meters', capRounded: true, jointRounded: true,
       getDashArray: [7, 5], dashJustified: true, extensions: [dashExt],
     }));
   }
@@ -212,12 +214,12 @@ export function buildLayers(o: LayerOpts): Layer[] {
       new PathLayer({
         id: 'implemented', data: [SCENARIO.implemented],
         getPath: d => d, getColor: [...RED, 245] as [number, number, number, number],
-        getWidth: 5, widthUnits: 'meters', capRounded: true,
+        getWidth: 5 * S, widthUnits: 'meters', capRounded: true,
         getDashArray: [6, 4], extensions: [dashExt],
       }),
       new PolygonLayer({
         id: 'review-ring', data: [{ c: SCENARIO.reviewPoint }],
-        getPolygon: d => ellipse(d.c, 90, 70),
+        getPolygon: d => ellipse(d.c, 90 * S, 70 * S),
         getFillColor: [...RED, 30] as [number, number, number, number],
         getLineColor: [...RED, 230] as [number, number, number, number],
         getLineWidth: 2.5, lineWidthUnits: 'pixels', stroked: true, filled: true,
@@ -260,7 +262,7 @@ export function buildLayers(o: LayerOpts): Layer[] {
       new ScatterplotLayer({
         id: 'equity-rings', data: P.flags,
         getPosition: d => N.find(n => n.id === d.id)!.pos,
-        getRadius: d => 55 + d.gap * 220, radiusUnits: 'meters',
+        getRadius: d => (55 + d.gap * 220) * S, radiusUnits: 'meters',
         getFillColor: [...STRAW, 20] as [number, number, number, number],
         getLineColor: [...STRAW, 230] as [number, number, number, number],
         getLineWidth: 2.5, lineWidthUnits: 'pixels', stroked: true, filled: true,
@@ -284,7 +286,7 @@ export function buildLayers(o: LayerOpts): Layer[] {
     layers.push(
       new ScatterplotLayer({
         id: 'need-halo', data: N,
-        getPosition: d => d.pos, getRadius: 34, radiusUnits: 'meters',
+        getPosition: d => d.pos, getRadius: 34 * S, radiusUnits: 'meters',
         getFillColor: [...YELLOW, 26] as [number, number, number, number],
         getLineColor: [...YELLOW, 190] as [number, number, number, number],
         getLineWidth: 1.6, lineWidthUnits: 'pixels', stroked: true, filled: true,
@@ -292,7 +294,7 @@ export function buildLayers(o: LayerOpts): Layer[] {
       }),
       new ScatterplotLayer({
         id: 'need-pins', data: N,
-        getPosition: d => d.pos, getRadius: 9, radiusUnits: 'meters', radiusMinPixels: 5,
+        getPosition: d => d.pos, getRadius: 9 * S, radiusUnits: 'meters', radiusMinPixels: 5,
         getFillColor: [...YELLOW, 255] as [number, number, number, number],
         getLineColor: [255, 255, 255, 255], getLineWidth: 2, lineWidthUnits: 'pixels', stroked: true,
         pickable: true,

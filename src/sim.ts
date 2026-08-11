@@ -2,9 +2,12 @@
    heat exposure is accumulated per frame from agent positions — never scripted. */
 import { GeoPath, distM, mulberry32, type LngLat } from './geo';
 import {
-  SCENARIO, PED_PATHS, CAR_PATHS, CROSSWALK_ZONES,
+  CASES, PED_PATHS, CAR_PATHS, CROSSWALK_ZONES,
   UTILITY, ROLE_SPEED, type Role,
 } from './scenario';
+
+/* The movement study runs on the Chicago corridor case only. */
+const SCENARIO = CASES.chicago;
 
 export interface Ped {
   id: number;

@@ -1,7 +1,7 @@
 /* Pure pipeline: conflicts / equity / orchestration / design scaling.
    Ported 1:1 from the SVG prototype — distances now in metres on real geography. */
 import { distM } from './geo';
-import { SCENARIO } from './scenario';
+import type { Scenario } from './scenario';
 
 export interface Params { budget: number; floor: number }
 
@@ -23,19 +23,19 @@ export interface Pipeline {
   trace: Record<number, string[]>;
 }
 
-export function computePipeline(params: Params): Pipeline {
-  const N = SCENARIO.needs;
+export function computePipeline(scn: Scenario, params: Params): Pipeline {
+  const N = scn.needs;
   const trace: Record<number, string[]> = { 1: [], 2: [], 3: [], 4: [], 5: [] };
-  trace[1] = N.map(n => `<b>${n.id}</b> ← ${n.type} @ ${n.pos[1].toFixed(4)}N ${(-n.pos[0]).toFixed(4)}W · need "${n.label}" · est. $${n.cost.toFixed(1)}M · access now ${(n.baseAccess * 100) | 0}%`);
+  trace[1] = N.map(n => `<b>${n.id}</b> ← ${n.type} @ ${n.pos[1].toFixed(4)}N ${Math.abs(n.pos[0]).toFixed(4)}${n.pos[0] < 0 ? 'W' : 'E'} · need "${n.label}" · est. $${n.cost.toFixed(1)}M · access now ${(n.baseAccess * 100) | 0}%`);
 
   // conflict detection: computed, not scripted
   const conflicts: Conflict[] = [];
   for (let i = 0; i < N.length; i++) for (let j = i + 1; j < N.length; j++) {
     const a = N[i], b = N[j], d = distM(a.pos, b.pos);
-    if (d < SCENARIO.spatialThreshold)
-      conflicts.push({ kind: 'spatial', a: a.id, b: b.id, detail: `${Math.round(d)}m apart < ${SCENARIO.spatialThreshold}m — compete for the same street space` });
+    if (d < scn.spatialThreshold)
+      conflicts.push({ kind: 'spatial', a: a.id, b: b.id, detail: `${Math.round(d)}m apart < ${scn.spatialThreshold}m — compete for the same street space` });
     const [a0, a1] = a.window, [b0, b1] = b.window;
-    if (Math.max(a0, b0) <= Math.min(a1, b1) && d < SCENARIO.spatialThreshold * 1.4)
+    if (Math.max(a0, b0) <= Math.min(a1, b1) && d < scn.spatialThreshold * 1.4)
       conflicts.push({ kind: 'timing', a: a.id, b: b.id, detail: `construction windows ${a0}–${a1} and ${b0}–${b1} overlap nearby` });
   }
   const totalCost = N.reduce((s, n) => s + n.cost, 0);
@@ -96,10 +96,10 @@ export function computePipeline(params: Params): Pipeline {
   const maxSeat = N.reduce((s, n) => s + n.cost * n.gainSeat, 0);
   const treeShare = maxShade ? shadeAlloc / maxShade : 0;
   const benchShare = maxSeat ? seatAlloc / maxSeat : 0;
-  const treeCount = Math.max(0, Math.round(treeShare * SCENARIO.designPoints.length));
-  const benchCount = Math.max(0, Math.round(benchShare * SCENARIO.benches.length));
+  const treeCount = Math.max(0, Math.round(treeShare * scn.designPoints.length));
+  const benchCount = Math.max(0, Math.round(benchShare * scn.benches.length));
   const heatFactor = 1 - 0.5 * treeShare; // heat field contracts with real canopy built
-  trace[5] = [`Allocation → geometry: ${treeCount}/${SCENARIO.designPoints.length} trees, ${benchCount}/${SCENARIO.benches.length} benches. Heat field contracts to ${Math.round(heatFactor * 100)}% of baseline.`];
+  trace[5] = [`Allocation → geometry: ${treeCount}/${scn.designPoints.length} trees, ${benchCount}/${scn.benches.length} benches. Heat field contracts to ${Math.round(heatFactor * 100)}% of baseline.`];
 
   const counts = { retain: 0, revise: 0, reject: 0 };
   decisions.forEach(d => counts[d.action]++);
