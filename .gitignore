@@ -17,6 +17,10 @@ __pycache__/
 *.pyc
 .venv*
 
+# Private job-application and interview materials (never publish)
+.submission/
+.interview-prep/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
