@@ -1,0 +1,85 @@
+:root {
+  --ink: #2f2f31; --stone: #8e8e93; --pale: #f4f3ef;
+  --sage: #68976d; --pine: #3b543e; --red: #dc312f;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; font-family: Arial, Helvetica, sans-serif; color: var(--ink);
+  background: #fbfaf7; line-height: 1.55;
+}
+header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.7rem 1.2rem; background: #fff;
+  border-bottom: 1px solid #e4e2dc; position: sticky; top: 0; z-index: 10;
+}
+.brand { font-weight: bold; letter-spacing: 0.01em; }
+.progress { font-size: 0.85rem; color: var(--stone); }
+main { max-width: 720px; margin: 0 auto; padding: 1.4rem 1.2rem 4rem; }
+section { animation: fade 0.25s ease; }
+@keyframes fade { from { opacity: 0 } to { opacity: 1 } }
+h2 { font-size: 1.25rem; margin: 0.8rem 0 0.6rem; }
+label { display: block; margin: 0.7rem 0; }
+input[type=text], select, textarea {
+  width: 100%; padding: 0.5rem 0.6rem; margin-top: 0.3rem;
+  border: 1px solid #cfcdc6; border-radius: 6px; font: inherit;
+  background: #fff;
+}
+input[type=checkbox] { margin-right: 0.5rem; }
+button {
+  margin-top: 1rem; padding: 0.6rem 1.6rem; font: inherit;
+  font-weight: bold; color: #fff; background: var(--pine);
+  border: none; border-radius: 7px; cursor: pointer;
+}
+button:hover { background: #2e4230; }
+.err { color: var(--red); font-size: 0.9rem; min-height: 1.2em; }
+.note { color: var(--stone); font-size: 0.92rem; }
+img#site_map { width: 100%; border: 1px solid #e0ded8; border-radius: 8px; }
+#map {
+  width: 100%; height: 380px; border: 1px solid #d5d3cc;
+  border-radius: 8px; margin: 0.6rem 0;
+}
+.card {
+  background: var(--pale); border: 1px solid #dedcd4; border-radius: 8px;
+  padding: 0.8rem 1rem; margin: 0.8rem 0; font-size: 0.95rem;
+}
+.card b { color: var(--pine); }
+.likert { display: flex; gap: 0.4rem; margin: 0.5rem 0 0.2rem; }
+.likert button {
+  margin: 0; padding: 0.45rem 0; width: 2.6rem; background: #fff;
+  color: var(--ink); border: 1px solid #cfcdc6; font-weight: normal;
+}
+.likert button.sel { background: var(--sage); color: #fff;
+  border-color: var(--sage); font-weight: bold; }
+.scale { color: var(--stone); font-size: 0.85rem; }
+ol.chain { padding-left: 1.2rem; }
+ol.chain li { margin: 0.45rem 0; }
+ol.chain b { display: block; }
+ol.chain span { color: var(--stone); font-size: 0.9rem; }
+.compq { margin: 1rem 0; padding: 0.7rem 0.9rem; background: #fff;
+  border: 1px solid #e2e0da; border-radius: 8px; }
+.compq p { margin: 0 0 0.4rem; font-weight: bold; }
+.compq label { margin: 0.25rem 0; font-weight: normal; }
+.expitem { margin: 0.9rem 0 0.2rem; font-weight: bold; }
+
+.req { color: var(--red); font-style: normal; font-weight: bold; }
+.opt { color: var(--stone); font-size: 0.85rem; }
+
+/* amendment 2026-08-25: PIS/debrief box, resume banner, catchment canvas */
+.pis-box {
+  max-height: 260px; overflow-y: auto; background: #fff;
+  border: 1px solid #d5d3cc; border-radius: 8px;
+  padding: 0.8rem 1rem; margin: 0.6rem 0 1rem; font-size: 0.93rem;
+}
+.banner {
+  background: #fdf6e3; border: 1px solid #e6d9a8; border-radius: 8px;
+  padding: 0.8rem 1rem; margin-bottom: 1.2rem;
+}
+.banner button { margin-right: 0.6rem; }
+button.ghost {
+  background: #fff; color: var(--ink); border: 1px solid #cfcdc6;
+  font-weight: normal;
+}
+canvas.catchment {
+  display: block; border: 1px solid #d5d3cc; border-radius: 8px;
+  background: #fff; margin: 0.4rem 0 0.8rem;
+}
