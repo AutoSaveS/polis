@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POLIS resident study</title>
+<link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet">
+<link href="./styles.css" rel="stylesheet">
+</head>
+<body>
+<header>
+  <div class="brand" data-i18n="brand">POLIS resident participatory study</div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<main id="app">
+
+<!-- 0 · consent + screener -->
+<section data-step="consent">
+  <div class="banner" id="resume_banner" hidden>
+    <p><span data-i18n="resume_found_1">An unfinished session for participant
+    code</span> <b id="resume_code"></b> <span data-i18n="resume_found_2">was
+    found on this device.</span></p>
+    <button id="btn_resume" data-i18n="btn_resume">Resume where I left off</button>
+    <button id="btn_startover" class="ghost" data-i18n="btn_startover">Discard and start over</button>
+  </div>
+
+  <h2 data-i18n="pis_title">Participant information sheet</h2>
+  <div class="pis-box" id="pis_box">
+    <p data-i18n="pis_intro">You are invited to take part in the POLIS resident
+    participatory study (Case Study 2), a fully online research session about
+    how needs for a local green space are expressed and recorded. Please read
+    this information sheet before deciding whether to take part.</p>
+    <p><b data-i18n="pis_purpose_label">Purpose:</b> <span
+    data-i18n="pis_purpose">This study tests whether residents and routine
+    users of a local green space can express and verify one place-based need
+    more faithfully through a map-based (POLIS spatial) channel than through a
+    conventional written channel, and whether the recorded link from a
+    confirmed need to a design decision is understandable. Results are
+    feasibility evidence for three study sites (Suzhou, London and Chicago);
+    they are not a citywide or official municipal consultation.</span></p>
+    <p><b data-i18n="pis_procedure_label">Procedure:</b> <span
+    data-i18n="pis_procedure">The session is fully online and takes about
+    30&ndash;60 minutes. After you consent, you will: answer three short
+    eligibility questions; view a standard package about the study site;
+    describe one need for this place twice &mdash; once in a written form and
+    once on a map, in an order assigned by the study plan; after each, rate on
+    a 1&ndash;7 scale how faithfully the structured record captures your need,
+    then confirm, correct or reject that record; read a short record trail
+    showing how one need became a design decision and answer four questions
+    about it; and answer five short experience scales plus an optional
+    comment. Your answers are saved as one file that you return to the study
+    team.</span></p>
+    <p><b data-i18n="pis_voluntary_label">Voluntary participation and
+    compensation:</b> <span data-i18n="pis_voluntary">Taking part is voluntary
+    and unpaid. You may stop at any time without giving a reason and without
+    any disadvantage; declining or stopping does not affect any service you
+    use. This is academic research, not an official municipal consultation,
+    and no design shown here is a commitment to build.</span></p>
+    <p><b data-i18n="pis_data_label">Data handling:</b> <span
+    data-i18n="pis_data">We collect only the minimum fields needed for this
+    study: your participant code, your screening answers, your two need
+    descriptions (text, and a map location within the site), your ratings and
+    answers, and the timing of the session pages. We do not collect your name,
+    exact address, full postcode/ZIP code, precise home or work coordinates,
+    or device identifiers. Responses are stored under your participant code;
+    the file linking codes to contact details is held separately and is
+    accessible only to the named researchers. Your answers are saved as one
+    file on your device and returned by you to the study team, then kept
+    read-only in approved institutional storage. Resident data are never
+    uploaded to generative-AI or other unapproved external services, and only
+    fully anonymised, disclosure-reviewed results are published.</span></p>
+    <p><b data-i18n="pis_withdrawal_label">Withdrawal:</b> <span
+    data-i18n="pis_withdrawal">You may stop the session at any time; an
+    incomplete session is not returned to the study team and is not analysed.
+    An unfinished session is kept only on this device so that you can resume
+    it, and you can discard it from the start page at any time; it is removed
+    from the device when you complete or discard the session. After
+    completing, you may withdraw your data within the approved withdrawal
+    window stated in your invitation by contacting the study team with your
+    participant code; the linkage file is then used to locate and delete your
+    records. Once data have been fully anonymised they can no longer be traced
+    to you and can then no longer be withdrawn.</span></p>
+    <p><b data-i18n="pis_contacts_label">Contacts:</b> <span
+    data-i18n="pis_contacts">For questions, withdrawal requests or concerns,
+    contact the study team through the contact route given in your invitation,
+    quoting your participant code. Concerns about the conduct of the study may
+    also be raised through the independent ethics contact provided in the same
+    invitation.</span></p>
+  </div>
+
+  <h2 data-i18n="consent_title">Consent and eligibility</h2>
+  <p data-i18n="consent_intro">This online session takes about 30&ndash;60
+  minutes. You will describe one need for a local green space in two ways,
+  check how faithfully each was recorded, read a short record trail, and
+  answer a few questions. Nothing shown here is a commitment to build. You can
+  stop at any time.</p>
+  <label><input type="checkbox" id="c_consent"> <span
+    data-i18n="consent_read">I have read the participant information sheet
+    above and I consent to take part.</span> <em class="req">*</em></label>
+  <label><input type="checkbox" id="c_adult"> <span data-i18n="consent_adult">I
+    am 18 or older.</span> <em class="req">*</em></label>
+  <label><span data-i18n="conn_label">Which statement best describes your
+    connection to the study area?</span> <em class="req">*</em>
+    <select id="c_conn">
+      <option value="" data-i18n="opt_choose">choose&hellip;</option>
+      <option value="resident_within_1km" data-i18n="conn_resident">I usually live within 1&nbsp;km of the study site (shown below)</option>
+      <option value="routine_user_monthly_6m" data-i18n="conn_routine">I have used the site or its immediately adjoining public space at least once per month during the previous six months</option>
+      <option value="neither" data-i18n="conn_neither">Neither of these</option>
+    </select></label>
+  <label><span data-i18n="dup_label">Have you previously consented to take
+    part in this resident study?</span> <em class="req">*</em>
+    <select id="c_dup">
+      <option value="" data-i18n="opt_choose">choose&hellip;</option>
+      <option value="no" data-i18n="opt_no">No</option>
+      <option value="yes" data-i18n="opt_yes">Yes</option>
+    </select></label>
+  <label><input type="checkbox" id="c_notteam"> <span
+    data-i18n="consent_notteam">I am not a member of the research or
+    development team.</span> <em class="req">*</em></label>
+  <label><span data-i18n="code_label">Participant code (given to you by the
+    study team):</span> <em class="req">*</em>
+    <input type="text" id="c_code" placeholder="e.g. SUZ-P01"
+      data-i18n-ph="code_ph" maxlength="8">
+  </label>
+  <div id="catchment_wrap" hidden>
+    <p class="note" data-i18n="catchment_note">Eligibility area for this site:
+    the shaded circle is the 1&nbsp;km catchment around the study site (dashed
+    line = site boundary).</p>
+    <canvas id="catchment_canvas" class="catchment"></canvas>
+  </div>
+  <button id="btn_consent" data-i18n="btn_begin">Begin</button>
+  <p class="err" id="consent_err"></p>
+</section>
+
+<!-- 0b · ineligible -->
+<section data-step="ineligible" hidden>
+  <h2 data-i18n="inel_title">Thank you for your interest</h2>
+  <p data-i18n="inel_body">Based on your answers, this study can only include
+  adults with a residential or routine-use connection to the study site who
+  have not taken part before, so we cannot include you this time. No study
+  data about you has been stored.</p>
+</section>
+
+<!-- 1 · site stimulus -->
+<section data-step="site" hidden>
+  <h2 id="site_title">The study site</h2>
+  <p id="site_desc"></p>
+  <img id="site_map" alt="standardised site map" data-i18n-alt="site_map_alt">
+  <p class="note" data-i18n="site_note">Take a moment to look at the site.
+  When you are ready, continue. You will describe <b>one</b> need or wish you
+  have for this place &mdash; the same need in two different ways.</p>
+  <button data-next data-i18n="btn_continue">Continue</button>
+</section>
+
+<!-- 2/4 · text mode -->
+<section data-step="text_mode" hidden>
+  <h2 data-i18n="text_title">Describe your need &mdash; written form</h2>
+  <p><span data-i18n="text_prompt">In your own words: what should this place
+  provide for you?</span> <em class="req">*</em></p>
+  <textarea id="t_text" rows="5" data-i18n-ph="text_ph"
+    placeholder="e.g. I need a shaded place to sit while my children play&hellip;"></textarea>
+  <label><span data-i18n="cat_label">Which category fits best?</span>
+    <em class="req">*</em>
+    <select id="t_cat"></select></label>
+  <button id="btn_text_submit" data-i18n="btn_submit">Submit</button>
+</section>
+
+<!-- 3/5 · spatial mode -->
+<section data-step="spatial_mode" hidden>
+  <h2 data-i18n="spatial_title">Describe your need &mdash; on the map</h2>
+  <p><span data-i18n="spatial_prompt">Click where your need belongs (dashed
+  line = site, grey = existing routes), then describe it.</span>
+  <em class="req">*</em></p>
+  <div id="map"></div>
+  <p class="note" id="pin_state" data-i18n="pin_none">No location chosen yet
+  &mdash; click the map.</p>
+  <textarea id="s_text" rows="3" data-i18n-ph="spatial_ph"
+    placeholder="Describe the need at the pinned place&hellip;"></textarea>
+  <label><span data-i18n="cat_label">Which category fits best?</span>
+    <em class="req">*</em>
+    <select id="s_cat"></select></label>
+  <button id="btn_spatial_submit" data-i18n="btn_submit">Submit</button>
+</section>
+
+<!-- record check step A · fidelity rating only (locked once submitted) -->
+<section data-step="record_fidelity" hidden>
+  <h2 data-i18n="fid_title">Here is what we recorded</h2>
+  <div class="card" id="record_card_f"></div>
+  <label><span data-i18n="fid_q">How faithfully does this record capture your
+    need?</span> <em class="req">*</em>
+    <span class="scale" data-i18n="fid_anchor">1 = not at all &middot; 7 = fully</span></label>
+  <div class="likert" data-name="fidelity"></div>
+  <p class="note" data-i18n="fid_note">Your rating is recorded before any
+  correction. You will be able to confirm, correct, or reject the record on
+  the next screen.</p>
+  <button id="btn_fidelity_next" data-i18n="btn_fid">Record my rating</button>
+</section>
+
+<!-- record check step B · confirm / correct / reject -->
+<section data-step="record_confirm" hidden>
+  <h2 data-i18n="conf_title">Confirm, correct, or reject</h2>
+  <div class="card" id="record_card_c"></div>
+  <p class="note" id="fid_locked"></p>
+  <label><span data-i18n="conf_q">What would you like to do with this
+    record?</span> <em class="req">*</em>
+    <select id="rec_confirm">
+      <option value="" data-i18n="opt_choose">choose&hellip;</option>
+      <option value="confirmed" data-i18n="opt_confirmed">Confirm as recorded</option>
+      <option value="corrected" data-i18n="opt_corrected">It needs correction</option>
+      <option value="rejected" data-i18n="opt_rejected">Reject this record</option>
+    </select></label>
+  <div id="rec_corrbox" hidden>
+    <label><span data-i18n="corr_q">Please state the correction needed.</span>
+      <em class="req">*</em>
+      <span class="note" data-i18n="corr_note">(one change per line)</span>
+      <textarea id="rec_corrections" rows="3"></textarea></label>
+  </div>
+  <button id="btn_record_next" data-i18n="btn_continue">Continue</button>
+</section>
+
+<!-- 6 · provenance trace -->
+<section data-step="trace" hidden>
+  <h2 data-i18n="trace_title">How a need becomes a decision</h2>
+  <p data-i18n="trace_intro">Below is the real record trail for one need at
+  this site &mdash; from its source to the check after construction. Read it,
+  then answer four questions.</p>
+  <ol class="chain" id="chain"></ol>
+  <div id="comp_items"></div>
+  <button id="btn_trace_next" data-i18n="btn_continue">Continue</button>
+</section>
+
+<!-- 7 · experience -->
+<section data-step="experience" hidden>
+  <h2 data-i18n="exp_title">Your experience</h2>
+  <div class="expitem" data-name="perceived_voice" data-i18n="exp_voice">Through
+    this process, my voice was heard.</div>
+  <div class="expitem" data-name="procedural_fairness" data-i18n="exp_fair">The
+    process treated my input fairly.</div>
+  <div class="expitem" data-name="trust" data-i18n="exp_trust">I would trust
+    decisions recorded this way.</div>
+  <div class="expitem" data-name="usability" data-i18n="exp_use">The tools were
+    easy to use.</div>
+  <div class="expitem" data-name="burden" data-i18n="exp_burden">The session
+    felt burdensome.</div>
+  <label><span data-i18n="exp_comment_label">Anything else?</span>
+    <span class="opt" data-i18n="exp_comment_opt">(optional)</span>
+    <textarea id="exp_comment" rows="2"></textarea></label>
+  <button id="btn_finish" data-i18n="btn_finish">Finish</button>
+</section>
+
+<!-- 8 · done + debrief -->
+<section data-step="done" hidden>
+  <h2 data-i18n="done_title">Thank you</h2>
+  <div class="pis-box" id="debrief_box">
+    <p data-i18n="debrief_body">Thank you for taking part. This session tested
+    how faithfully two different channels record a resident's need for a local
+    green space; your ratings and any corrections are the study outcome, so
+    there are no right or wrong answers.</p>
+    <p><b data-i18n="debrief_note_label">Please note:</b> <span
+    data-i18n="debrief_note">no design shown in this study is a commitment to
+    build, and nothing you saw is promised for delivery.</span></p>
+  </div>
+  <p><span data-i18n="done_code_1">Your completion code is</span>
+  <b id="done_code"></b><span data-i18n="done_code_2">.</span></p>
+  <p data-i18n="done_download">Your responses have been saved as a file
+  download. If the download did not start, use the button below, then send the
+  file to the study team.</p>
+  <button id="btn_download" data-i18n="btn_download">Download my responses</button>
+</section>
+
+</main>
+<script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+<script src="./i18n.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>

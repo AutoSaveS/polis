@@ -1,0 +1,79 @@
+{
+ "city": "SUZ",
+ "chain": [
+  {
+   "stage": "source_evidence",
+   "record": "frozen world model + scenario package SUZ-GE-B (exp1 seed, frozen registers)"
+  },
+  {
+   "stage": "encoded_need",
+   "record": "SUZ-N02: barrier-free network predicate (clear_width >= 1.8 m, slopes <= 1/48)"
+  },
+  {
+   "stage": "arbitration_and_amendments",
+   "record": "AMD-2026-08-15-13; AMD-2026-08-15-14; AMD-2026-08-15-15; AMD-2026-08-15-16"
+  },
+  {
+   "stage": "design_synthesis",
+   "record": "POLIS candidate for SUZ-GE-B generated on the analysis-machine Shapely simulation path (AMD-2026-08-15-13) by the generic seeded builder preregistration/build_polis_scenario.py; per-scenario distinct geometry (seed=SUZ-G"
+  },
+  {
+   "stage": "final_geometry",
+   "record": "POLIS:SUZ-GE-B:v1:path-upgrade:seg-001 (clear_width_m=1.8, running_slope=0.02)"
+  },
+  {
+   "stage": "regulatory_validation",
+   "record": "design.gpkg accessible_network complete-state minimum clear_width_m=1.800 m, maximum running_slope=0.02000, maximum cross_slope=0.01500 <= 1/48 including all 6 right-of-way spur/branch segments (1763 m, AMD-2026-08-15-14"
+  },
+  {
+   "stage": "implementation_review",
+   "record": "export sha256 registered (design.gpkg exported (sha256 8878f19321bd7695bd5f29c6f476d5df7c2fccaad118011655c213be5deec...); as-built audit case P1 compares surveyed clear_width against this registered parameter under TOL-01"
+  }
+ ],
+ "comprehension_items": [
+  {
+   "id": "q1_source",
+   "question": "Where does the confirmed need in this trace originally come from?",
+   "options": [
+    "A frozen evidence register recorded before design started",
+    "The designer's personal judgement",
+    "An online vote",
+    "It is not recorded"
+   ],
+   "correct": 0
+  },
+  {
+   "id": "q2_decision",
+   "question": "Which recorded decision links the need to the design?",
+   "options": [
+    "A documented arbitration/amendment record",
+    "An informal conversation",
+    "No decision is recorded",
+    "A social-media post"
+   ],
+   "correct": 0
+  },
+  {
+   "id": "q3_parameter",
+   "question": "Which design parameter carries this need in the final geometry?",
+   "options": [
+    "The path clear width (1.8 m)",
+    "The colour of the paving",
+    "The name of the park",
+    "The number of car-parking bays"
+   ],
+   "correct": 0
+  },
+  {
+   "id": "q4_trigger",
+   "question": "What would trigger a review after construction?",
+   "options": [
+    "A surveyed value deviating beyond the registered tolerance",
+    "A change in the weather",
+    "Nothing can trigger a review",
+    "Only a court order"
+   ],
+   "correct": 0
+  }
+ ]
+}
