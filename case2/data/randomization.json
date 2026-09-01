@@ -1,1 +1,602 @@
-[{"participant_code": "SUZ-P01", "city": "SUZ", "mode_order": "text_first"}, {"participant_code": "SUZ-P02", "city": "SUZ", "mode_order": "text_first"}, {"participant_code": "SUZ-P03", "city": "SUZ", "mode_order": "text_first"}, {"participant_code": "SUZ-P04", "city": "SUZ", "mode_order": "spatial_first"}, {"participant_code": "SUZ-P05", "city": "SUZ", "mode_order": "spatial_first"}, {"participant_code": "SUZ-P06", "city": "SUZ", "mode_order": "spatial_first"}, {"participant_code": "SUZ-P07", "city": "SUZ", "mode_order": "spatial_first"}, {"participant_code": "SUZ-P08", "city": "SUZ", "mode_order": "spatial_first"}, {"participant_code": "SUZ-P09", "city": "SUZ", "mode_order": "spatial_first"}, {"participant_code": "SUZ-P10", "city": "SUZ", "mode_order": "spatial_first"}, {"participant_code": "SUZ-P11", "city": "SUZ", "mode_order": "text_first"}, {"participant_code": "SUZ-P12", "city": "SUZ", "mode_order": "spatial_first"}, {"participant_code": "SUZ-P13", "city": "SUZ", "mode_order": "spatial_first"}, {"participant_code": "SUZ-P14", "city": "SUZ", "mode_order": "text_first"}, {"participant_code": "SUZ-P15", "city": "SUZ", "mode_order": "text_first"}, {"participant_code": "SUZ-P16", "city": "SUZ", "mode_order": "text_first"}, {"participant_code": "SUZ-P17", "city": "SUZ", "mode_order": "text_first"}, {"participant_code": "SUZ-P18", "city": "SUZ", "mode_order": "text_first"}, {"participant_code": "SUZ-P19", "city": "SUZ", "mode_order": "text_first"}, {"participant_code": "SUZ-P20", "city": "SUZ", "mode_order": "spatial_first"}, {"participant_code": "LON-P01", "city": "LON", "mode_order": "spatial_first"}, {"participant_code": "LON-P02", "city": "LON", "mode_order": "text_first"}, {"participant_code": "LON-P03", "city": "LON", "mode_order": "text_first"}, {"participant_code": "LON-P04", "city": "LON", "mode_order": "text_first"}, {"participant_code": "LON-P05", "city": "LON", "mode_order": "text_first"}, {"participant_code": "LON-P06", "city": "LON", "mode_order": "spatial_first"}, {"participant_code": "LON-P07", "city": "LON", "mode_order": "spatial_first"}, {"participant_code": "LON-P08", "city": "LON", "mode_order": "spatial_first"}, {"participant_code": "LON-P09", "city": "LON", "mode_order": "spatial_first"}, {"participant_code": "LON-P10", "city": "LON", "mode_order": "text_first"}, {"participant_code": "LON-P11", "city": "LON", "mode_order": "spatial_first"}, {"participant_code": "LON-P12", "city": "LON", "mode_order": "spatial_first"}, {"participant_code": "LON-P13", "city": "LON", "mode_order": "spatial_first"}, {"participant_code": "LON-P14", "city": "LON", "mode_order": "text_first"}, {"participant_code": "LON-P15", "city": "LON", "mode_order": "spatial_first"}, {"participant_code": "LON-P16", "city": "LON", "mode_order": "text_first"}, {"participant_code": "LON-P17", "city": "LON", "mode_order": "text_first"}, {"participant_code": "LON-P18", "city": "LON", "mode_order": "text_first"}, {"participant_code": "LON-P19", "city": "LON", "mode_order": "spatial_first"}, {"participant_code": "LON-P20", "city": "LON", "mode_order": "text_first"}, {"participant_code": "CHI-P01", "city": "CHI", "mode_order": "text_first"}, {"participant_code": "CHI-P02", "city": "CHI", "mode_order": "text_first"}, {"participant_code": "CHI-P03", "city": "CHI", "mode_order": "text_first"}, {"participant_code": "CHI-P04", "city": "CHI", "mode_order": "spatial_first"}, {"participant_code": "CHI-P05", "city": "CHI", "mode_order": "text_first"}, {"participant_code": "CHI-P06", "city": "CHI", "mode_order": "text_first"}, {"participant_code": "CHI-P07", "city": "CHI", "mode_order": "spatial_first"}, {"participant_code": "CHI-P08", "city": "CHI", "mode_order": "spatial_first"}, {"participant_code": "CHI-P09", "city": "CHI", "mode_order": "spatial_first"}, {"participant_code": "CHI-P10", "city": "CHI", "mode_order": "text_first"}, {"participant_code": "CHI-P11", "city": "CHI", "mode_order": "spatial_first"}, {"participant_code": "CHI-P12", "city": "CHI", "mode_order": "text_first"}, {"participant_code": "CHI-P13", "city": "CHI", "mode_order": "spatial_first"}, {"participant_code": "CHI-P14", "city": "CHI", "mode_order": "text_first"}, {"participant_code": "CHI-P15", "city": "CHI", "mode_order": "text_first"}, {"participant_code": "CHI-P16", "city": "CHI", "mode_order": "spatial_first"}, {"participant_code": "CHI-P17", "city": "CHI", "mode_order": "spatial_first"}, {"participant_code": "CHI-P18", "city": "CHI", "mode_order": "spatial_first"}, {"participant_code": "CHI-P19", "city": "CHI", "mode_order": "spatial_first"}, {"participant_code": "CHI-P20", "city": "CHI", "mode_order": "text_first"}]
+[
+  {
+    "participant_code": "SUZ-P01",
+    "city": "SUZ",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "SUZ-P02",
+    "city": "SUZ",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "SUZ-P03",
+    "city": "SUZ",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "SUZ-P04",
+    "city": "SUZ",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "SUZ-P05",
+    "city": "SUZ",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "SUZ-P06",
+    "city": "SUZ",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "SUZ-P07",
+    "city": "SUZ",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "SUZ-P08",
+    "city": "SUZ",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "SUZ-P09",
+    "city": "SUZ",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "SUZ-P10",
+    "city": "SUZ",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "SUZ-P11",
+    "city": "SUZ",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "SUZ-P12",
+    "city": "SUZ",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "SUZ-P13",
+    "city": "SUZ",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "SUZ-P14",
+    "city": "SUZ",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "SUZ-P15",
+    "city": "SUZ",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "SUZ-P16",
+    "city": "SUZ",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "SUZ-P17",
+    "city": "SUZ",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "SUZ-P18",
+    "city": "SUZ",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "SUZ-P19",
+    "city": "SUZ",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "SUZ-P20",
+    "city": "SUZ",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "LON-P01",
+    "city": "LON",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "LON-P02",
+    "city": "LON",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "LON-P03",
+    "city": "LON",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "LON-P04",
+    "city": "LON",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "LON-P05",
+    "city": "LON",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "LON-P06",
+    "city": "LON",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "LON-P07",
+    "city": "LON",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "LON-P08",
+    "city": "LON",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "LON-P09",
+    "city": "LON",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "LON-P10",
+    "city": "LON",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "LON-P11",
+    "city": "LON",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "LON-P12",
+    "city": "LON",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "LON-P13",
+    "city": "LON",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "LON-P14",
+    "city": "LON",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "LON-P15",
+    "city": "LON",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "LON-P16",
+    "city": "LON",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "LON-P17",
+    "city": "LON",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "LON-P18",
+    "city": "LON",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "LON-P19",
+    "city": "LON",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "LON-P20",
+    "city": "LON",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "CHI-P01",
+    "city": "CHI",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "CHI-P02",
+    "city": "CHI",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "CHI-P03",
+    "city": "CHI",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "CHI-P04",
+    "city": "CHI",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "CHI-P05",
+    "city": "CHI",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "CHI-P06",
+    "city": "CHI",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "CHI-P07",
+    "city": "CHI",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "CHI-P08",
+    "city": "CHI",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "CHI-P09",
+    "city": "CHI",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "CHI-P10",
+    "city": "CHI",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "CHI-P11",
+    "city": "CHI",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "CHI-P12",
+    "city": "CHI",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "CHI-P13",
+    "city": "CHI",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "CHI-P14",
+    "city": "CHI",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "CHI-P15",
+    "city": "CHI",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "CHI-P16",
+    "city": "CHI",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "CHI-P17",
+    "city": "CHI",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "CHI-P18",
+    "city": "CHI",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "CHI-P19",
+    "city": "CHI",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "CHI-P20",
+    "city": "CHI",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "SUZ-R01",
+    "city": "SUZ",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "SUZ-R02",
+    "city": "SUZ",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "SUZ-R03",
+    "city": "SUZ",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "SUZ-R04",
+    "city": "SUZ",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "SUZ-R05",
+    "city": "SUZ",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "SUZ-R06",
+    "city": "SUZ",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "SUZ-R07",
+    "city": "SUZ",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "SUZ-R08",
+    "city": "SUZ",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "SUZ-R09",
+    "city": "SUZ",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "SUZ-R10",
+    "city": "SUZ",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "SUZ-R11",
+    "city": "SUZ",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "SUZ-R12",
+    "city": "SUZ",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "SUZ-R13",
+    "city": "SUZ",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "SUZ-R14",
+    "city": "SUZ",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "SUZ-R15",
+    "city": "SUZ",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "SUZ-R16",
+    "city": "SUZ",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "SUZ-R17",
+    "city": "SUZ",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "SUZ-R18",
+    "city": "SUZ",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "SUZ-R19",
+    "city": "SUZ",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "SUZ-R20",
+    "city": "SUZ",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "LON-R01",
+    "city": "LON",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "LON-R02",
+    "city": "LON",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "LON-R03",
+    "city": "LON",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "LON-R04",
+    "city": "LON",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "LON-R05",
+    "city": "LON",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "LON-R06",
+    "city": "LON",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "LON-R07",
+    "city": "LON",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "LON-R08",
+    "city": "LON",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "LON-R09",
+    "city": "LON",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "LON-R10",
+    "city": "LON",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "LON-R11",
+    "city": "LON",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "LON-R12",
+    "city": "LON",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "LON-R13",
+    "city": "LON",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "LON-R14",
+    "city": "LON",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "LON-R15",
+    "city": "LON",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "LON-R16",
+    "city": "LON",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "LON-R17",
+    "city": "LON",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "LON-R18",
+    "city": "LON",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "LON-R19",
+    "city": "LON",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "LON-R20",
+    "city": "LON",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "CHI-R01",
+    "city": "CHI",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "CHI-R02",
+    "city": "CHI",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "CHI-R03",
+    "city": "CHI",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "CHI-R04",
+    "city": "CHI",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "CHI-R05",
+    "city": "CHI",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "CHI-R06",
+    "city": "CHI",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "CHI-R07",
+    "city": "CHI",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "CHI-R08",
+    "city": "CHI",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "CHI-R09",
+    "city": "CHI",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "CHI-R10",
+    "city": "CHI",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "CHI-R11",
+    "city": "CHI",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "CHI-R12",
+    "city": "CHI",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "CHI-R13",
+    "city": "CHI",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "CHI-R14",
+    "city": "CHI",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "CHI-R15",
+    "city": "CHI",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "CHI-R16",
+    "city": "CHI",
+    "mode_order": "text_first"
+  },
+  {
+    "participant_code": "CHI-R17",
+    "city": "CHI",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "CHI-R18",
+    "city": "CHI",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "CHI-R19",
+    "city": "CHI",
+    "mode_order": "spatial_first"
+  },
+  {
+    "participant_code": "CHI-R20",
+    "city": "CHI",
+    "mode_order": "text_first"
+  }
+]
